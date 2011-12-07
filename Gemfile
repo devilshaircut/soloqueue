@@ -1,11 +1,17 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
+gem 'json'
+gem 'httparty'
+gem 'typhoeus'
+gem 'hpricot'
+gem 'pg'
+# gem "compass", ">= 0.11.5"
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+# gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -14,6 +20,7 @@ group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
+	gem 'compass', '~> 0.12.alpha'
 end
 
 gem 'jquery-rails'
