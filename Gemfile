@@ -6,6 +6,7 @@ gem 'httparty'
 gem 'typhoeus'
 gem 'hpricot'
 gem 'pg'
+gem 'xml-simple'
 # gem "compass", ">= 0.11.5"
 
 # Bundle edge Rails instead:
