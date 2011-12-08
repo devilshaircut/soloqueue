@@ -33,17 +33,41 @@ function hide_results () {
 function set_search (search_input) {
   $("#search").val(search_input);
   $("#search-results").html('').hide();
-  // $.getJSON();
+  get_counter_picks(search_input);
+}
+
+function get_counter_picks (search_input) {
+  counter_picks       = $("#counter-picks");
+  counter_picks_list  = counter_picks.find("ol");
+  
+  counter_picks.show()
+  counter_picks_list.html("");
+  
+  $.getJSON("/champion/"+search_input, function (data) {
+    if (data["counters"] == null) {
+      counter_picks_list.append("Champion not found.");
+    }
+    else {
+      $.each(data["counters"], function () {
+        counter_picks_list.append("<li>" + this.toString() + "</li>");
+      });
+    }
+  });
 }
 
 $(document).ready(function () {
   var timer;
-  $("#search").keyup(function () {
+  $("#search").keyup(function (e) {
     clearTimeout(timer);
-    var search_input = $(this).val();
-    timer = setTimeout(function () {
-      search(search_input);
-    }, 500);
+    if (e.keyCode != 13) {
+      var search_input = $(this).val();
+      timer = setTimeout(function () {
+        search(search_input);
+      }, 500);
+    }
+    else {
+      set_search($(this).val());
+    }
   });
   
   $("#search-results").delegate("li", "click", function () {

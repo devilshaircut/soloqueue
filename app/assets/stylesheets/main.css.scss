@@ -37,11 +37,14 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
         border: solid 1px #cecfd1;
       }
       ul {
+        position: absolute;
+        margin-left: 166px;
+        z-index: 1000;
+        display: none;
         display: none;
         width: 266px;
         max-height: 140px;
         overflow: auto;
-        margin: 0 auto;
         text-align: left;
         list-style-type: none;
         border: solid 1px #CCC;
@@ -53,6 +56,20 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
         li:hover {
           background: #4FA9B8;
           color: #fff;
+        }
+      }
+    }
+    
+    #counter-picks {
+      display: none;
+      margin-top: 25px;
+      
+      ol {
+        margin-top: 5px;
+        
+        li {
+          margin-left: 15px;
+          margin-bottom: 5px;
         }
       }
     }
