@@ -3,11 +3,17 @@ class ForJasonController < ApplicationController
   include HTTParty
 
   def for_jason
-    @jason = HTTParty.get("http://leagueoflegends.wikia.com/wiki/Akali_the_Fist_of_Shadow")
-    @jason = Hpricot(@jason).search(".abilities_table").to_html
+    
+    def findSkills(champion)
+      url = "http://leagueoflegends.wikia.com/wiki/"
+      champ = champion.to_s
+      wikiaList = HTTParty.get(url << champ)
+      return Hpricot(wikiaList).search(".abilities_table").to_html
+    end
+    
+    @jason = findSkills(params["champions"])
+    
   end
-
-  
   
 end
 
