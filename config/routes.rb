@@ -2,6 +2,9 @@ Soloqueue::Application.routes.draw do
   
   root :to => "home#index"
   
+  get "test" => "home#test"
+  get "jason" => "home#for_jason"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
