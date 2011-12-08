@@ -1,6 +1,6 @@
 class WikiPages
   include HTTParty
-  format :xml  
+  format :xml
 end
 
 class WikiaCache < ActiveRecord::Base

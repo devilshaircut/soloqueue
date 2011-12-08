@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20111208154559) do
   end
 
   create_table "wikia_caches", :force => true do |t|
+    t.integer  "wikiaid"
     t.string   "wikianame"
     t.text     "latestwikia"
     t.datetime "created_at"
