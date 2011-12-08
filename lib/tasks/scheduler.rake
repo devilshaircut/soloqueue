@@ -1,9 +1,9 @@
 desc "This task is called by the Heroku scheduler add-on"
 
-task :update_caches do
+task :update_caches => :environment do
   
   oldCounterpickCache = CounterpickCache.find(1)
-  if oldCounterpickCache.updated_at.utc <= 24.hours.ago.utc
+  if oldCounterpickCache.updated_at.utc >= 24.hours.ago.utc
     oldCounterpickCache.updateCounterpickCache
   end
   
