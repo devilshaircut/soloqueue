@@ -1,31 +1,26 @@
 class HomeController < ApplicationController
   
   def index
-    
-    # Google Spreadsheet API request. Isolates the list of champs.
-    @entriesList = HTTParty.get('https://spreadsheets.google.com/feeds/list/0AvFI-VeUB6LddEtiY3RqQUg2eGlLMEpMN2llN0dsVGc/od6/public/values', {:format => :xml}).as_json['feed']['entry']
-    Rails.logger.debug
-    
-    # Given a champion, find his or her counters.
-    def findCounters(champion)
-      memo = 1
-      if champion == nil
-        return "Welcome to the LoL Counter Picker!"
-      else
-        until memo == @entriesList.count || champion == @entriesList[memo]["title"]
-          memo += 1
-        end
-        if memo == @entriesList.count
-          return "ERROR."
-        else
-          return [@entriesList[memo]["_cokwr"], @entriesList[memo]["_cpzh4"], @entriesList[memo]["_cre1l"]]
-        end
+  end
+
+  def findCounters
+    entriesList = HTTParty.get('https://spreadsheets.google.com/feeds/list/0AvFI-VeUB6LddEtiY3RqQUg2eGlLMEpMN2llN0dsVGc/od6/public/values', {:format => :xml}).as_json['feed']['entry']
+        
+    counters = nil
+        
+    entriesList.each do | entry |
+      if entry["title"].downcase == params[:champion_name].downcase
+        counters = [
+          entry["_cn6ca"], 
+          entry["_cokwr"], 
+          entry["_cpzh4"]
+        ] 
       end
     end
-    
-    # Pass a champion to findCounters.
-    @request = findCounters(params["champions"])
-    
+        
+    response = ( counters.nil? ? nil : counters )
+
+    render :json => { :counters => response }
   end
 
   def for_jason
