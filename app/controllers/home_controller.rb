@@ -27,17 +27,6 @@ class HomeController < ApplicationController
     @request = findCounters(params["champions"])
     
   end
-
-  def for_jason
-    cc = CounterpickCache.find_or_create_by_id(1)
-    cc.latestcounterpick = HTTParty.get('https://spreadsheets.google.com/feeds/list/0AvFI-VeUB6LddEtiY3RqQUg2eGlLMEpMN2llN0dsVGc/od6/public/values', {:format => :xml}).to_json
-    cc.save
-    
-    output = JSON.parse( cc.latestcounterpick )
-    
-    Rails.logger.debug output["feed"]["entry"]
-
-  end
   
   def test
     tmp = HTTParty.get("http://leagueoflegends.wikia.com/api.php",{
