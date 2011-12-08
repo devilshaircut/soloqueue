@@ -11,6 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20111208020657) do
+
+  create_table "counterpick_caches", :force => true do |t|
+    t.text     "latestcounterpick"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "wikia_caches", :force => true do |t|
+    t.text     "latestwikia"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
