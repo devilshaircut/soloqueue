@@ -1,5 +1,4 @@
 desc "This task is called by the Heroku scheduler add-on"
-
 task :update_caches => :environment do
   
   if CounterpickCache.count != 0
