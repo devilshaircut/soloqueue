@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Soloqueue</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Soloqueue</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="main-wrapper">
+      <header>
+        <h1>Soloqueue</h1>
+      </header>
+      
+      <section id="main-section">
+        <%= yield %>
+      </section>
+      
+      <footer>
+      </footer>
+    </div>
+  </body>
 </html>
