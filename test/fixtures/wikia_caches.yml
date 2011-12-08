@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
-  wikiacache: MyText
+  latestwikia: MyText
 
 two:
-  wikiacache: MyText
+  latestwikia: MyText
