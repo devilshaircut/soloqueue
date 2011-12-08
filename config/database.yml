@@ -4,6 +4,6 @@ development:
   database: soloqueue
   pool: 5
   timeout: 5000
-  username: vitrue
-  password: 
+  username: jbishop
+  password: creative
 

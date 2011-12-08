@@ -10,10 +10,25 @@ class HomeController < ApplicationController
         
     entriesList.each do | entry |
       if entry["title"].downcase == params[:champion_name].downcase
+        if entry["_cokwr"] == nil
+          a = "n/a"
+        else
+          a = entry["_cokwr"]
+        end
+        if entry["_cpzh4"] == nil
+          b = "n/a"
+        else
+          b = entry["_cpzh4"]
+        end
+        if entry["_cre1l"] == nil
+          c = "n/a"
+        else
+          c = entry["_cre1l"]
+        end
         counters = [
-          entry["_cn6ca"], 
-          entry["_cokwr"], 
-          entry["_cpzh4"]
+          a,
+          b,
+          c
         ] 
       end
     end
