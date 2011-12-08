@@ -4,32 +4,20 @@ class HomeController < ApplicationController
   end
 
   def findCounters
-    entriesList = HTTParty.get('https://spreadsheets.google.com/feeds/list/0AvFI-VeUB6LddEtiY3RqQUg2eGlLMEpMN2llN0dsVGc/od6/public/values', {:format => :xml}).as_json['feed']['entry']
-        
+    # entriesList = HTTParty.get('https://spreadsheets.google.com/feeds/list/0AvFI-VeUB6LddEtiY3RqQUg2eGlLMEpMN2llN0dsVGc/od6/public/values', {:format => :xml}).as_json['feed']['entry']
+    # entriesList = JSON.parse(CounterpickCache.find_by_id(1).latestcounterpick)['feed']['entry']
+    entriesList = CounterpickCache.find_or_create_by_id(1)
+    entriesList = JSON.parse(entriesList.latestcounterpick)["feed"]["entry"]
+
     counters = nil
         
     entriesList.each do | entry |
       if entry["title"].downcase == params[:champion_name].downcase
-        if entry["_cokwr"] == nil
-          a = "n/a"
-        else
-          a = entry["_cokwr"]
-        end
-        if entry["_cpzh4"] == nil
-          b = "n/a"
-        else
-          b = entry["_cpzh4"]
-        end
-        if entry["_cre1l"] == nil
-          c = "n/a"
-        else
-          c = entry["_cre1l"]
-        end
         counters = [
-          a,
-          b,
-          c
-        ] 
+          ( entry["_cokwr"].nil? ? "n/a" : entry["_cokwr"] ),
+          ( entry["_cpzh4"].nil? ? "n/a" : entry["_cpzh4"] ),
+          ( entry["_cre1l"].nil? ? "n/a" : entry["_cre1l"] )
+        ]
       end
     end
         
