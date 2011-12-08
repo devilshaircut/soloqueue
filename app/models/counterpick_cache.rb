@@ -5,7 +5,7 @@ end
 
 class CounterpickCache < ActiveRecord::Base
   
-  attr_accessor :cache
+  attr_accessor :counterpickcache
     
   # Get a the list of champs from the Google Spreadsheet API, then update the cache.
   def updateCounterpickCache
