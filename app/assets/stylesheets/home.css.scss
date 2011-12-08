@@ -1,3 +1,66 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+
+
+body {
+	font-family: "Myriad Pro", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+select {
+	float: left;
+	width: 300px;
+	margin: 0 10px 0 0;
+}
+
+#page-container {
+	width: 960px;
+	padding: 60px 0 0 0;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 30px;
+	margin: 0 0 20px 0;
+	line-height: 40px;
+	font-weight: bold;
+}
+
+div {
+	margin: 0 0 20px 0;
+}
+
+input[type="submit"] {
+	float: left;
+	padding: 4px 10px 6px 10px;
+	margin: 0 10px 0 0;
+	border-top: 1px solid #d1d1d1;
+	border-right: 1px solid #c7c7c7;
+	border-bottom: 1px solid #7e7e7e;
+	border-left: 1px solid #c7c7c7;
+	text-decoration: none;
+	font-weight: bold;
+	cursor: pointer;
+	color: #1d1d12;
+	@include text-shadow(0 1px 0 #ffffff);
+	@include background-image(linear-gradient(#e5e5e5, #d2d2d2));
+	@include box-shadow(0 1px 1px #aeaeae, 0 1px 0 #f4f4f4 inset);
+	@include border-radius(3px);
+}
+
+input[type="submit"]:hover {
+	@include background-image(linear-gradient(#eeeeee, #e1e1e1));
+	@include box-shadow(0 1px 1px #aeaeae, 0 1px 0 #f8f8f8 inset);
+}
+
+input[type="submit"]:active {
+	padding: 5px 10px 5px 10px;
+	border-top: 1px solid #a4a4a4;
+	border-right: 1px solid #c8c8c8;
+	border-bottom: 1px solid #e3e3e3;
+	border-left: 1px solid #c8c8c8;
+	@include background-image(linear-gradient(#e1e1e1, #eeeeee));
+	@include box-shadow(0 1px 0 #eeeeee, 0 1px 1px #c3c3c3 inset);
+}
