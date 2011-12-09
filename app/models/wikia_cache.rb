@@ -62,17 +62,31 @@ class WikiaCache < ActiveRecord::Base
     
   end
   
-  def updateWikiaCache
+  # Seed the the WikiaCache table's latestwikia column with new data.
+  def updateLatestWikia
     WikiaCache.all.each do |u|
       champName = url_encode(u.wikianame.to_s)
       baseUrl = "http://leagueoflegends.wikia.com/wiki/"
-      url = baseUrl + champName
-      u.latestwikia = HTTParty.get(url).to_json
+      u.latestwikia = HTTParty.get(baseUrl + champName).to_json
       u.save
     end
   end
   
+  def getLatestWikia(query)
+    entry = WikiaCache.find_by_wikianame(query).latestwikia
+    from_json(entry)
+    return entry
+  end
+  
 end
+
+
+
+
+
+
+
+
 
 
 
