@@ -5,5 +5,5 @@ Soloqueue::Application.routes.draw do
   get "test"  => "home#test"
   match "jason" => "for_jason#for_jason"
   
-  get "/champion/:champion_name" => "home#findCounters"
+  get "/champion/:champion_name.json" => "api#findCounters"
 end

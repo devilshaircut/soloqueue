@@ -2,29 +2,6 @@ class HomeController < ApplicationController
   
   def index
   end
-
-  def findCounters
-    # entriesList = HTTParty.get('https://spreadsheets.google.com/feeds/list/0AvFI-VeUB6LddEtiY3RqQUg2eGlLMEpMN2llN0dsVGc/od6/public/values', {:format => :xml}).as_json['feed']['entry']
-    # entriesList = JSON.parse(CounterpickCache.find_by_id(1).latestcounterpick)['feed']['entry']
-    entriesList = CounterpickCache.find_or_create_by_id(1)
-    entriesList = JSON.parse(entriesList.latestcounterpick)["feed"]["entry"]
-
-    counters = nil
-        
-    entriesList.each do | entry |
-      if entry["title"].downcase == params[:champion_name].downcase
-        counters = [
-          ( entry["_cokwr"].nil? ? "n/a" : entry["_cokwr"] ),
-          ( entry["_cpzh4"].nil? ? "n/a" : entry["_cpzh4"] ),
-          ( entry["_cre1l"].nil? ? "n/a" : entry["_cre1l"] )
-        ]
-      end
-    end
-        
-    response = ( counters.nil? ? nil : counters )
-
-    render :json => { :counters => response }
-  end
   
   def test
     tmp = HTTParty.get("http://leagueoflegends.wikia.com/api.php",{
