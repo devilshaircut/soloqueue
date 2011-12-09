@@ -12,9 +12,7 @@ function search (search_input) {
   }
 }
 
-function set_search (champion_id, champion_name) {
-  $("#search").val(champion_name);
-  $("#champions li").hide();
+function get_data (champion_name) {
   get_counter_picks(champion_name);
 }
 
@@ -55,6 +53,6 @@ $(document).ready(function () {
   });
   
   $("#champions").delegate("li", "click", function () {
-    set_search($(this).attr("id"), $(this).html());
+    get_data($(this).html());
   });
 });
