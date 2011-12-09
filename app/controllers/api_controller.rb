@@ -1,7 +1,9 @@
 class ApiController < ApplicationController
   def findCounters
-    entriesList = CounterpickCache.find_or_create_by_id(1)
-    entriesList = JSON.parse(entriesList.latestcounterpick)["feed"]["entry"]
+    cc = CounterpickCache.find_or_create_by_id(1)
+    cc.updateCounterpickCache if cc.latestcounterpick.nil?
+    tmp = JSON.parse(cc.latestcounterpick)
+    entriesList = tmp["feed"]["entry"]
 
     counters = nil
       

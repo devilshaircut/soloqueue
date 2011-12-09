@@ -1,9 +1,16 @@
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: soloqueue
+#   pool: 5
+#   timeout: 5000
+#   username: jbishop
+#   password: creative
+
+
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: soloqueue
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
   timeout: 5000
-  username: jbishop
-  password: creative
 
