@@ -10,7 +10,7 @@ class ForJasonController < ApplicationController
       # Construct the URL from params and make the page request.
       url = "http://leagueoflegends.wikia.com/wiki/"
       champ = champion.to_s.gsub(/[ .']/,'').downcase
-      wikiaList = HTTParty.get(url << champ)
+      wikiaList = HTTParty.get(url + champ)
       
       # Extract the abilities table from the page.
       skills = Hpricot(wikiaList).search(".abilities_table")
