@@ -19,7 +19,7 @@ class WikiaCache < ActiveRecord::Base
     
     # Format each champ's name in a more code-friendly format.
     champPage = champPage.collect do |u|
-      u.gsub(" ",'_')
+      u..gsub("B. F.", "BF").gsub(" ",'_').gsub(/[.,'"-]/,"")
     end
     
     # Find or shove each champ into the DB.
@@ -41,7 +41,7 @@ class WikiaCache < ActiveRecord::Base
     end
     
     # Use HTML to identify each item, remove the HTML, and shove the items into a sorted array.
-    itemPage = itemPage.to_s.gsub("</span><span>", "|").gsub("<span>", "").gsub("</span>", "").split("|").sort! { |a,b| a <=> b }
+    itemPage = itemPage.to_s.gsub("</span><span>", "|").gsub(/(<[\/]*span>)/, "").split("|").sort! { |a,b| a <=> b }
     
     # Format each item's name in a more code-friendly format.
     itemPage = itemPage.collect do |u|
