@@ -5,7 +5,7 @@ class WikiaCache < ActiveRecord::Base
   def self.seedChampList
     
     # Isolate the champ names (wrapper in anchors).
-    champPage = Hpricot(HTTParty.get("http://leagueoflegends.wikia.com/wiki/List_of_champions")).search("table.sortable a.mw-redirect")
+    champPage = Hpricot( HTTParty.get("http://leagueoflegends.wikia.com/wiki/List_of_champions") ).search("table.sortable a.mw-redirect")
     
     # Remove HTML element's attributes.
     champPage = champPage.search("[@class]").each do |e|
@@ -15,11 +15,11 @@ class WikiaCache < ActiveRecord::Base
     end
     
     # Use HTML to identify each champ, remove the HTML, and shove the champs into a sorted array.
-    champPage = champPage.to_s.gsub("</a><a>", "|").gsub("<a>", "").gsub("</a>", "").split("|").sort! { |a,b| a <=> b }
+    champPage = champPage.to_s.gsub("</a><a>", "|").gsub(/<[\/]*a>/, "").split("|").sort! { |a,b| a <=> b }
     
     # Format each champ's name in a more code-friendly format.
     champPage = champPage.collect do |u|
-      u..gsub("B. F.", "BF").gsub(" ",'_').gsub(/[.,'"-]/,"")
+      u.gsub("B. F.", "BF").gsub(" ",'_').gsub(/[.,'"-]/,"")
     end
     
     # Find or shove each champ into the DB.
