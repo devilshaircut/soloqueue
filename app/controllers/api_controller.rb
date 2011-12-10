@@ -1,4 +1,5 @@
 class ApiController < ApplicationController
+  
   def findCounters
     cc = CounterpickCache.find_or_create_by_id(1)
     cc.updateCounterpickCache if cc.latestcounterpick.nil?
@@ -17,8 +18,10 @@ class ApiController < ApplicationController
       end
     end
       
-    response = ( counters.nil? ? nil : counters )
+    r = ( counters.nil? ? nil : counters )
 
-    render :json => { :counters => response }
+
+    response.headers['Cache-Control'] = 'public, max-age=3600' if Rails.env.production?
+    render :json => { :counters => r }
   end
 end
