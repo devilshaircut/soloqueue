@@ -18,7 +18,7 @@ class ApiController < ApplicationController
   protected
   
   def fetch_names( value )
-    WikiaCache.where(["wikianame = ? or lower(wikianame) like '#{value.downcase}%'", value]).collect{|x| x.wikianame}
+    WikiaCache.where(["wikianame = ? or lower(wikianame) like '%#{value.downcase}%'", value]).collect{|x| x.wikianame}
   end
   
   def fetch_counters(champion_name)
