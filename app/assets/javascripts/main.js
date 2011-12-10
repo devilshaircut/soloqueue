@@ -18,10 +18,8 @@ function search (search_input) {
 function get_data (search) {
   $("#current-search-header").html(search);
   
-  
   $("#search").addClass('loading');
-  
-  $.getJSON("/api/"+search+".json", function (data) {
+  $.getJSON("/api/"+search.replace(/[.,\-'"]/g,'')+".json", function (data) {
     $("#search").removeClass('loading');
     $('#welcome').hide();
     $('#search-data').fadeIn(100);
