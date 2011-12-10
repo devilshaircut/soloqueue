@@ -25,6 +25,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
   position: fixed;
   
   h1 {
+    cursor: pointer;
     text-align: center;
     padding: 10px;
     font-size: 35px;
@@ -53,9 +54,16 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
     li {
       margin-bottom: 10px;
       cursor: pointer;
-    }
-    li:hover {
-      text-decoration: underline;
+      
+      &.active {
+        font-weight: bold;
+        color: #000;
+        text-decoration: underline;
+      }
+      
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
