@@ -3,7 +3,7 @@
 
 body {
   display: none;
-  font:  11px 'lucida grande', tahoma, verdana, arial, sans-serif; 
+  font:  12px 'lucida grande', tahoma, verdana, arial, sans-serif; 
 	color: #666; 
 }
 
@@ -83,11 +83,25 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
   #search-data {
     display: none;
     
+    #no-data {
+      margin-top: 200px;
+      text-align: center;
+    }
+    
     h2 {
       font-size: 25px;
-      margin-top: 10px;
+      margin-top: 20px;
       color: #043A5C;
+      border-bottom: solid 3px;
+      padding-bottom: 5px;
+      
+      &:first-child {
+        margin-top: 10px;
+      }
     }
+    
+    .original-template { display: none; }
+    
     #data-found {
       section {
         margin-top: 20px;
@@ -99,9 +113,12 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
       }
       
       #counter-picks {
+        b { float: left; margin-right: 10px; }
         ol li {
-          margin-left: 15px;
+          float: left;
           margin-bottom: 5px;
+          margin-right: 5px;
+          margin-left: 25px;
         }
       }
       
@@ -111,6 +128,15 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
           // will be removed and refactored when we have official creative
           // and own our data
           table {
+            &.infobox {
+              tr:first-child {
+                display: none
+              }
+              tr:last-child {
+                display: none;
+              }
+            }
+            
             span {
               cursor: default !important;
               border-bottom: none !important;

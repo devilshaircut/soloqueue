@@ -8,7 +8,7 @@ class ApiController < ApplicationController
       counters      = fetch_counters(item)
       general_data  = fetch_general_data(item)
       
-      data << { item => {:counters => counters, :wiki => general_data } }
+      data << [ item, :counters => counters, :wiki => general_data ]
     end
     
     response.headers['Cache-Control'] = 'public, max-age=3600' if Rails.env.production?

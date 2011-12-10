@@ -9,33 +9,53 @@ function search (search_input) {
     else {
       champions_list.find("#" + (i+1)).show();
     }
+    if (i+1 == champions_array.length && search_input.length >= 2) {
+      console.log(search_input);
+      get_data(search_input);
+    }
   }
 }
 
-function get_data (champion_name) {
-  $("#current-search-header").html(champion_name);
+function get_data (search) {
+  $("#current-search-header").html(search);
   
-  $.getJSON("/champion/"+champion_name+".json", function (data) {
+  $.getJSON("/api/"+search+".json", function (data) {
     $('#welcome').hide();
     $('#search-data').fadeIn(100);
     
-    if (data["counters"] == null && data["wiki"] == null) {
-      $('data-found').hide();
+    if (data.data.length == 0) {
+      $('#data-found').hide();
       $('#no-data').show();
     }
     else {
       $('#no-data').hide();
       $('#data-found').show();
       
-      var counter_picks_html  = "";
-      var general_data        = data["wiki"];
+      $('#data-found').html('');
       
-      $.each(data["counters"], function () {
-        counter_picks_html += "<li>" + this.toString() + "</li>";
+      $.each(data.data, function () {
+        var newTemplate = $('.original-template').clone().removeClass('original-template');
+        
+        newTemplate.find("h2").html(this[0].replace(/_/g," "));
+        
+        var countersTemplate = newTemplate.find("#counter-picks ol");
+        if (this[1].counters != null) {
+          var counter_picks_html  = "";
+          
+          $.each(this[1].counters, function () {
+            counter_picks_html += "<li>" + this.toString() + "</li>";
+          });
+          
+          countersTemplate.html(counter_picks_html);
+        }
+        else {
+          countersTemplate.parent().remove();
+        }
+
+        newTemplate.find("#general-data #data").html(this[1].wiki);
+        
+        $('#data-found').append(newTemplate);
       });
-      
-      $("#counter-picks ol").html(counter_picks_html)
-      $("#general-data #data").html(general_data);
       
       // bullshit manipulate the data returned by wikia -cody
       var innate_ability = $('.innate_ability');
@@ -83,7 +103,11 @@ $(document).ready(function () {
       }, 500);
     }
     else {
-      get_data($(this).val());
+      if ($(this).val().length <= 2) {
+      } 
+      else {
+        get_data($(this).val());
+      }
     }
   });
   
