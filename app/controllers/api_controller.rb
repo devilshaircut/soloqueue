@@ -10,6 +10,8 @@ class ApiController < ApplicationController
     render :json => { :counters => counters, :wiki => general_data }
   end
   
+  protected
+  
   def fetch_counters(champion_name)
     cc = CounterpickCache.find_or_create_by_id(1)
     cc.updateCounterpickCache if cc.latestcounterpick.nil?
@@ -33,11 +35,22 @@ class ApiController < ApplicationController
   
   def fetch_general_data(champion_name)
     w = WikiaCache.find_by_wikianame(champion_name)
+    
+    infodoc = strip_a( Hpricot(w.latestwikia).search("table.infobox table") )
+    abilitiesdoc = strip_a( Hpricot(w.latestwikia).search("table.abilities_table") )
 
     w_out = ''
-    w_out += Hpricot(w.latestwikia).search("table.infobox table").to_html    
-    w_out += Hpricot(w.latestwikia).search("table.abilities_table").to_html
+    w_out += infodoc.to_html    
+    w_out += abilitiesdoc.to_html
     
     return w_out
   end
+  
+  def strip_a(doc)
+    doc.search("a[@href]") do |link|
+      text = link.inner_html
+      link.swap(text)
+    end
+  end
+  
 end
