@@ -70,11 +70,6 @@ class WikiaCache < ActiveRecord::Base
     end
   end
   
-  def self.getLatestWikia(query)
-    entry = WikiaCache.find_by_wikianame(query).latestwikia
-    return entry
-  end
-  
 end
 
 
