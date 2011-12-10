@@ -1,16 +1,25 @@
 class ApiController < ApplicationController
   
   def fetch_data
-    champion_name = params[:champion_name]
+    item_names = fetch_names( params[:input_name] )
     
-    counters      = fetch_counters(champion_name)
-    general_data  = fetch_general_data(champion_name)
+    data = []
+    item_names.each do |item|
+      counters      = fetch_counters(item)
+      general_data  = fetch_general_data(item)
+      
+      data << { item => {:counters => counters, :wiki => general_data } }
+    end
     
     response.headers['Cache-Control'] = 'public, max-age=3600' if Rails.env.production?
-    render :json => { :counters => counters, :wiki => general_data }
+    render :json => { :data => data }
   end
   
   protected
+  
+  def fetch_names( value )
+    WikiaCache.where(["wikianame = ? or lower(wikianame) like '#{value.downcase}%'", value]).collect{|x| x.wikianame}
+  end
   
   def fetch_counters(champion_name)
     cc = CounterpickCache.find_or_create_by_id(1)
@@ -37,6 +46,8 @@ class ApiController < ApplicationController
     w = WikiaCache.find_by_wikianame(champion_name)
     
     infodoc = strip_a( Hpricot(w.latestwikia).search("table.infobox table") )
+    infodoc = strip_a( Hpricot(w.latestwikia).search("table.infobox") ) if infodoc.nil? or infodoc.empty? # its an item
+    
     abilitiesdoc = strip_a( Hpricot(w.latestwikia).search("table.abilities_table") )
 
     w_out = ''

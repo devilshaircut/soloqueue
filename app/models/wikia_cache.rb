@@ -1,8 +1,3 @@
-class WikiPages
-  include HTTParty
-  format :xml
-end
-
 class WikiaCache < ActiveRecord::Base
   
 
