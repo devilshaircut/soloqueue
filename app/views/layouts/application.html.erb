@@ -7,17 +7,14 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="main-wrapper">
-      <header>
-        <h1>Soloqueue</h1>
-      </header>
+    <section id="left-section">
+      <h1 id="soloqueue">Soloqueue</h1>
       
-      <section id="main-section">
-        <%= yield %>
-      </section>
-      
-      <footer>
-      </footer>
-    </div>
+      <%= render 'champ_item_list' %>
+    </section>
+    
+    <section id="right-section">
+      <%= yield %>
+    </section>
   </body>
 </html>

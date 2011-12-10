@@ -2,6 +2,7 @@
 * { margin: 0px; padding: 0px; }
 
 body {
+  display: none;
   font:  11px 'lucida grande', tahoma, verdana, arial, sans-serif; 
 	color: #666; 
 }
@@ -17,47 +18,78 @@ input {
 input:focus, button:focus { outline: 0; }
 input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner { border : 0px; }
 
-#main-wrapper {
-  width: 600px;
-  margin: 0 auto;
+
+#left-section {
+  width: 220px;
+  height: 100%;
+  position: fixed;
   
-  header {
+  h1 {
     text-align: center;
-    padding: 15px;
+    padding: 10px;
+    font-size: 35px;
+  }
+      
+  form {
+    padding: 10px;
+    
+    input {
+      width: 180px;
+      height: 29px;
+      padding: 0px 8px;
+      border: solid 1px #cecfd1;
+    }
   }
   
-  #main-section {
-    form {
-      text-align: center;
-    
-      input {
-        width: 250px;
-        height: 29px;
-        padding: 0px 8px;
-        border: solid 1px #cecfd1;
-      }
-      ul {
-        text-align: left;
-        list-style-type: none;
-        
-        li {
-          padding: 5px 8px;
-          cursor: pointer;
-        }
-        li:hover {
-          text-decoration: underline;
-        }
-      }
+  #list-holder {
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  ul {
+    list-style-type: none;
+
+    li {
+      margin-bottom: 10px;
+      cursor: pointer;
     }
+    li:hover {
+      text-decoration: underline;
+    }
+  }
+}
+#right-section {
+  position: relative;
+  margin-left: 220px;
+  padding: 10px;
+  
+  #welcome {
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 200px;
+    text-align: center;
+  }
+  
+  #search-data {
+    display: none;
     
-    #counter-picks {
-      display: none;
-      margin-top: 25px;
-      
-      ol {
-        margin-top: 5px;
+    h2 {
+      font-size: 25px;
+      margin-top: 10px;
+      color: blue;
+    }
+    #data-found {
+      section {
+        margin-top: 20px;
         
-        li {
+        h3 {
+          margin-bottom: 10px;
+          color: red;
+        }
+      }
+      
+      #counter-picks {
+        ol li {
           margin-left: 15px;
           margin-bottom: 5px;
         }

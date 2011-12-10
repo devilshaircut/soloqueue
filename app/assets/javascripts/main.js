@@ -13,34 +13,53 @@ function search (search_input) {
 }
 
 function get_data (champion_name) {
-  counter_picks       = $("#counter-picks");
-  counter_picks_list  = counter_picks.find("ol");
-  
-  counter_picks.show()
-  counter_picks_list.html("");
-  
-  counter_picks.find("h3").html(champion_name + " Counter Picks");
+  $("#current-search-header").html(champion_name);
   
   $.getJSON("/champion/"+champion_name+".json", function (data) {
+    $('#welcome').hide();
+    $('#search-data').fadeIn(100);
+    
     if (data["counters"] == null && data["wiki"] == null) {
-      counter_picks_list.append("Champion not found.");
+      $('data-found').hide();
+      $('#no-data').show();
     }
     else {
+      $('#no-data').hide();
+      $('#data-found').show();
+      
+      var counter_picks_html  = "";
+      var general_data        = data["wiki"];
+      
       $.each(data["counters"], function () {
-        counter_picks_list.append("<li>" + this.toString() + "</li>");
+        counter_picks_html += "<li>" + this.toString() + "</li>";
       });
       
-      $("#wiki").html( data["wiki"] );
+      $("#counter-picks ol").html(counter_picks_html)
+      $("#general-data #data").html(general_data);
     }
-    
-    
   });
-  
-  
 }
 
+function setListHolderHeight () {
+  $("#list-holder").height($(window).height()-132 + "px");
+}
 
 $(document).ready(function () {
+  // stylish animation shit
+  $('#soloqueue').click(function () {
+    $('#search-data').fadeOut(100, function () {
+      $('#welcome').fadeIn(100);
+    });
+  });
+  
+  $('body').fadeIn(500);
+  // end bull shit
+  
+  setListHolderHeight();
+  $(window).resize(function () {
+    setListHolderHeight();
+  });
+  
   var timer;
   $("#search").keyup(function (e) {
     clearTimeout(timer);
@@ -51,7 +70,7 @@ $(document).ready(function () {
       }, 500);
     }
     else {
-      set_search($(this).val());
+      get_data($(this).val());
     }
   });
   
