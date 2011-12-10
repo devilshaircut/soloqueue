@@ -17,7 +17,6 @@ input {
 input:focus, button:focus { outline: 0; }
 input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner { border : 0px; }
 
-
 #left-section {
   display: none;
   width: 220px;
@@ -35,11 +34,16 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
   form {
     padding: 10px;
     
-    input {
+    #search {
       width: 180px;
       height: 29px;
       padding: 0px 8px;
       border: solid 1px #cecfd1;
+      
+      &.loading {
+        background: url(/assets/loading.gif) no-repeat;
+        background-position: 175px 5px;
+      }
     }
   }
   

@@ -10,7 +10,6 @@ function search (search_input) {
       champions_list.find("#" + (i+1)).show();
     }
     if (i+1 == champions_array.length && search_input.length >= 2) {
-      console.log(search_input);
       get_data(search_input);
     }
   }
@@ -19,7 +18,11 @@ function search (search_input) {
 function get_data (search) {
   $("#current-search-header").html(search);
   
+  
+  $("#search").addClass('loading');
+  
   $.getJSON("/api/"+search+".json", function (data) {
+    $("#search").removeClass('loading');
     $('#welcome').hide();
     $('#search-data').fadeIn(100);
     
@@ -55,20 +58,20 @@ function get_data (search) {
         newTemplate.find("#general-data #data").html(this[1].wiki);
         
         $('#data-found').append(newTemplate);
+        
+        // bullshit manipulate the data returned by wikia -cody
+        var innate_ability = newTemplate.find('.innate_ability');
+        innate_ability.remove();
+        innate_ability.find('.abilityinfo').attr('colspan',1);
+        innate_ability.append("<td></td>");
+        innate_ability.insertAfter(newTemplate.find("#general-data #data .ability_header"));
+        $("#general-data #data span").each(function () {
+          if ($(this).css('color') == 'rgb(151, 252, 151)') {
+            $(this).css('color','green');
+          }
+        });
+        // end bullshit will be removed when we own our own data ^_^
       });
-      
-      // bullshit manipulate the data returned by wikia -cody
-      var innate_ability = $('.innate_ability');
-      $(".innate_ability").remove();
-      innate_ability.find('.abilityinfo').attr('colspan',1);
-      innate_ability.append("<td></td>");
-      innate_ability.insertAfter($("#general-data #data .ability_header"));
-      $("#general-data #data span").each(function () {
-        if ($(this).css('color') == 'rgb(151, 252, 151)') {
-          $(this).css('color','green');
-        }
-      });
-      // end bullshit will be removed when we own our own data ^_^
     }
   });
 }
@@ -96,23 +99,15 @@ $(document).ready(function () {
   
   var timer;
   $("#search").keyup(function (e) {
-    clearTimeout(timer);
-    if (e.keyCode != 13) {
-      var search_input = $(this).val();
-      timer = setTimeout(function () {
-        search(search_input);
-      }, 500);
-    }
-    else {
-      if ($(this).val().length <= 2) {
-      } 
-      else {
-        get_data($(this).val());
-      }
-    }
+    clearTimeout(timer);    
+    var search_input = $(this).val();
+    timer = setTimeout(function () {
+      search(search_input);
+    }, 500);
   });
   
   $("#champions").delegate("li", "click", function () {
+    $("#search").val($(this).html());
     $("#champions li").removeClass('active');
     $(this).addClass('active');
     get_data($(this).html());
