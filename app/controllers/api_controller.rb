@@ -5,9 +5,9 @@ class ApiController < ApplicationController
     cc.updateCounterpickCache if cc.latestcounterpick.nil?
     tmp = JSON.parse(cc.latestcounterpick)
     entriesList = tmp["feed"]["entry"]
-
-    counters = nil
-      
+    
+    counters = nil  
+    
     entriesList.each do | entry |
       if entry["title"].downcase == params[:champion_name].downcase
         counters = [
@@ -17,11 +17,15 @@ class ApiController < ApplicationController
         ]
       end
     end
-      
-    r = ( counters.nil? ? nil : counters )
+    
+    w = WikiaCache.find_by_wikianame( params[:champion_name] )
+
+    w_out = ''
+    w_out += Hpricot(w.latestwikia).search("table.infobox table").to_html    
+    w_out += Hpricot(w.latestwikia).search("table.abilities_table").to_html
 
 
     response.headers['Cache-Control'] = 'public, max-age=3600' if Rails.env.production?
-    render :json => { :counters => r }
+    render :json => { :counters => counters, :wiki => w_out }
   end
 end

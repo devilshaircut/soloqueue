@@ -4,47 +4,25 @@ class ForJasonController < ApplicationController
 
   def for_jason
     
-    # # Given a champion name, return his or her skills from Wikia.
-    # def findSkills(champion)
-    #   
-    #   # Construct the URL from params and make the page request.
-    #   url = "http://leagueoflegends.wikia.com/wiki/"
-    #   champ = champion.to_s.gsub(/[ .']/,'').downcase
-    #   wikiaList = HTTParty.get(url + champ)
-    #   
-    #   # Extract the abilities table from the page.
-    #   skills = Hpricot(wikiaList).search(".abilities_table")
-    #   
-    #   # Remove inline styles.
-    #   skills.search("[@style]").each do |e|
-    #     e.remove_attribute("style")
-    #   end
-    #   
-    #   return skills.to_html
-    #   
-    # end
-    
-    def self.getAbilities(query)
-      if query == nil
-        abilities = "Select a champion!"
-      else
-        abilities = Hpricot(WikiaCache.find_by_wikianame(query).latestwikia).search("table.abilities_table").to_html
+    # Given a champion name, return his or her skills from Wikia.
+    def findSkills(champion)
+      
+      # Construct the URL from params and make the page request.
+      url = "http://leagueoflegends.wikia.com/wiki/"
+      champ = champion.to_s.gsub(/[ .']/,'').downcase
+      wikiaList = HTTParty.get(url + champ)
+      
+      # Extract the abilities table from the page.
+      skills = Hpricot(wikiaList).search(".abilities_table")
+      
+      # Remove inline styles.
+      skills.search("[@style]").each do |e|
+        e.remove_attribute("style")
       end
-      return abilities
+      
+      return skills.to_html
+      
     end
-    
-    def self.getStats(query)
-      if query == nil
-        stats = "Select a champion!"
-      else
-        stats = Hpricot(WikiaCache.find_by_wikianame(query).latestwikia).search("table.infobox table").to_html
-      end
-      return stats
-    end
-
-    @abilities = getAbilities(params["champions"])
-    @stats = getStats(params["champions"])
-    
     
     # Obtain a list of items from Wikia.
     def getItemList
@@ -86,23 +64,27 @@ class ForJasonController < ApplicationController
       
     end
     
+    # Give the view the item and champ lists.
+    @itemList = self.getItemList
+    @champList = self.getChampList
+    
     # # Create a version of the item list which is totally unformatted.
     # @unformattedItemList = @itemList.collect do |u|
     #   u.gsub(" ",'').gsub(".",'').gsub("'",'').downcase
     # end
     
-    # # Create a version of the item list formatted for requesting the correct item page.
-    # @unformattedItemList = @itemList.collect do |u|
-    #   u.gsub(" ",'_')
-    # end
-    # 
-    # # Create a version of the champ list formatted for requesting the correct champ page.
-    # @unformattedChampList = @champList.collect do |u|
-    #   u.gsub(" ",'_')
-    # end
-    # 
-    # # Run the findSkills method with user input.
-    # @jason = findSkills(params["champions"])
+    # Create a version of the item list formatted for requesting the correct item page.
+    @unformattedItemList = @itemList.collect do |u|
+      u.gsub(" ",'_')
+    end
+    
+    # Create a version of the champ list formatted for requesting the correct champ page.
+    @unformattedChampList = @champList.collect do |u|
+      u.gsub(" ",'_')
+    end
+    
+    # Run the findSkills method with user input.
+    @jason = findSkills(params["champions"])
     
   end
   

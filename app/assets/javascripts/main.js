@@ -13,10 +13,6 @@ function search (search_input) {
 }
 
 function get_data (champion_name) {
-  get_counter_picks(champion_name);
-}
-
-function get_counter_picks (champion_name) {
   counter_picks       = $("#counter-picks");
   counter_picks_list  = counter_picks.find("ol");
   
@@ -26,16 +22,23 @@ function get_counter_picks (champion_name) {
   counter_picks.find("h3").html(champion_name + " Counter Picks");
   
   $.getJSON("/champion/"+champion_name+".json", function (data) {
-    if (data["counters"] == null) {
+    if (data["counters"] == null && data["wiki"] == null) {
       counter_picks_list.append("Champion not found.");
     }
     else {
       $.each(data["counters"], function () {
         counter_picks_list.append("<li>" + this.toString() + "</li>");
       });
+      
+      $("#wiki").html( data["wiki"] );
     }
+    
+    
   });
+  
+  
 }
+
 
 $(document).ready(function () {
   var timer;
