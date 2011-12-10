@@ -28,6 +28,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
     text-align: center;
     padding: 10px;
     font-size: 35px;
+    color: #24221F;
   }
       
   form {
@@ -58,6 +59,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
     }
   }
 }
+
 #right-section {
   position: relative;
   margin-left: 220px;
@@ -76,7 +78,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
     h2 {
       font-size: 25px;
       margin-top: 10px;
-      color: blue;
+      color: #043A5C;
     }
     #data-found {
       section {
@@ -84,7 +86,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
         
         h3 {
           margin-bottom: 10px;
-          color: red;
+          color: #005A99;
         }
       }
       
@@ -92,6 +94,104 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
         ol li {
           margin-left: 15px;
           margin-bottom: 5px;
+        }
+      }
+      
+      #general-data {
+        #data {
+          // Nasty ass css to clean up the tables to look a little better
+          // will be removed and refactored when we have official creative
+          // and own our data
+          table {
+            span {
+              cursor: default !important;
+              border-bottom: none !important;
+            }
+            
+            &:first-child {
+              margin-top: 20px;
+              
+              td div {
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                
+                div {                  
+                  -webkit-border-radius: 5px;
+                  -moz-border-radius: 5px;
+                }
+              }
+            }
+            
+            &:nth-child(2) {
+              margin-top: 20px;
+            }
+            
+            &.abilities_table {
+              margin-top: 30px;
+              
+              tr:first-child {
+                display: none;
+              }
+              
+              tr {
+                &:last-child {
+                  td {
+                    border-bottom: none !important;
+                  }
+                }
+                
+                &.ability_header {
+                  td { 
+                    text-align: center; 
+                    padding: 10px;
+                    font-size: 14px; 
+                    font-weight: bold; 
+                    border: dotted 1px #ababab;
+                    border-right: none;
+                    border-top: none;
+                    
+                    &:last-child {
+                      border-right: dotted 1px #ababab;
+                    }                    
+                  }
+                }
+                &.ability {
+                  td {
+                    padding: 10px;
+                    border: dotted 1px #ababab;
+                    border-right: none;
+                    border-top: none;
+              
+                    &:last-child {
+                      border-right: dotted 1px #ababab;
+                    }
+                    &.abilityname {
+                      width: 80px;
+                      text-align: center;
+                    
+                      img {
+                        width: 34px !important;
+                        height: 34px !important;
+                        margin-bottom: 5px;
+                      }
+                    }
+                    &.abilityinfo {
+                      width: 300px;
+                  
+                      span {
+                        color: #464646 !important;
+                      }
+                    }
+                    
+                    ul {
+                      list-style-type: none;
+                      margin-top: 10px;
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

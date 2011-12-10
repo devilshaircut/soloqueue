@@ -36,6 +36,20 @@ function get_data (champion_name) {
       
       $("#counter-picks ol").html(counter_picks_html)
       $("#general-data #data").html(general_data);
+      
+      // bullshit to arrange the table how i want -cody
+      var innate_ability = $('.innate_ability');
+      $(".innate_ability").remove();
+      innate_ability.find('.abilityinfo').attr('colspan',1);
+      innate_ability.append("<td></td>");
+      innate_ability.insertAfter($("#general-data #data .ability_header"));
+      $("#general-data #data span").each(function () {
+        console.log($(this).css('color'));
+        if ($(this).css('color') == 'rgb(151, 252, 151)') {
+          $(this).css('color','green');
+        }
+      });
+      // end bullshit will be removed when we own our own data ^_^
     }
   });
 }
