@@ -65,7 +65,7 @@ class WikiaCache < ActiveRecord::Base
     WikiaCache.all.each do |u|
       champName = ERB::Util.url_encode(u.wikianame.to_s)
       baseUrl = "http://leagueoflegends.wikia.com/wiki/"
-      u.latestwikia = HTTParty.get(baseUrl + champName).to_json
+      u.latestwikia = HTTParty.get(baseUrl + champName).body
       u.save
     end
   end
