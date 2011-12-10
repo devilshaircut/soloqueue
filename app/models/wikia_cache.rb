@@ -74,7 +74,6 @@ class WikiaCache < ActiveRecord::Base
   
   def getLatestWikia(query)
     entry = WikiaCache.find_by_wikianame(query).latestwikia
-    from_json(entry)
     return entry
   end
   
