@@ -5,11 +5,9 @@ end
 
 class WikiaCache < ActiveRecord::Base
   
-  require "erb"
-  include ERB::Util
 
   # Obtain a list of champions from Wikia and create rows in the DB for champs that aren't there yet.
-  def seedChampList
+  def self.seedChampList
     
     # Isolate the champ names (wrapper in anchors).
     champPage = Hpricot(HTTParty.get("http://leagueoflegends.wikia.com/wiki/List_of_champions")).search("table.sortable a.mw-redirect")
@@ -37,7 +35,7 @@ class WikiaCache < ActiveRecord::Base
   end
   
   # Obtain a list of items from Wikia and create rows in the DB for champs that aren't there yet.
-  def seedItemList
+  def self.seedItemList
     
     # Isolate the item names (wrapped in spans).
     itemPage = Hpricot(HTTParty.get("http://leagueoflegends.wikia.com/wiki/Category:Items")).search("table.navbox td a span")
@@ -63,16 +61,16 @@ class WikiaCache < ActiveRecord::Base
   end
   
   # Seed the the WikiaCache table's latestwikia column with new data.
-  def updateLatestWikia
+  def self.updateLatestWikia
     WikiaCache.all.each do |u|
-      champName = url_encode(u.wikianame.to_s)
+      champName = ERB::Util.url_encode(u.wikianame.to_s)
       baseUrl = "http://leagueoflegends.wikia.com/wiki/"
       u.latestwikia = HTTParty.get(baseUrl + champName).to_json
       u.save
     end
   end
   
-  def getLatestWikia(query)
+  def self.getLatestWikia(query)
     entry = WikiaCache.find_by_wikianame(query).latestwikia
     return entry
   end
