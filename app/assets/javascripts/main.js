@@ -85,7 +85,8 @@ $(document).ready(function () {
     });
   });
   
-  $('body').fadeIn(500);
+  $('#left-section').delay(500).fadeIn(500);
+  $('#right-section').delay(500).fadeIn(500);
   // end bull shit
 
   setListHolderHeight();

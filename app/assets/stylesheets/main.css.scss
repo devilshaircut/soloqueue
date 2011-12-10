@@ -2,8 +2,7 @@
 * { margin: 0px; padding: 0px; }
 
 body {
-  display: none;
-  font:  12px 'lucida grande', tahoma, verdana, arial, sans-serif; 
+  font:  14px 'lucida grande', tahoma, verdana, arial, sans-serif; 
 	color: #666; 
 }
 
@@ -20,6 +19,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
 
 
 #left-section {
+  display: none;
   width: 220px;
   height: 100%;
   position: fixed;
@@ -69,6 +69,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
 }
 
 #right-section {
+  display: none;
   position: relative;
   margin-left: 220px;
   padding: 10px;
