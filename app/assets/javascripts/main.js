@@ -82,7 +82,7 @@ function get_data (search) {
 }
 
 function setListHolderHeight () {
-  $("#list-holder").height($(window).height()-142 + "px");
+  $("#list-holder").height($(window).height()-124 + "px");
 }
 
 $(document).ready(function () {
