@@ -105,7 +105,6 @@ function get_data (search) {
           
           search_cache.push(this[0]);
         });
-        console.log(search_cache);
       }
     });
   }
@@ -124,7 +123,9 @@ $(document).ready(function () {
   });
   
   // stylish animation shit
-  $('#left-section').delay(500).fadeIn(500);
+  $('#left-section').delay(500).fadeIn(500, function () {
+    $("#search").focus();
+  });
   $('#right-section').delay(500).fadeIn(500);
   // end bull shit
 
