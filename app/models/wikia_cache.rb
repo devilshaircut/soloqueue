@@ -79,10 +79,10 @@ class WikiaCache < ActiveRecord::Base
       while memo < iconNameArray.count do
         
         iconURL = iconUrlArray[memo]
-        iconName = iconNameArray[memo] + "_"
+        iconName = iconNameArray[memo]
         
         # Given a Wikia champ page, save skill images into the project's assets library.
-        open("app/assets/images/skills/" + champName + iconName + ".jpg", 'wb') do |file|
+        open("app/assets/images/skills/" + champName + "_" + iconName + ".jpg", 'wb') do |file|
           file << open(iconURL).read
         end
         
