@@ -1,3 +1,5 @@
+var query = "";
+
 function search (search_input) {
   var champions_and_items = ["Ahri","Akali","Alistar","Amumu","Anivia","Annie","Ashe","Blitzcrank","Brand","Caitlyn","Cassiopeia","Cho'Gath","Corki","Dr. Mundo","Evelynn","Ezreal","Fiddlesticks","Fizz","Galio","Gangplank","Garen","Gragas","Graves","Heimerdinger","Irelia","Janna","Jarvan IV","Jax","Karma","Karthus","Kassadin","Katarina","Kayle","Kennen","Kog'Maw","LeBlanc","Lee Sin","Leona","Lux","Malphite","Malzahar","Maokai","Master Yi","Miss Fortune","Mordekaiser","Morgana","Nasus","Nidalee","Nocturne","Nunu","Olaf","Orianna","Pantheon","Poppy","Rammus","Renekton","Riven","Rumble","Ryze","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Talon","Taric","Teemo","Tristana","Trundle","Tryndamere","Twisted Fate","Twitch","Udyr","Urgot","Vayne","Veigar","Vladimir","Volibear","Warwick","Wukong","Xerath","Xin Zhao","Yorick","Zilean","Abyssal Scepter","Aegis of the Legion","Amplifying Tome","Ancient Pocket Watch","Archangel's Staff","Atma's Impaler","Avarice Blade","B. F. Sword","Bag of Tea","Banshee's Veil","Berserker's Greaves","Bilgewater Cutlass‎","Blasting Wand","Blue Pill","Boots of Mobility","Boots of Speed","Boots of Swiftness","Brawler's Gloves","Breathstealer","Catalyst the Protector","Chain Vest","Chalice of Harmony","Cloak and Dagger","Cloak of Agility","Cloth Armor","Dagger","Deathfire Grasp","Doran's Blade","Doran's Ring","Doran's Shield","Eleisa's Miracle","Elixir of Agility","Elixir of Brilliance","Elixir of Fortitude","Emblem of Valor","Entropy","Executioner's Calling","Faerie Charm","Fiendish Codex","Force of Nature","Frozen Heart","Frozen Mallet","Giant's Belt","Glacial Shroud","Guardian Angel","Guinsoo's Rageblade","Haunting Guise","Health Potion","Heart of Gold","Hexdrinker‎","Hextech Gunblade‎","Hextech Revolver‎","Hextech Sweeper","Infinity Edge","Innervating Locket","Ionian Boots of Lucidity","Ionic Spark","Kage's Lucky Pick","Kindlegem","Kitae's Bloodrazor","Last Whisper","Leviathan","Lich Bane","Long Sword","Madred's Bloodrazor","Madred's Razors","Malady","Mana Manipulator","Mana Potion","Manamune","Marksman's Rifle","Mejai's Soulstealer","Meki Pendant","Mercury's Treads","Moonflair Spellblade","Morello's Evil Tome","Nashor's Tooth","Needlessly Large Rod","Negatron Cloak","Ninja Tabi","Null-Magic Mantle","Odyn's Veil","Oracle's Elixir","Oracle's Extract","Oracle's Hood","Phage","Phantom Dancer","Philosopher's Stone","Pickaxe","Priscilla's Blessing","Prospector's Blade","Prospector's Ring","Quicksilver Sash","Rabadon's Deathcap","Randuin's Omen","Recurve Bow","Regrowth Pendant","Rejuvenation Bead","Rod of Ages","Ruby Crystal","Rylai's Crystal Scepter","Sage's Ring","Sanguine Blade","Sapphire Crystal","Sheen","Shurelya's Reverie","Sight Ward","Sorcerer's Shoes","Soul Shroud","Spirit Visage","Stark's Fervor","Stinger","Sunfire Cape","Sword of the Divine","Sword of the Occult","Tear of the Goddess","The Black Cleaver","The Bloodthirster","The Brutalizer","The Lightbringer","Thornmail","Tiamat","Trinity Force","Vampiric Scepter","Vision Ward","Void Staff","Warden's Mail","Warmog's Armor","Will of the Ancients","Wit's End","Wriggle's Lantern","Yordle Stompers","Youmuu's Ghostblade","Zeal","Zhonya's Hourglass","Zhonya's Ring"];
   var champions_list      = $("#champions");
@@ -19,10 +21,12 @@ function search (search_input) {
 }
 
 function get_data (search) {
+  if (query != "") query.abort();
+  
   $("#current-search-header").html(search);
   
   $("#search").addClass('loading');
-  $.getJSON("/api/"+search.replace(/[.,\-'"]/g,'')+".json", function (data) {
+  query = $.getJSON("/api/"+search.replace(/[.,\-'"]/g,'')+".json", function (data) {
     $("#search").removeClass('loading');
     $('#welcome').hide();
     $('#search-data').fadeIn(100);
