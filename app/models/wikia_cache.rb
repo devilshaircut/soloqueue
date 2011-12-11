@@ -121,52 +121,53 @@ class WikiaCache < ActiveRecord::Base
   
   # Swap image URLs after a fresh scrape so that we are pulling images from our own data source.
   def self.updateCacheImages
-
     WikiaCache.all.each do |u|
-      
       # Verify that this is a champion page, not a item page, before proceeding with the URL swap.
       if Hpricot(u.latestwikia).search("table.abilities_table").to_a.count == 1
         
         # Initialize strings which construct the old image URL to be changed.
         champName = ERB::Util.url_encode(u.wikianame.to_s)
-
+      
         # Pull the HTML cache and create an array of skill names.
         iconNameArray = Hpricot(u.latestwikia).search("table.abilities_table .abilityname b").collect { |i| i.inner_html }.collect { |q| q.strip.gsub(" ", "_").gsub(/':/, "") }
-
+      
         memo = 0
-
+      
         # Loop through each skill for the champ and perform the swap.
         while memo < iconNameArray.count do
-
+      
           iconName = iconNameArray[memo]
-
+      
           # Obtains the old URL to be removed.
           oldUrl = Hpricot(u.latestwikia).search("table.abilities_table .abilityname a img")[memo]['src']
-
+      
           # Obtains the new URL to be added.
           newUrl = "/assets/skills/" + champName + "_" + iconName + ".jpg"
-
+      
           # Change perform the URL swap and save.
           u.latestwikia = Hpricot(u.latestwikia).to_html.gsub(oldUrl, newUrl)
           u.save
-
+      
           memo += 1
-
         end
       end
-    end
+      
+      # Verify that this is a item page, not a champion page, before proceeding with the URL swap.
+      if Hpricot(u.latestwikia).search("table.infobox tr img.thumbborder").count == 1
+        # Initialize strings which construct the old image URL to be changed.
+        itemName = u.wikianame
 
+        # Obtains the old URL to be removed.
+        oldUrl = Hpricot(u.latestwikia).search("table.infobox tr img.thumbborder")[0]['src']
+
+        # Obtains the new URL to be added.
+        newUrl = "/assets/champs/" + itemName + ".jpg"
+
+        # Change perform the URL swap and save.
+        u.latestwikia = Hpricot(u.latestwikia).to_html.gsub(oldUrl, newUrl)
+        u.save
+      end  
+    end
   end
   
 end
-
-
-
-
-
-
-
-
-
-
-
