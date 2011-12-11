@@ -1,19 +1,25 @@
 class ApiController < ApplicationController
   
   def fetch_data
-    input = params[:input_name].gsub("B F", "BF").gsub(" ", "_").gsub(/[.,'"-]/,"")
-    item_names = fetch_names( input )
-    Rails.logger.debug item_names.inspect
-    data = []
-    item_names.each do |item|
-      counters      = fetch_counters(item[1])
-      general_data  = fetch_general_data(item[0])
-      
-      data << [ item[1], :counters => counters, :wiki => general_data ]
-    end
     
-    response.headers['Cache-Control'] = 'public, max-age=3600' if Rails.env.production?
-    render :json => { :data => data }
+    if params[:input_name].nil?
+      render :json => { :data => nil }
+    else
+      Search.create( :value=>params[:input_name], :ip=>request.remote_ip )
+      input = params[:input_name].gsub("B F", "BF").gsub(" ", "_").gsub(/[.,'"-]/,"")
+      item_names = fetch_names( input )
+
+      data = []
+      item_names.each do |item|
+        counters      = fetch_counters(item[1])
+        general_data  = fetch_general_data(item[0])
+      
+        data << [ item[1], :counters => counters, :wiki => general_data ]
+      end
+    
+      response.headers['Cache-Control'] = 'public, max-age=3600' if Rails.env.production?
+      render :json => { :data => data }
+    end
   end
   
   protected
