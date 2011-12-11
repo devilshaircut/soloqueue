@@ -156,17 +156,24 @@ class WikiaCache < ActiveRecord::Base
       if Hpricot(u.latestwikia).search("table.infobox tr img.thumbborder").count == 1
         # Initialize strings which construct the old image URL to be changed.
         itemName = u.wikianame
-
+      
         # Obtains the old URL to be removed.
         oldUrl = Hpricot(u.latestwikia).search("table.infobox tr img.thumbborder")[0]['src']
-
+      
         # Obtains the new URL to be added.
         newUrl = "/assets/champs/" + itemName + ".jpg"
-
+      
         # Change perform the URL swap and save.
         u.latestwikia = Hpricot(u.latestwikia).to_html.gsub(oldUrl, newUrl)
         u.save
-      end  
+      end 
+      
+      # just fucking remove the inline image, its not really helpful and looks like shit
+      if Hpricot(u.latestwikia).search("table.infobox tr td span img").count == 1
+        oldUrl = Hpricot(u.latestwikia).search("table.infobox tr td span img")[0]
+        u.latestwikia = Hpricot(u.latestwikia).to_html.sub(oldUrl.to_s, " ")
+        u.save
+      end 
     end
   end
   
