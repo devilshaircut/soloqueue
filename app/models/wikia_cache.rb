@@ -59,6 +59,39 @@ class WikiaCache < ActiveRecord::Base
     end
   end
   
+  require 'open-uri'  
+  def self.seedSkillImages
+
+    WikiaCache.all.each do |u|
+            
+      # Get the champ's name for eac
+      champName = ERB::Util.url_encode(u.wikianame.to_s)
+      baseUrl = "http://leagueoflegends.wikia.com/wiki/"      
+      
+      # Given a Wikia champ page, return the URLs of skill icon images in an array.
+      iconUrlArray = Hpricot(HTTParty.get(baseUrl + champName).body).search("table.abilities_table .abilityname a img").collect { |i| i.attributes['src'] }
+      
+      # Given a Wikia champ page, return skill names in an array.
+      iconNameArray = Hpricot(HTTParty.get(baseUrl + champName).body).search("table.abilities_table .abilityname b").collect { |i| i.inner_html }.collect { |q| q.strip.gsub(" ", "_").gsub(/':/, "") }
+      
+      memo = 0
+      
+      while memo < iconNameArray.count do
+        
+        iconURL = iconUrlArray[memo]
+        iconName = iconNameArray[memo] + "_"
+        
+        # Given a Wikia champ page, save skill images into the project's assets library.
+        open("app/assets/images/skills/" + champName + iconName + ".jpg", 'wb') do |file|
+          file << open(iconURL).read
+        end
+        
+        memo += 1
+        
+      end
+    end
+  end
+  
 end
 
 
