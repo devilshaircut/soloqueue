@@ -49,6 +49,13 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
       margin-top: -5px;
       color: #efefef;
       cursor: pointer;
+      
+      a {
+        color: #efefef;
+      }
+      a:hover {
+        color: #efefef;
+      }
     }
     
     nav {

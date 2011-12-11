@@ -84,6 +84,9 @@ function get_data (search) {
           original_item_icon.remove();
           newTemplate.find('h2').prepend(item_icon);
         }
+        else {
+          newTemplate.find('h2').prepend("<img src='/assets/champs/" + this[0].replace(/[.,\-'"]/g,'') + ".jpg' />");
+        }
         // end bullshit will be removed when we own our own data ^_^
       });
     }
@@ -103,12 +106,6 @@ $(document).ready(function () {
   });
   
   // stylish animation shit
-  $('#soloqueue').click(function () {
-    $('#search-data').fadeOut(100, function () {
-      $('#welcome').fadeIn(100);
-    });
-  });
-  
   $('#left-section').delay(500).fadeIn(500);
   $('#right-section').delay(500).fadeIn(500);
   // end bull shit
