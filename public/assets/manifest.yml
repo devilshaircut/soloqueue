@@ -276,6 +276,11 @@ skills/Cassiopeia_Miasma.jpg: skills/Cassiopeia_Miasma-12c03832e1e4342077fcf34cb
 skills/Cassiopeia_Noxious_Blast.jpg: skills/Cassiopeia_Noxious_Blast-e1cccbbf29fc97a522fa23394a014ad6.jpg
 skills/Cassiopeia_Petrifying_Gaze.jpg: skills/Cassiopeia_Petrifying_Gaze-e022c85bfce049f2cd2a518b91dcf283.jpg
 skills/Cassiopeia_Twin_Fang.jpg: skills/Cassiopeia_Twin_Fang-4f1486dd27f2d8e494d790f5e525ae55.jpg
+skills/ChoGath_Carnivore.jpg: skills/ChoGath_Carnivore-330c77fe12e369530f2db56f66f55b56.jpg
+skills/ChoGath_Feast.jpg: skills/ChoGath_Feast-14d293623b0e7613d6d4f95b98dc0fb5.jpg
+skills/ChoGath_Feral_Scream.jpg: skills/ChoGath_Feral_Scream-f91cf6c73dc241f21be947047281a3a2.jpg
+skills/ChoGath_Rupture.jpg: skills/ChoGath_Rupture-cab355be7c47601c387aaa41da977793.jpg
+skills/ChoGath_Vorpal_Spikes.jpg: skills/ChoGath_Vorpal_Spikes-5b5c09f8867356401673758014de013a.jpg
 skills/Corki_Gatling_Gun.jpg: skills/Corki_Gatling_Gun-ec86f09e74c157ccd63967d4db2b2965.jpg
 skills/Corki_Hextech_Shrapnel_Shells.jpg: skills/Corki_Hextech_Shrapnel_Shells-cbe6e4f266b1de0450630d75c4dc550c.jpg
 skills/Corki_Missile_Barrage.jpg: skills/Corki_Missile_Barrage-5a216b31094ecf00e81d31d926e65f12.jpg
@@ -387,6 +392,11 @@ skills/Kennen_Lightning_Rush.jpg: skills/Kennen_Lightning_Rush-2f7dc13062c0eb741
 skills/Kennen_Mark_of_the_Storm.jpg: skills/Kennen_Mark_of_the_Storm-8e6301c80f720bc0cc20c54dc929a52c.jpg
 skills/Kennen_Slicing_Maelstrom.jpg: skills/Kennen_Slicing_Maelstrom-348c8911a9eae3e25ce203d15175d266.jpg
 skills/Kennen_Thundering_Shuriken.jpg: skills/Kennen_Thundering_Shuriken-04f993109dec713bce54d805d0bbab68.jpg
+skills/KogMaw_Bio-Arcane_Barrage.jpg: skills/KogMaw_Bio-Arcane_Barrage-649d5a8f5e6cd36bae9968794d7b7b1b.jpg
+skills/KogMaw_Caustic_Spittle.jpg: skills/KogMaw_Caustic_Spittle-f435b0dbb4b4ff3b13f756547ee79e08.jpg
+skills/KogMaw_Icathian_Surprise.jpg: skills/KogMaw_Icathian_Surprise-0b0a8ed1ae9b855eb98cd22bf72cef5d.jpg
+skills/KogMaw_Living_Artillery.jpg: skills/KogMaw_Living_Artillery-173cb035e8ffe796c0d185fd6f9b62cc.jpg
+skills/KogMaw_Void_Ooze.jpg: skills/KogMaw_Void_Ooze-c55aa99d5c31ca9a59c18149547b97dc.jpg
 skills/LeBlanc_Distortion.jpg: skills/LeBlanc_Distortion-b3e44c608cad3796a4040f347b235a08.jpg
 skills/LeBlanc_Ethereal_Chains.jpg: skills/LeBlanc_Ethereal_Chains-5594cf517aa32680c717aa8ceb82477c.jpg
 skills/LeBlanc_Mimic.jpg: skills/LeBlanc_Mimic-11a1a671428e0290262c6ba3466b5482.jpg
@@ -669,8 +679,9 @@ skills/Zilean_Heightened_Learning.jpg: skills/Zilean_Heightened_Learning-cea2960
 skills/Zilean_Rewind.jpg: skills/Zilean_Rewind-19f3c364568b8fe72d6ce937186b5540.jpg
 skills/Zilean_Time_Bomb.jpg: skills/Zilean_Time_Bomb-3c33fe4dd020d03db1fbbe389398b7ec.jpg
 skills/Zilean_Time_Warp.jpg: skills/Zilean_Time_Warp-fcf8c084b2b6c09a5bee95e674583261.jpg
+soloqueue.jpeg: soloqueue-9b9c96f940cb1a89b19ea7d53e78fd61.jpeg
 jquery-ui-1.8.16.custom.min.js: jquery-ui-1.8.16.custom.min-2b432ef5545e6620f94e7638b7574058.js
 jquery-ui.min.js: jquery-ui.min-2b432ef5545e6620f94e7638b7574058.js
 jquery.min.js: jquery.min-460459a37590253002f65e6137a90b87.js
-application.js: application-df19948dbbdddb32a5c5c4b81c6b9663.js
-application.css: application-e80daf510c9f8d248b55a5c41b29510c.css
+application.js: application-b81aab7e21e0ff077381af22a6ae9f1d.js
+application.css: application-f880734954dad43ea711eefd3a0984b3.css
