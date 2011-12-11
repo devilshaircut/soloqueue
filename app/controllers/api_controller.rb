@@ -37,7 +37,7 @@ class ApiController < ApplicationController
     counters = nil  
     
     entriesList.each do | entry |
-      if entry["title"].downcase == champion_name.downcase
+      if entry["title"].downcase.strip == champion_name.downcase
         counters = [
           ( entry["_cokwr"].nil? ? "n/a" : entry["_cokwr"] ),
           ( entry["_cpzh4"].nil? ? "n/a" : entry["_cpzh4"] ),
