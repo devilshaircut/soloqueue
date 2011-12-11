@@ -17,6 +17,7 @@ champs/BF_Sword.jpg: champs/BF_Sword-3dd2907fa4ce04f2aa8eb0947c5064d9.jpg
 champs/Bag_of_Tea.jpg: champs/Bag_of_Tea-0317c862f1c7078df4c665fee24df669.jpg
 champs/Banshees_Veil.jpg: champs/Banshees_Veil-aa78e349d929b57a51aada02fe880d00.jpg
 champs/Berserkers_Greaves.jpg: champs/Berserkers_Greaves-2a399690692a9694f593871590dd001d.jpg
+champs/Bilgewater_Cutlass%E2%80%8E.jpg: champs/Bilgewater_Cutlass%E2%80%8E-108211721c468bb988cf5b45858c2f0a.jpg
 champs/Bilgewater_Cutlass.jpg: champs/Bilgewater_Cutlass-108211721c468bb988cf5b45858c2f0a.jpg
 champs/Blasting_Wand.jpg: champs/Blasting_Wand-0fb63f3083ad0d2345fc4dfa89fe04d6.jpg
 champs/Blitzcrank.jpg: champs/Blitzcrank-87bcb4598dd260e7536a885ac705c32e.jpg
@@ -72,9 +73,9 @@ champs/Haunting_Guise.jpg: champs/Haunting_Guise-9d2aae17cae74dfeed36e8cc447bc4e
 champs/Health_Potion.jpg: champs/Health_Potion-002c4d0380073f036fc775bcbde2332e.jpg
 champs/Heart_of_Gold.jpg: champs/Heart_of_Gold-b0ce95c62a6aea494d3489ffe7795f70.jpg
 champs/Heimerdinger.jpg: champs/Heimerdinger-6e3cbde91705044f524f13ee2375b63e.jpg
-champs/Hexdrinker%E2%80%8E.jpg: champs/Hexdrinker%E2%80%8E-0a73e7f6e67adcbae5517b4d2b634e44.jpg
-champs/Hextech_Gunblade%E2%80%8E.jpg: champs/Hextech_Gunblade%E2%80%8E-07f7bcc1d0e0ac976dcaba75307b20e8.jpg
-champs/Hextech_Revolver%E2%80%8E.jpg: champs/Hextech_Revolver%E2%80%8E-6a3801526263e05e1ecfc356d65f15d1.jpg
+champs/Hexdrinker.jpg: champs/Hexdrinker-0a73e7f6e67adcbae5517b4d2b634e44.jpg
+champs/Hextech_Gunblade.jpg: champs/Hextech_Gunblade-07f7bcc1d0e0ac976dcaba75307b20e8.jpg
+champs/Hextech_Revolver.jpg: champs/Hextech_Revolver-6a3801526263e05e1ecfc356d65f15d1.jpg
 champs/Hextech_Sweeper.jpg: champs/Hextech_Sweeper-adb7820323101a840e5e0929bee24941.jpg
 champs/Infinity_Edge.jpg: champs/Infinity_Edge-3d754547bbd1ac17572f33c9a496d46f.jpg
 champs/Innervating_Locket.jpg: champs/Innervating_Locket-f0e594d1e28c6b263f5678dae70202c9.jpg
@@ -671,5 +672,5 @@ skills/Zilean_Time_Warp.jpg: skills/Zilean_Time_Warp-fcf8c084b2b6c09a5bee95e6745
 jquery-ui-1.8.16.custom.min.js: jquery-ui-1.8.16.custom.min-2b432ef5545e6620f94e7638b7574058.js
 jquery-ui.min.js: jquery-ui.min-2b432ef5545e6620f94e7638b7574058.js
 jquery.min.js: jquery.min-460459a37590253002f65e6137a90b87.js
-application.js: application-2dbdc499fb963125eb097956be278d92.js
+application.js: application-df19948dbbdddb32a5c5c4b81c6b9663.js
 application.css: application-e80daf510c9f8d248b55a5c41b29510c.css
