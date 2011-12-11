@@ -128,7 +128,7 @@ class WikiaCache < ActiveRecord::Base
       if Hpricot(u.latestwikia).search("table.abilities_table").to_a.count == 1
         
         # Initialize strings which construct the old image URL to be changed.
-        champName = ERB::Util.url_encode(u.wikianame.to_s)
+        champName = ERB::Util.url_encode(u.wikianame.to_s).gsub(" ",'_')
 
         # Pull the HTML cache and create an array of skill names.
         iconNameArray = Hpricot(u.latestwikia).search("table.abilities_table .abilityname b").collect { |i| i.inner_html }.collect { |q| q.strip.gsub(" ", "_").gsub(/':/, "") }
