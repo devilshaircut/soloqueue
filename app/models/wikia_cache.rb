@@ -60,11 +60,13 @@ class WikiaCache < ActiveRecord::Base
   end
   
   require 'open-uri'  
+  
+  # Scrape skill images from LoL Wikia.
   def self.seedSkillImages
 
     WikiaCache.all.each do |u|
             
-      # Get the champ's name for eac
+      # Initialize strings which construct the URL to pull images from.
       champName = ERB::Util.url_encode(u.wikianame.to_s)
       baseUrl = "http://leagueoflegends.wikia.com/wiki/"      
       
@@ -92,31 +94,68 @@ class WikiaCache < ActiveRecord::Base
     end
   end
   
+  # Scrape champion images from LoL Wikia.
   def self.seedChampImages
     
     WikiaCache.all.each do |u|
             
-      # Get the champ's name for eac
+      # Initialize strings which construct the URL to pull images from.
       champName = ERB::Util.url_encode(u.wikianame.to_s)
       champUrlName = ERB::Util.url_encode(u.display_name.to_s)
       baseUrl = "http://leagueoflegends.wikia.com/wiki/"      
       
-      # Given a Wikia champ page, return the URLs of skill icon images in an array.
+      # Given a Wikia champ page, return the URLs of champ icon images in an array.
       if Hpricot(HTTParty.get(baseUrl + champUrlName).body).search("table.infobox a.image img").to_a.count == 1
         iconChampArray = Hpricot(HTTParty.get(baseUrl + champUrlName).body).search("table.infobox a.image img").collect { |i| i.attributes['src'] }
       else
         iconChampArray = Hpricot(HTTParty.get(baseUrl + champUrlName).body).search("#WikiaArticle a.image img").collect { |i| i.attributes['src'] }
       end
       
-      # Given a Wikia champ page, save skill images into the project's assets library.
+      # Given a Wikia champ page, save champ images into the project's assets library.
       open("app/assets/images/champs/" + champName + ".jpg", 'wb') do |file|
         file << open(iconChampArray[0]).read
       end
       
     end
-    
-    
-    
+  end
+  
+  # Swap image URLs after a fresh scrape so that we are pulling images from our own data source.
+  def self.updateCacheImages
+
+    WikiaCache.all.each do |u|
+      
+      # Verify that this is a champion page, not a item page, before proceeding with the URL swap.
+      if Hpricot(u.latestwikia).search("table.abilities_table").to_a.count == 1
+        
+        # Initialize strings which construct the old image URL to be changed.
+        champName = ERB::Util.url_encode(u.wikianame.to_s)
+
+        # Pull the HTML cache and create an array of skill names.
+        iconNameArray = Hpricot(u.latestwikia).search("table.abilities_table .abilityname b").collect { |i| i.inner_html }.collect { |q| q.strip.gsub(" ", "_").gsub(/':/, "") }
+
+        memo = 0
+
+        # Loop through each skill for the champ and perform the swap.
+        while memo < iconNameArray.count do
+
+          iconName = iconNameArray[memo]
+
+          # Obtains the old URL to be removed.
+          oldUrl = Hpricot(u.latestwikia).search("table.abilities_table .abilityname a img")[memo]['src']
+
+          # Obtains the new URL to be added.
+          newUrl = "/assets/skills/" + champName + "_" + iconName + ".jpg"
+
+          # Change perform the URL swap and save.
+          u.latestwikia = Hpricot(u.latestwikia).to_html.gsub(oldUrl, newUrl)
+          u.save
+
+          memo += 1
+
+        end
+      end
+    end
+
   end
   
 end
