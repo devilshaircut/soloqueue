@@ -1,3 +1,5 @@
+@import "compass/utilities/general/clearfix";
+
 *:focus { outline: none !important; }
 * { margin: 0px; padding: 0px; }
 
@@ -118,6 +120,8 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
       }
       
       #counter-picks {
+				width: 100%;
+				@include legacy-pie-clearfix;
         b { float: left; margin-right: 10px; }
         ol li {
           float: left;
@@ -128,6 +132,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
       }
       
       #general-data {
+				width: 100%;
         #data {
           // Nasty ass css to clean up the tables to look a little better
           // will be removed and refactored when we have official creative
