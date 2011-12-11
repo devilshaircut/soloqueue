@@ -86,6 +86,10 @@ function setListHolderHeight () {
 }
 
 $(document).ready(function () {
+  $('#list-holder').slimScroll({
+      height: $(window).height()-124 + "px"
+  });
+  
   // stylish animation shit
   $('#soloqueue').click(function () {
     $('#search-data').fadeOut(100, function () {
