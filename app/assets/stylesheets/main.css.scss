@@ -56,6 +56,24 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
       -moz-text-shadow: 0px 1px 3px rgba(255, 255, 255, 0.4);
       cursor: pointer;
     }
+    
+    aside {
+      float: right;
+      margin-top: 5px;
+      
+      .fb-like {
+        position: absolute;
+        margin-top: 0px;
+        margin-left: 135px;
+      }
+      
+      iframe {
+        width: 135px !important;
+        position: absolute;
+        margin-left: -235px;
+        margin-top: 0px;
+      }
+    }
   }
       
   form {

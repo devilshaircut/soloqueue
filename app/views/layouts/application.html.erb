@@ -9,8 +9,22 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=145499805550913";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
     <section id="left-section">
       <header id="soloqueue">
+        <aside>
+          <div class="fb-like" data-href="http://www.facebook.com/pages/Soloqueue/322551847772624" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="verdana"></div>
+          <a href="https://twitter.com/Soloqueue" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @Soloqueue</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </aside>
         <h1>Soloqueue</h1>
       </header>
       
