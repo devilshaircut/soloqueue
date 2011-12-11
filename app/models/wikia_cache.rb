@@ -17,14 +17,11 @@ class WikiaCache < ActiveRecord::Base
     # Use HTML to identify each champ, remove the HTML, and shove the champs into a sorted array.
     champPage = champPage.to_s.gsub("</a><a>", "|").gsub(/<[\/]*a>/, "").split("|").sort! { |a,b| a <=> b }
     
-    # Format each champ's name in a more code-friendly format.
-    champPage = champPage.collect do |u|
-      u.gsub("B._F.", "BF").gsub("B. F.", "BF").gsub(" ",'_').gsub(/[.,'"-]/,"")
-    end
-    
     # Find or shove each champ into the DB.
     champPage.each do |s|
-      WikiaCache.find_or_create_by_wikianame(:wikianame => s)
+      search_name =  s
+      search_name = search_name.gsub("B._F.", "BF").gsub("B. F.", "BF").gsub(" ",'_').gsub(/[.,'"-]/,"")
+      wc = WikiaCache.find_or_create_by_wikianame(:wikianame => search_name, :display_name => s)
     end
     
   end
@@ -43,15 +40,11 @@ class WikiaCache < ActiveRecord::Base
     # Use HTML to identify each item, remove the HTML, and shove the items into a sorted array.
     itemPage = itemPage.to_s.gsub("</span><span>", "|").gsub(/(<[\/]*span>)/, "").split("|").sort! { |a,b| a <=> b }
     
-    # Format each item's name in a more code-friendly format.
-    itemPage = itemPage.collect do |u|
-      u.gsub("B._F.", "BF").gsub("B. F.", "BF").gsub(" ",'_').gsub(/[.,'"-]/,"")
-    end
-
     # Find or shove each champ into the DB.
     itemPage.each do |s|
-      puts s
-      WikiaCache.find_or_create_by_wikianame(:wikianame => s)
+      search_name =  s
+      search_name = search_name.gsub("B._F.", "BF").gsub("B. F.", "BF").gsub(" ",'_').gsub(/[.,'"-]/,"")
+      wc = WikiaCache.find_or_create_by_wikianame(:wikianame => search_name, :display_name => s)
     end
     
   end
@@ -59,7 +52,7 @@ class WikiaCache < ActiveRecord::Base
   # Seed the the WikiaCache table's latestwikia column with new data.
   def self.updateLatestWikia
     WikiaCache.all.each do |u|
-      champName = ERB::Util.url_encode(u.wikianame.to_s)
+      champName = ERB::Util.url_encode(u.display_name.to_s)
       baseUrl = "http://leagueoflegends.wikia.com/wiki/"
       u.latestwikia = HTTParty.get(baseUrl + champName).body
       u.save

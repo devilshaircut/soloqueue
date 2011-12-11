@@ -1,15 +1,15 @@
 class ApiController < ApplicationController
   
   def fetch_data
-    input = params[:input_name].gsub("B F", "BF").gsub(" ", "_")
+    input = params[:input_name].gsub("B F", "BF").gsub(" ", "_").gsub(/[.,'"-]/,"")
     item_names = fetch_names( input )
-    
+    Rails.logger.debug item_names.inspect
     data = []
     item_names.each do |item|
-      counters      = fetch_counters(item)
-      general_data  = fetch_general_data(item)
+      counters      = fetch_counters(item[0])
+      general_data  = fetch_general_data(item[0])
       
-      data << [ item, :counters => counters, :wiki => general_data ]
+      data << [ item[1], :counters => counters, :wiki => general_data ]
     end
     
     response.headers['Cache-Control'] = 'public, max-age=3600' if Rails.env.production?
@@ -19,7 +19,7 @@ class ApiController < ApplicationController
   protected
   
   def fetch_names( value )
-    WikiaCache.where(["wikianame = ? or lower(wikianame) like '%#{value.downcase}%'", value]).collect{|x| x.wikianame}
+    WikiaCache.where(["wikianame = ? or lower(wikianame) like '%#{value.downcase}%'", value]).collect{|x| [ x.wikianame, x.display_name ] }
   end
   
   def fetch_counters(champion_name)
