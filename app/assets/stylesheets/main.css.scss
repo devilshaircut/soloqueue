@@ -51,6 +51,30 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
       cursor: pointer;
     }
     
+    nav {
+      display: inline-block;
+      margin-left: 20px;
+      position: absolute;
+      margin-top: -3px;
+      
+      a {
+        font-size: 12px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 3px;
+        padding: 3px 10px 5px;
+        color: #EFEFEF;
+        margin-right: 5px;
+        text-shadow: 1px 1px 1px rgba(0,0,0,1);
+        
+        &:hover {
+          
+          text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+          box-shadow: 1px 1px 3px rgba(0,0,0,0.8) inset;
+          -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.8) inset;
+          -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.8) inset;
+        }
+      }
+    }
     aside {
       float: right;
       
@@ -83,7 +107,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
       
       &.loading {
         background: url(/assets/loading.gif) no-repeat;
-        background-position: 175px 5px;
+        background-position: 170px 7px;
       }
     }
   }
@@ -123,6 +147,10 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
   padding: 10px;
   padding-top: 0px;
   margin-top: 61px;
+  
+  &.single_column {
+    margin-left: 0px;
+  }
   
   #welcome {
     text-align: left;
@@ -184,16 +212,15 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
       #counter-picks {
 				width: 100%;
 				@include legacy-pie-clearfix;
-        b { float: left; margin-right: 10px; }
+        b {  }
         ol {
-          padding-bottom: 40px;
+          padding-bottom: 20px;
           border-bottom: solid 2px #444;
           
           li {
-            float: left;
             margin-bottom: 5px;
             margin-right: 5px;
-            margin-left: 25px;
+            margin-left: 19px;
           }
         }
       }

@@ -2,8 +2,8 @@ Soloqueue::Application.routes.draw do
   
   root :to    => "home#index"
   
-  get "test"  => "home#test"
-  
+  get "about" => "home#about"
+    
   get "/api/:input_name.json" => "api#fetch_data"
   
 end

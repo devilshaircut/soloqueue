@@ -6,7 +6,7 @@ class ApiController < ApplicationController
     Rails.logger.debug item_names.inspect
     data = []
     item_names.each do |item|
-      counters      = fetch_counters(item[0])
+      counters      = fetch_counters(item[1])
       general_data  = fetch_general_data(item[0])
       
       data << [ item[1], :counters => counters, :wiki => general_data ]
