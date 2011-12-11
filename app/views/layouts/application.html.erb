@@ -9,6 +9,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <!-- Facebook Shit -->
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -17,6 +18,7 @@
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=145499805550913";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- End Facebook Shit -->
     
     <section id="left-section">
       <header id="soloqueue">
@@ -37,5 +39,19 @@
     <section id="right-section" <%= "class='single_column'".html_safe if request.env['PATH_INFO'] != "/" %>>
       <%= yield %>
     </section>
+    
+    <!-- GA Shit -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-27644901-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <!-- End GA Shit -->
   </body>
 </html>
