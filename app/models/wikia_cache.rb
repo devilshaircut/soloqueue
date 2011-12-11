@@ -68,29 +68,31 @@ class WikiaCache < ActiveRecord::Base
             
       # Initialize strings which construct the URL to pull images from.
       champName = ERB::Util.url_encode(u.wikianame.to_s)
-      baseUrl = "http://leagueoflegends.wikia.com/wiki/"      
-      
+      baseUrl = "http://leagueoflegends.wikia.com/wiki/"
+
       # Given a Wikia champ page, return the URLs of skill icon images in an array.
       iconUrlArray = Hpricot(HTTParty.get(baseUrl + champName).body).search("table.abilities_table .abilityname a img").collect { |i| i.attributes['src'] }
-      
+    
       # Given a Wikia champ page, return skill names in an array.
       iconNameArray = Hpricot(HTTParty.get(baseUrl + champName).body).search("table.abilities_table .abilityname b").collect { |i| i.inner_html }.collect { |q| q.strip.gsub(" ", "_").gsub(/':/, "") }
-      
+    
       memo = 0
-      
+    
       while memo < iconNameArray.count do
-        
+      
         iconURL = iconUrlArray[memo]
         iconName = iconNameArray[memo]
         
-        # Given a Wikia champ page, save skill images into the project's assets library.
-        open("app/assets/images/skills/" + champName + "_" + iconName + ".jpg", 'wb') do |file|
-          file << open(iconURL).read
+        # Given a Wikia champ page, save skill images into the project's assets library if they don't already exist.
+        if FileTest.exists?("app/assets/images/skills/" + champName + "_" + iconName + ".jpg") == false
+          open("app/assets/images/skills/" + champName + "_" + iconName + ".jpg", 'wb') do |file|
+            file << open(iconURL).read
+          end
         end
-        
+      
         memo += 1
-        
-      end
+      
+      end      
     end
   end
   
