@@ -76,14 +76,11 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
 
 #right-section {
   display: none;
-  position: relative;
+  position: absolute;
   margin-left: 220px;
   padding: 10px;
   
   #welcome {
-    width: 200px;
-    margin: 0 auto;
-    margin-top: 200px;
     text-align: center;
   }
   
@@ -91,7 +88,6 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
     display: none;
     
     #no-data {
-      margin-top: 200px;
       text-align: center;
     }
     
