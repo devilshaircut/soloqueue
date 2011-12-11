@@ -89,7 +89,8 @@ function setListHolderHeight () {
 
 $(document).ready(function () {
   $('#list-holder').slimScroll({
-      height: $(window).height()-94 + "px"
+      height: $(window).height()-94 + "px",
+      width: '206px'
   });
   
   // stylish animation shit

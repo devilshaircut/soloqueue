@@ -45,7 +45,6 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
         
     h1 {
       display: inline-block;
-      margin-left: 14px;
       font-size: 20px;
       margin-top: -5px;
       color: #efefef;
@@ -90,6 +89,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
   }
   
   #list-holder {
+    width: 185px !important;
     padding: 10px;
     padding-top: 0px;
     overflow-y: auto;
@@ -136,14 +136,22 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
     }
     
     h2 {
-      font-size: 25px;
+      font-size: 15px;
       margin-top: 20px;
-      color: #21231D;
-      border-bottom: solid 3px;
-      padding-bottom: 5px;
+      padding: 5px 10px;
+      color: #efefef;
+      background: #464646;
+      background-image: linear-gradient(top, #333, #222);
+      background-image: -o-linear-gradient(top, #333, #222);
+      background-image: -moz-linear-gradient(top, #333, #222);
+      background-image: -webkit-linear-gradient(top, #333, #222);
+      background-image: -ms-linear-gradient(top, #333, #222);
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
       
       &:first-child {
-        margin-top: -3px;
+        margin-top: -5px;
       }
     }
     
@@ -167,11 +175,16 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
 				width: 100%;
 				@include legacy-pie-clearfix;
         b { float: left; margin-right: 10px; }
-        ol li {
-          float: left;
-          margin-bottom: 5px;
-          margin-right: 5px;
-          margin-left: 25px;
+        ol {
+          padding-bottom: 40px;
+          border-bottom: solid 2px #444;
+          
+          li {
+            float: left;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            margin-left: 25px;
+          }
         }
       }
       
@@ -183,7 +196,13 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
           // will be removed and refactored when we have official creative
           // and own our data
           table {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: solid 2px #444;
+            
             &.infobox {
+              border-bottom: none;
+              
               tr:first-child {
                 display: none
               }
@@ -198,8 +217,40 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
             }
             
             &:first-child {
-              margin-top: 20px;
-              
+              tr {
+                td {
+                  div { 
+                    height: 15px !important; 
+                    -webkit-border-radius: 3px; 
+                    -moz-border-radius: 3px; 
+                    
+                    div {
+                      -webkit-border-radius: 2px; 
+                      -moz-border-radius: 2px;
+                    }
+                  }
+                }
+                td:nth-child(1) {
+                  div div {
+                    background: #52A61B !important;
+                  }
+                }
+                td:nth-child(2) {
+                  div div {
+                    background: #D92525 !important;
+                  }
+                }
+                td:nth-child(3) {
+                  div div {
+                    background: #0E3D59 !important;
+                  }
+                }
+                td:nth-child(4) {
+                  div div {
+                    background: #F25C05 !important;
+                  }
+                }                
+              }
               td div {
                 -webkit-border-radius: 5px;
                 -moz-border-radius: 5px;
@@ -212,12 +263,19 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
             }
             
             &:nth-child(2) {
-              margin-top: 20px;
+              td, th {
+                text-align: left !important;
+              }
+              td { 
+                font-weight: bold !important; 
+                small {
+                  font-size: 15px !important; 
+                }
+              }
+              th { font-weight: normal; }
             }
             
             &.abilities_table {
-              margin-top: 30px;
-              
               tr:first-child {
                 display: none;
               }
@@ -239,9 +297,12 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
                     border-right: none;
                     border-top: none;
                     
+                    &:first-child {
+                      border-left: none !important;
+                    }
                     &:last-child {
-                      border-right: dotted 1px #ababab;
-                    }                    
+                      border-right: none !important;
+                    }                   
                   }
                 }
                 &.ability {
@@ -250,9 +311,12 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
                     border: dotted 1px #ababab;
                     border-right: none;
                     border-top: none;
-              
+                    
+                    &:first-child {
+                      border-left: none !important;
+                    }
                     &:last-child {
-                      border-right: dotted 1px #ababab;
+                      border-right: none !important;
                     }
                     &.abilityname {
                       width: 80px;
