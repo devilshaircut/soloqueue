@@ -82,14 +82,14 @@ function get_data (search) {
 }
 
 function setListHolderHeight () {
-  var new_height = $(window).height()-124 + "px";
+  var new_height = $(window).height()-94 + "px";
   $("#list-holder").height(new_height);
   $(".slimScrollDiv").height(new_height);
 }
 
 $(document).ready(function () {
   $('#list-holder').slimScroll({
-      height: $(window).height()-124 + "px"
+      height: $(window).height()-94 + "px"
   });
   
   // stylish animation shit

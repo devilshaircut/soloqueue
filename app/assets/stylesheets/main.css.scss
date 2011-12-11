@@ -32,34 +32,28 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
   
   header {
     width: 100%;
-    height: 30px;
+    height: 20px;
     position: fixed;
     z-index: 10000;
     padding: 10px;
     background: #464646;
-    box-shadow: 0px 1px 1px rgba(0,0,0,.5);
-    -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.5);
-    -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.5);
-    background-image: linear-gradient(bottom, rgb(0,0,0) 7%, rgb(31,33,33) 81%);
-    background-image: -o-linear-gradient(bottom, rgb(0,0,0) 7%, rgb(31,33,33) 81%);
-    background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 7%, rgb(31,33,33) 81%);
-    background-image: -webkit-linear-gradient(bottom, rgb(0,0,0) 7%, rgb(31,33,33) 81%);
-    background-image: -ms-linear-gradient(bottom, rgb(0,0,0) 7%, rgb(31,33,33) 81%);
+    background-image: linear-gradient(top, #333, #222);
+    background-image: -o-linear-gradient(top, #333, #222);
+    background-image: -moz-linear-gradient(top, #333, #222);
+    background-image: -webkit-linear-gradient(top, #333, #222);
+    background-image: -ms-linear-gradient(top, #333, #222);
         
     h1 {
       display: inline-block;
       margin-left: 14px;
-      font-size: 35px;
+      font-size: 20px;
+      margin-top: -5px;
       color: #efefef;
-      text-shadow: 0px 1px 3px rgba(255, 255, 255, 0.4);
-      -webkit-text-shadow: 0px 1px 3px rgba(255, 255, 255, 0.4);
-      -moz-text-shadow: 0px 1px 3px rgba(255, 255, 255, 0.4);
       cursor: pointer;
     }
     
     aside {
       float: right;
-      margin-top: 5px;
       
       .fb-like {
         position: absolute;
@@ -77,8 +71,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
   }
       
   form {
-    margin-top: 55px;
-    margin-bottom: 5px;
+    margin-top: 45px;
     padding: 10px;
     
     input#search {
@@ -127,6 +120,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
   position: absolute;
   margin-left: 220px;
   padding: 10px;
+  padding-top: 0px;
   margin-top: 61px;
   
   #welcome {
