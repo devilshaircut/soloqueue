@@ -100,9 +100,9 @@ class WikiaCache < ActiveRecord::Base
     WikiaCache.all.each do |u|
             
       # Initialize strings which construct the URL to pull images from.
-      champName = ERB::Util.url_encode(u.wikianame.to_s)
+      champName = ERB::Util.url_encode(u.wikianame.to_s).gsub(" ",'_')
       champUrlName = ERB::Util.url_encode(u.display_name.to_s)
-      baseUrl = "http://leagueoflegends.wikia.com/wiki/"      
+      baseUrl = "http://leagueoflegends.wikia.com/wiki/"
       
       # Given a Wikia champ page, return the URLs of champ icon images in an array.
       if Hpricot(HTTParty.get(baseUrl + champUrlName).body).search("table.infobox a.image img").to_a.count == 1
