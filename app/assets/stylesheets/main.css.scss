@@ -30,15 +30,27 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
   height: 100%;
   position: fixed;
   
-  h1 {
+  header {
+    position: fixed;
     cursor: pointer;
-    text-align: center;
+    text-align: left;
     padding: 10px;
     font-size: 35px;
     color: #24221F;
+    background: white;
+    z-index: 10000;
+    width: 100%;
+    
+    h1 {
+      font-size: 40px;
+      margin-left: 3px;
+      margin-top: 8px;
+    }
   }
       
   form {
+    margin-top:61px;
+    margin-bottom: 10px;
     padding: 10px;
     
     input#search {
@@ -86,6 +98,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
   position: absolute;
   margin-left: 220px;
   padding: 10px;
+  margin-top: 61px;
   
   #welcome {
     text-align: center;
