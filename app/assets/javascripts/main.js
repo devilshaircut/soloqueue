@@ -126,14 +126,14 @@ $(document).ready(function () {
   
   $("#champions").delegate("li", "click", function () {
     $("#search").val($(this).html());
-    $("#champions li").removeClass('active');
+    $("#list-holder li").removeClass('active');
     $(this).addClass('active');
     get_data($(this).html());
   });
   
   $("#items").delegate("li", "click", function () {
     $("#search").val($(this).html());
-    $("#items li").removeClass('active');
+    $("#list-holder li").removeClass('active');
     $(this).addClass('active');
     get_data($(this).html());
   });
