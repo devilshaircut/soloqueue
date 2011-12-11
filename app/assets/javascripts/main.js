@@ -82,7 +82,9 @@ function get_data (search) {
 }
 
 function setListHolderHeight () {
-  $("#list-holder").height($(window).height()-124 + "px");
+  var new_height = $(window).height()-124 + "px";
+  $("#list-holder").height(new_height);
+  $(".slimScrollDiv").height(new_height);
 }
 
 $(document).ready(function () {
