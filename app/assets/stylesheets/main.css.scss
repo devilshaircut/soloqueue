@@ -139,6 +139,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
       font-size: 15px;
       margin-top: 20px;
       padding: 5px 10px;
+      padding-left: 38px;
       color: #efefef;
       background: #464646;
       background-image: linear-gradient(top, #333, #222);
@@ -149,6 +150,14 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
       border-radius: 5px;
       -moz-border-radius: 5px;
       -webkit-border-radius: 5px;
+      
+      img {
+        width: 24px;
+        height: 24px;
+        margin-left: -30px;
+        margin-top: -1px;
+        position: absolute;
+      }
       
       &:first-child {
         margin-top: -5px;
@@ -202,6 +211,8 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
             
             &.infobox {
               border-bottom: none;
+              margin-bottom: 0px;
+              padding-bottom: 10px;
               
               tr:first-child {
                 display: none
@@ -209,6 +220,8 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
               tr:last-child {
                 display: none;
               }
+              
+              th { vertical-align: top; }
             }
             
             span {
@@ -276,6 +289,8 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
             }
             
             &.abilities_table {
+              border-bottom: none;
+              
               tr:first-child {
                 display: none;
               }

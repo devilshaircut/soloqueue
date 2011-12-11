@@ -70,11 +70,20 @@ function get_data (search) {
         innate_ability.find('.abilityinfo').attr('colspan',1);
         innate_ability.append("<td></td>");
         innate_ability.insertAfter(newTemplate.find("#general-data #data .ability_header"));
+        
         $("#general-data #data span").each(function () {
           if ($(this).css('color') == 'rgb(151, 252, 151)') {
             $(this).css('color','green');
           }
         });
+        
+        var item_icon = null;
+        if (this[1].counters == null) {
+          original_item_icon = newTemplate.find(".infobox tr:nth-child(2) img");
+          item_icon = original_item_icon.clone();
+          original_item_icon.remove();
+          newTemplate.find('h2').prepend(item_icon);
+        }
         // end bullshit will be removed when we own our own data ^_^
       });
     }
