@@ -104,18 +104,21 @@ class WikiaCache < ActiveRecord::Base
       champUrlName = ERB::Util.url_encode(u.display_name.to_s)
       baseUrl = "http://leagueoflegends.wikia.com/wiki/"
       
-      # Given a Wikia champ page, return the URLs of champ icon images in an array.
-      if Hpricot(HTTParty.get(baseUrl + champUrlName).body).search("table.infobox a.image img").to_a.count == 1
-        iconChampArray = Hpricot(HTTParty.get(baseUrl + champUrlName).body).search("table.infobox a.image img").collect { |i| i.attributes['src'] }
-      else
-        iconChampArray = Hpricot(HTTParty.get(baseUrl + champUrlName).body).search("#WikiaArticle a.image img").collect { |i| i.attributes['src'] }
-      end
-      
-      # Given a Wikia champ page, save champ images into the project's assets library.
-      open("app/assets/images/champs/" + champName + ".jpg", 'wb') do |file|
-        file << open(iconChampArray[0]).read
-      end
-      
+      # Given a Wikia champ page, save champ images into the project's assets library if the image does not already exists.
+      if FileTest.exists?("app/assets/images/champs/" + champName + ".jpg") == false
+
+        # Given a Wikia champ page, return the URLs of champ icon images in an array.
+        if Hpricot(HTTParty.get(baseUrl + champUrlName).body).search("table.infobox a.image img").to_a.count == 1
+          iconChampArray = Hpricot(HTTParty.get(baseUrl + champUrlName).body).search("table.infobox a.image img").collect { |i| i.attributes['src'] }
+        else
+          iconChampArray = Hpricot(HTTParty.get(baseUrl + champUrlName).body).search("#WikiaArticle a.image img").collect { |i| i.attributes['src'] }
+        end
+
+        open("app/assets/images/champs/" + champName + ".jpg", 'wb') do |file|
+          file << open(iconChampArray[0]).read
+        end
+        
+      end      
     end
   end
   
@@ -126,7 +129,7 @@ class WikiaCache < ActiveRecord::Base
       if Hpricot(u.latestwikia).search("table.abilities_table").to_a.count == 1
         
         # Initialize strings which construct the old image URL to be changed.
-        champName = ERB::Util.url_encode(u.wikianame.to_s).gsub(" ",'_')
+        champName = u.wikianame
 
         # Pull the HTML cache and create an array of skill names.
         iconNameArray = Hpricot(u.latestwikia).search("table.abilities_table .abilityname b").collect { |i| i.inner_html }.collect { |q| q.strip.gsub(" ", "_").gsub(/':/, "") }

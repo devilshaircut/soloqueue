@@ -87,7 +87,7 @@ function get_data (search) {
           newTemplate.find('h2').prepend(item_icon);
         }
         else {
-          newTemplate.find('h2').prepend("<img src='/assets/champs/" + this[0].replace(/[.,\-'"]/g,'') + ".jpg' />");
+		  newTemplate.find('h2').prepend("<img src='/assets/champs/" + this[0].replace(/[.,\-'"]/g,'').replace(" ", "_") + ".jpg' />");
         }
         // end bullshit will be removed when we own our own data ^_^
       });
