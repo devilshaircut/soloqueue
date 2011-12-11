@@ -1,7 +1,8 @@
 class ApiController < ApplicationController
   
   def fetch_data
-    item_names = fetch_names( params[:input_name] )
+    input = params[:input_name].gsub("B F", "BF").gsub(" ", "_")
+    item_names = fetch_names( input )
     
     data = []
     item_names.each do |item|
@@ -24,7 +25,7 @@ class ApiController < ApplicationController
   def fetch_counters(champion_name)
     cc = CounterpickCache.find_or_create_by_id(1)
     cc.updateCounterpickCache if cc.latestcounterpick.nil?
-    tmp = JSON.parse(cc.latestcounterpick)
+    tmp = JSON.parse( cc.latestcounterpick )
     entriesList = tmp["feed"]["entry"]
     
     counters = nil  

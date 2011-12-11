@@ -19,7 +19,7 @@ class WikiaCache < ActiveRecord::Base
     
     # Format each champ's name in a more code-friendly format.
     champPage = champPage.collect do |u|
-      u.gsub("B. F.", "BF").gsub(" ",'_').gsub(/[.,'"-]/,"")
+      u.gsub("B._F.", "BF").gsub("B. F.", "BF").gsub(" ",'_').gsub(/[.,'"-]/,"")
     end
     
     # Find or shove each champ into the DB.
@@ -45,11 +45,12 @@ class WikiaCache < ActiveRecord::Base
     
     # Format each item's name in a more code-friendly format.
     itemPage = itemPage.collect do |u|
-      u.gsub(" ",'_')
+      u.gsub("B._F.", "BF").gsub("B. F.", "BF").gsub(" ",'_').gsub(/[.,'"-]/,"")
     end
 
     # Find or shove each champ into the DB.
     itemPage.each do |s|
+      puts s
       WikiaCache.find_or_create_by_wikianame(:wikianame => s)
     end
     

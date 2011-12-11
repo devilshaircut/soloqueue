@@ -4,6 +4,7 @@ task :update_wikia_table => :environment do
   WikiaCache.seedChampList
   WikiaCache.seedItemList
   WikiaCache.updateLatestWikia
+  CounterpickCache.updateCounterpickCache
 end
 
 
