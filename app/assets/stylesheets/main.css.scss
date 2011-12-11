@@ -63,7 +63,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
       iframe {
         width: 135px !important;
         position: absolute;
-        margin-left: -235px;
+        margin-left: -245px;
         margin-top: 0px;
       }
     }
@@ -91,6 +91,7 @@ input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {
   #list-holder {
     width: 185px !important;
     padding: 10px;
+    padding-left: 19px;
     padding-top: 0px;
     overflow-y: auto;
     overflow-x: hidden;
