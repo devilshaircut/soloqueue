@@ -15,10 +15,6 @@ task :update_caches => :environment do
   
 end
 
-desc "Call the method that swaps image URLs after a fresh scrape so that we are pulling images from our own data source."
-task :update_cache_images => :environment do
-  WikiaCache.updateCacheImages
-end
 
 
 

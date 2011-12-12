@@ -38,7 +38,10 @@ function get_data (search) {
     $("#current-search-header").html(search);
   
     $("#search").addClass('loading');
-    query = $.getJSON("/api/"+search.replace(/[.,\-'"]/g,'')+".json", function (data) {
+    
+    var api_url = "/api/"+search.replace(/[.,\-'"]/g,'')+".json";
+    query = $.getJSON(api_url, function (data) {
+      _gaq.push(['_trackPageview', api_url]); // google analytics track api pageview
       $("#search").removeClass('loading');
       $('#welcome').hide();
       $('#search-data').fadeIn(100);
