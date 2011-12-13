@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Soloqueue</title>
+    <title>Soloqueue - A League of Legends Database</title>
     <%= stylesheet_link_tag    "application" %>
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic|Amaranth:400,700italic,400italic,700' rel='stylesheet' type='text/css' />
     <%= javascript_include_tag "application" %>
@@ -20,23 +20,32 @@
     }(document, 'script', 'facebook-jssdk'));</script>
     <!-- End Facebook Shit -->
     
-    <section id="left-section">
-      <header id="soloqueue">
-        <aside>
-          <div class="fb-like" data-href="http://www.facebook.com/pages/Soloqueue/322551847772624" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="verdana"></div>
-          <a href="https://twitter.com/Soloqueue" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @Soloqueue</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        </aside>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-        </nav>
-        <h1><a href="/">Soloqueue</a></h1>
-      </header>
-      <%= render 'champ_item_list' if request.env['PATH_INFO'] == "/" %>
-    </section>
+    <aside id="social">
+      <div class="fb-like" data-href="http://www.facebook.com/pages/Soloqueue/322551847772624" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false" data-font="verdana"></div>
+      <a href="https://twitter.com/Soloqueue" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @Soloqueue</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </aside>
+  
+    <header <%= "class='index'".html_safe if request.env['PATH_INFO'] == "/" %>>
+      <nav>
+        <a href="/">Home</a> | <a href="/about">About</a>
+      </nav>
+      
+      <form id="main-search-form" onSubmit="return false;" <%= "class='not-index'".html_safe if request.env['PATH_INFO'] != "/" %>>
+        <input type="text" id="search" autocomplete="off" placeholder="Type a Champion or Item Name Here...">
+        <ul id="auto-complete"></ul>
+      </form>
+      
+      <h1>Soloqueue</h1>
+      
+      <% if request.env['PATH_INFO'] == "/" %>
+        <p>
+          Solo Queue is a fast, easy way to get data on champs and items in League of Legends. Put that 30 seconds during ranked champion selection to good use! Just start typing in the search bar to get instant results like counterpicks, champ abilities, and item stats.
+        </p>
+      <% end %>
+    </header>
     
-    <section id="right-section" <%= "class='single_column'".html_safe if request.env['PATH_INFO'] != "/" %>>
+    <section id="main-section">
       <%= yield %>
     </section>
     
@@ -53,16 +62,5 @@
       })();
     </script>
     <!-- End GA Shit -->
-    
-    <!-- User Voice Shit -->
-    <script type="text/javascript">
-      var uvOptions = {};
-      (function() {
-        var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
-        uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/KPxNPe6gXFZNgxMHfgShaQ.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
-      })();
-    </script>
-    <!-- End User Voice Shit-->
   </body>
 </html>
