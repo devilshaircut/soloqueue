@@ -186,7 +186,7 @@ header {
     
     #counter-picks {
 			width: 100%;
-      b {  }
+      b { i { font-size: 12px; font-weight: normal; } }
       ol {
         padding-bottom: 20px;
         border-bottom: solid 2px #444;
@@ -310,7 +310,7 @@ header {
                   padding: 10px;
                   font-size: 14px; 
                   font-weight: bold; 
-                  border: dotted 1px #ababab;
+                  border: solid 1px #444;
                   border-right: none;
                   border-top: none;
                   
@@ -325,7 +325,7 @@ header {
               &.ability {
                 td {
                   padding: 10px;
-                  border: dotted 1px #ababab;
+                  border: solid 1px #444;
                   border-right: none;
                   border-top: none;
                   
