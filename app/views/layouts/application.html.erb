@@ -28,7 +28,10 @@
   
     <header <%= "class='index'".html_safe if request.env['PATH_INFO'] == "/" %>>
       <nav>
-        <a href="/">Home</a> | <a href="/about">About</a> | <a href="irc://irc.quakenet.org/soloqueue">#soloqueue on irc.quakenet.org</a>
+        <a href="/">Home</a> | 
+        <a href="/damage-calculator">Damage Calc.</a> |
+        <a href="/about">About</a> | 
+        <a href="irc://irc.quakenet.org/soloqueue">#soloqueue on irc.quakenet.org</a>
       </nav>
       
       <form id="main-search-form" onSubmit="return false;" <%= "class='not-index'".html_safe if request.env['PATH_INFO'] != "/" %>>
