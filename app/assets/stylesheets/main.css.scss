@@ -436,3 +436,68 @@ ul#damageCalc {
     }
   }  
 }
+
+#masteries {
+
+	display: block;
+	float: left;
+	width: 850px;
+	
+	#masteries-offensive,
+	#masteries-defensive,
+	#masteries-utility {
+	
+		display: block;
+		float: left;
+		width: 252px;
+		height: 503px;
+		padding: 18px 0 0 18px;
+		margin: 0 20px 40px 0;
+		background: transparent url("/assets/masteries/masteries-offensive.jpg") no-repeat 0 0;
+		
+		.masteries-1,
+		.masteries-2,
+		.masteries-3,
+		.masteries-4,
+		.masteries-5,
+		.masteries-6 {
+		
+			display: block;
+			float: left;
+			width: 270px;
+			height: 49px;
+			margin: 0 0 36px 0;
+			
+			.mastery,
+			.mastery-blank {
+				display: block;
+				float: left;
+				width: 49px;
+				height: 49px;
+				margin: 0 12px 0 0;
+				background: transparent url("/assets/masteries/mastery.png") no-repeat 0 0;
+			}
+			.mastery-blank { background: none; }
+			
+		}
+		
+	}
+	
+	#masteries-offensive {
+	}
+	#masteries-defensive {
+		background: transparent url("/assets/masteries/masteries-defensive.jpg") no-repeat 0 0;
+	}
+	#masteries-utility {
+		margin: 0 0 40px 0;
+		background: transparent url("/assets/masteries/masteries-utility.jpg") no-repeat 0 0;
+	}
+	
+}
+
+
+
+
+
+
+
