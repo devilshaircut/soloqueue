@@ -499,6 +499,7 @@ ul#damageCalc {
 				}
 				.tooltip {
 					display: none;
+					visibility: hidden;
 					position: absolute;
 					width: 200px;
 					padding: 10px;
@@ -516,7 +517,10 @@ ul#damageCalc {
 				}
 			}
 			.mastery:hover {
-				.tooltip { display: block; }
+				.tooltip {
+					display: block;
+					visibility: visible;
+				}
 			}
 			.mastery-blank { background: none; }
 			

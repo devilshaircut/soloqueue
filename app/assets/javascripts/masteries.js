@@ -26,11 +26,11 @@ $(document).ready(function () {
 		var row3 = 0;
 		var row4 = 0;
 		var row5 = 0;
-		$("#" + element.parent().parent().attr("id") + " .masteries-1 .mastery").each(function() { row1 += parseInt($(this).text()); });
-		$("#" + element.parent().parent().attr("id") + " .masteries-2 .mastery").each(function() { row2 += parseInt($(this).text()); });
-		$("#" + element.parent().parent().attr("id") + " .masteries-3 .mastery").each(function() { row3 += parseInt($(this).text()); });
-		$("#" + element.parent().parent().attr("id") + " .masteries-4 .mastery").each(function() { row4 += parseInt($(this).text()); });
-		$("#" + element.parent().parent().attr("id") + " .masteries-5 .mastery").each(function() { row5 += parseInt($(this).text()); });
+		$("#" + element.parent().parent().attr("id") + " .masteries-1 .mastery .current").each(function() { row1 += parseInt($(this).text()); });
+		$("#" + element.parent().parent().attr("id") + " .masteries-2 .mastery .current").each(function() { row2 += parseInt($(this).text()); });
+		$("#" + element.parent().parent().attr("id") + " .masteries-3 .mastery .current").each(function() { row3 += parseInt($(this).text()); });
+		$("#" + element.parent().parent().attr("id") + " .masteries-4 .mastery .current").each(function() { row4 += parseInt($(this).text()); });
+		$("#" + element.parent().parent().attr("id") + " .masteries-5 .mastery .current").each(function() { row5 += parseInt($(this).text()); });
 		if (element.parent().attr("class") == "masteries-1") { return true; };
 		if (element.parent().attr("class") == "masteries-2") {			
 			if (row1 >= 4) { return true; }
@@ -62,12 +62,12 @@ $(document).ready(function () {
 		var row4 = 0;
 		var row5 = 0;
 		var row6 = 0;
-		$("#" + element.parent().parent().attr("id") + " .masteries-1 .mastery").each(function() { row1 += parseInt($(this).text()); });
-		$("#" + element.parent().parent().attr("id") + " .masteries-2 .mastery").each(function() { row2 += parseInt($(this).text()); });
-		$("#" + element.parent().parent().attr("id") + " .masteries-3 .mastery").each(function() { row3 += parseInt($(this).text()); });
-		$("#" + element.parent().parent().attr("id") + " .masteries-4 .mastery").each(function() { row4 += parseInt($(this).text()); });
-		$("#" + element.parent().parent().attr("id") + " .masteries-5 .mastery").each(function() { row5 += parseInt($(this).text()); });
-		$("#" + element.parent().parent().attr("id") + " .masteries-6 .mastery").each(function() { row6 += parseInt($(this).text()); });
+		$("#" + element.parent().parent().attr("id") + " .masteries-1 .mastery .current").each(function() { row1 += parseInt($(this).text()); });
+		$("#" + element.parent().parent().attr("id") + " .masteries-2 .mastery .current").each(function() { row2 += parseInt($(this).text()); });
+		$("#" + element.parent().parent().attr("id") + " .masteries-3 .mastery .current").each(function() { row3 += parseInt($(this).text()); });
+		$("#" + element.parent().parent().attr("id") + " .masteries-4 .mastery .current").each(function() { row4 += parseInt($(this).text()); });
+		$("#" + element.parent().parent().attr("id") + " .masteries-5 .mastery .current").each(function() { row5 += parseInt($(this).text()); });
+		$("#" + element.parent().parent().attr("id") + " .masteries-6 .mastery .current").each(function() { row6 += parseInt($(this).text()); });
 		if (element.parent().attr("class") == "masteries-1") {			
 			if (row2 + row3 + row4 + row5 + row6 == 0 || row1 > 4) { return true; }
 			else { return false; };
