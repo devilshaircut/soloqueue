@@ -34,12 +34,12 @@
         <a href="irc://irc.quakenet.org/soloqueue">#soloqueue on irc.quakenet.org</a>
       </nav>
       
-      <form id="main-search-form" onSubmit="return false;" <%= "class='not-index'".html_safe if request.env['PATH_INFO'] != "/" %>>
+      <form id="main-search-form" onSubmit="return false;" <%= "class='not-index'".html_safe if request.env['PATH_INFO'] != "/" && !request.env['PATH_INFO'].include?("/s") %>>
         <input type="text" id="search" autocomplete="off" placeholder="Type a Champion or Item Name Here...">
         <ul id="auto-complete"></ul>
       </form>
       
-      <h1>Soloqueue</h1>
+      <h1><a href="/">Soloqueue</a></h1>
       
       <% if request.env['PATH_INFO'] == "/" %>
         <p>

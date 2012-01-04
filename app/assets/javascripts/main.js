@@ -1,5 +1,5 @@
 var first_character = null;
-function search (search_input) {
+function search (search_input, is_url_search) {
   if (search_input.length == 0) {
     $("#auto-complete").html('').hide();
     $('header').animate({
@@ -16,17 +16,24 @@ function search (search_input) {
     first_character = search_input.charAt(0);
   
     for (var i = 0; i < champions_and_items.length; i++) {
-      auto_complete.show();
+      if (!is_url_search) {
+        auto_complete.show();
       
-      if (champions_and_items[i].replace(/[.,\-'"]/g,'').toLowerCase().indexOf(search_input.replace(/[.,\-'"]/g,'').toLowerCase()) < 0) {
-        auto_complete.remove("#" + i);
+        if (champions_and_items[i].replace(/[.,\-'"]/g,'').toLowerCase().indexOf(search_input.replace(/[.,\-'"]/g,'').toLowerCase()) < 0) {
+          auto_complete.remove("#" + i);
+        }
+        else {
+          auto_complete.append("<li id='" + i + "'>" + champions_and_items[i] + "</li>");
+        }
+
+        window.location.hash = '#'+search_input;
       }
       else {
-        auto_complete.append("<li id='" + i + "'>" + champions_and_items[i] + "</li>");
+        $('#search').val(search_input.replace(/%20/g," ").replace(/[+]/g," "));
       }
-
+      
       if (i+1 == champions_and_items.length && search_input.length >= 2) {
-        get_data(search_input);
+        get_data(search_input.replace(/[+]/g," "));
       }
     }
   }
@@ -71,6 +78,7 @@ function get_data (search) {
           $.each(data.data, function () {
             var newTemplate = $('.original-template').clone().removeClass('original-template');
 
+            newTemplate.find("h2").parent().attr('href', '#' + this[0].replace(/_/g," "));
             newTemplate.find("h2").html(this[0].replace(/_/g," "));
 
             var countersTemplate = newTemplate.find("#counter-picks ol");
@@ -120,7 +128,16 @@ function get_data (search) {
   }
 }
 
+function url_search () {
+  search(window.location.hash.substr(1), true);
+}
+
 $(document).ready(function () {
+  $('html').delegate('.url-search-link', 'click', function () {
+    window.location.hash = '#'+$(this).find('h2').text();
+    url_search();
+  });
+  
   $(document).click(function(event) {
     if (event.target.id != "search") $('#auto-complete').html("").hide();
   });
@@ -134,16 +151,17 @@ $(document).ready(function () {
     clearTimeout(timer);
     var search_input = $(this).val();
     timer = setTimeout(function () {
-      search(search_input);
+      search(search_input, false);
     }, 500);
   });
   
   $("#search").focus(function () {
-    if ($(this).val().length >= 2) search($(this).val());
+    if ($(this).val().length >= 2) search($(this).val(), false);
   });
   
   $("#auto-complete").delegate("li", "click", function () {
     var clicked_li = $(this);
+    window.location.hash = clicked_li.html();
     search_cache = [];
     $("#search").val(clicked_li.html());
     get_data(clicked_li.html());

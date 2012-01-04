@@ -121,14 +121,14 @@ header {
   
   h1 {
     position: absolute;
-    width: 800px;
+    width: 300px;
     height: 46px;
     padding-top: 35px;
     margin-bottom: 25px;
     font-size: 38px;
     color: #EFEFEF;
     text-align: left;
-    z-index: -10;
+    z-index: 1000;
   }
   
   p {
