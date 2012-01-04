@@ -1,29 +1,7 @@
-var masteriesCalc = {
-
-	masteries: {
-		summoners_wrath: {
-			name: "Summoner's Wrath",
-			min: 0,
-			max: 1
-		},
-		brute_force: {
-			name: "Brute Force",
-			min: 0,
-			max: 3
-		}
-	}
-
-};
-
-
-
 $(document).ready(function () {
 
 	// Add a point to a mastery via left click.
 	$(".mastery").click(function() {
-		//console.log($(this).find(".value .current").text());
-		// console.log(prerequisite($(this)));
-		// console.log( "#" + $(this).parent().parent().attr("id") );
 		if (prerequisiteUp($(this)) == true && parseInt($(this).find(".value .current").text()) < parseInt($(this).find(".value .maximum").text()) && parseInt($("#remaining").text()) > 0) {
 			$(this).find(".value .current").html(parseInt($(this).find(".value .current").text()) + 1);
 			$("#remaining").html(parseInt($("#remaining").text()) - 1);
@@ -41,6 +19,7 @@ $(document).ready(function () {
 		};
 	});
 	
+	// Checks to see if a point may be added according to Riot's point allotment rules.
 	function prerequisiteUp(element) {
 		var row1 = 0;
 		var row2 = 0;
@@ -75,6 +54,7 @@ $(document).ready(function () {
 		};
 	};
 	
+	// Checks to see if a point may be subtracted according to Riot's point allotment rules.
 	function prerequisiteDown(element) {
 		var row1 = 0;
 		var row2 = 0;

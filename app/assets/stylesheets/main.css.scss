@@ -497,8 +497,45 @@ ul#damageCalc {
 					font-size: 10px;
 					background: #000000;
 				}
+				.tooltip {
+					display: none;
+					position: absolute;
+					width: 200px;
+					padding: 10px;
+					margin: 20px 0 0 20px;
+					line-height: 15px;
+					background: #000000;
+					h3, p {
+						margin: 0 0 10px 0;
+					}
+					ul {
+						margin: 0 0 0 20px;
+						width: 180px;
+					}
+				}
+			}
+			.mastery:hover {
+				.tooltip { display: block; }
 			}
 			.mastery-blank { background: none; }
+			
+			#summoners-wrath		{ background: transparent url("/assets/masteries/summoners-wrath.png") no-repeat center center; }
+			#brute-force				{ background: transparent url("/assets/masteries/brute-force.png") no-repeat center center; }
+			#mental-force				{ background: transparent url("/assets/masteries/mental-force.png") no-repeat center center; }
+			#butcher						{ background: transparent url("/assets/masteries/butcher.png") no-repeat center center; }
+			#alacrity						{ background: transparent url("/assets/masteries/alacrity.png") no-repeat center center; }
+			#sorcery						{ background: transparent url("/assets/masteries/sorcery.png") no-repeat center center; }
+			#demolitionist			{ background: transparent url("/assets/masteries/demolitionist.png") no-repeat center center; }
+			#deadliness					{ background: transparent url("/assets/masteries/deadliness.png") no-repeat center center; }
+			#weapon-expertise		{ background: transparent url("/assets/masteries/weapon-expertise.png") no-repeat center center; }
+			#arcane-knowledge		{ background: transparent url("/assets/masteries/arcane-knowledge.png") no-repeat center center; }
+			#havoc							{ background: transparent url("/assets/masteries/havoc.png") no-repeat center center; }
+			#lethality					{ background: transparent url("/assets/masteries/lethality.png") no-repeat center center; }			
+			#vampirism					{ background: transparent url("/assets/masteries/vampirism.png") no-repeat center center; }
+			#blast							{ background: transparent url("/assets/masteries/blast.png") no-repeat center center; }
+			#sunder							{ background: transparent url("/assets/masteries/sunder.png") no-repeat center center; }
+			#archmage						{ background: transparent url("/assets/masteries/archmage.png") no-repeat center center; }
+			#executioner				{ background: transparent url("/assets/masteries/executioner.png") no-repeat center center; }
 			
 		}
 		
