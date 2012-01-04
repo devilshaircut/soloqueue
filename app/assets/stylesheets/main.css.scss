@@ -475,7 +475,15 @@ ul#damageCalc {
 				width: 49px;
 				height: 49px;
 				margin: 0 12px 0 0;
-				background: transparent url("/assets/masteries/mastery.png") no-repeat 0 0;
+				background: transparent url("/assets/masteries/mastery.png") no-repeat center center;
+				.value {
+					display: block;
+					float: left;
+					padding: 2px 5px 3px 5px;
+					line-height: 1em;
+					font-size: 10px;
+					background: #000000;
+				}
 			}
 			.mastery-blank { background: none; }
 			
