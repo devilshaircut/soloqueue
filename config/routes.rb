@@ -7,5 +7,4 @@ Soloqueue::Application.routes.draw do
   get "masteries" => "home#masteries"
     
   get "/api/:input_name.json" => "api#fetch_data"
-  
 end
