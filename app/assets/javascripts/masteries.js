@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 	// Add a point to a mastery via left click.
 	$(".mastery").click(function() {
-		if (prerequisiteUp($(this)) == true && parseInt($(this).find(".value .current").text()) < parseInt($(this).find(".value .maximum").text()) && parseInt($("#remaining").text()) > 0) {
+		if (requiredSkillUp($(this)) == true && prerequisiteUp($(this)) == true && parseInt($(this).find(".value .current").text()) < parseInt($(this).find(".value .maximum").text()) && parseInt($("#remaining").text()) > 0) {
 			$(this).find(".value .current").html(parseInt($(this).find(".value .current").text()) + 1);
 			$("#remaining").html(parseInt($("#remaining").text()) - 1);
 			treeSum();
@@ -11,13 +11,36 @@ $(document).ready(function () {
 	
 	// Remove a point from a mastery via right click.
 	$(".mastery").rightClick(function() {
-		console.log($(this).find(".value .current").text());
-		if (prerequisiteDown($(this)) == true && parseInt($(this).find(".value .current").text()) <= parseInt($(this).find(".value .maximum").text()) && parseInt($(this).find(".value .current").text()) > 0 && parseInt($("#remaining").text()) < 30) {
+		if (requiredSkillDown($(this)) == true && prerequisiteDown($(this)) == true && parseInt($(this).find(".value .current").text()) <= parseInt($(this).find(".value .maximum").text()) && parseInt($(this).find(".value .current").text()) > 0 && parseInt($("#remaining").text()) < 30) {
 			$(this).find(".value .current").html(parseInt($(this).find(".value .current").text()) - 1);
 			$("#remaining").html(parseInt($("#remaining").text()) + 1);
 			treeSum();
 		};
 	});
+
+	// Checks skill-specific requirements to add a point.
+	function requiredSkillUp(element) {
+		if (element.attr("id") == "lethality" && parseInt($("#deadliness .current").text()) != parseInt($("#deadliness .maximum").text())) { return false; }
+		else if (element.attr("id") == "weapon-expertise" && parseInt($("#alacrity .current").text()) != parseInt($("#alacrity .maximum").text())) { return false; }
+		else if (element.attr("id") == "arcane-knowledge" && parseInt($("#sorcery .current").text()) != parseInt($("#sorcery .maximum").text())) { return false; }
+		else if (element.attr("id") == "veterans-scars" && parseInt($("#durability .current").text()) != parseInt($("#durability .maximum").text())) { return false; }
+		else if (element.attr("id") == "bladed-armor" && parseInt($("#tough-skin .current").text()) != parseInt($("#tough-skin .maximum").text())) { return false; }
+		else if (element.attr("id") == "meditation" && parseInt($("#expanded-mind .current").text()) != parseInt($("#expanded-mind .maximum").text())) { return false; }
+		else if (element.attr("id") == "wealth" && parseInt($("#deadliness .greed").text()) != parseInt($("#greed .maximum").text())) { return false; }
+		else { return true; };
+	};
+	
+	// Checks skill-specific requirements to remove a point.
+	function requiredSkillDown(element) {
+		if (element.attr("id") == "deadliness" && parseInt($("#lethality .current").text()) >= 1) { return false; }
+		else if (element.attr("id") == "alacrity" && parseInt($("#weapon-expertise .current").text()) >= 1) { return false; }
+		else if (element.attr("id") == "sorcery" && parseInt($("#arcane-knowledge .current").text()) >= 1) { return false; }
+		else if (element.attr("id") == "durability" && parseInt($("#veterans-scars .current").text()) >= 1) { return false; }
+		else if (element.attr("id") == "tough-skin" && parseInt($("#bladed-armor .current").text()) >= 1) { return false; }
+		else if (element.attr("id") == "expanded-mind" && parseInt($("#meditation .current").text()) >= 1) { return false; }
+		else if (element.attr("id") == "greed" && parseInt($("#wealth .current").text()) >= 1) { return false; }
+		else { return true; };
+	};
 	
 	// Checks to see if a point may be added according to Riot's point allotment rules.
 	function prerequisiteUp(element) {
