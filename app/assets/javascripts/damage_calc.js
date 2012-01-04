@@ -28,6 +28,8 @@ var damageCalc = {
 
 };
 
+
+
 $(document).ready(function () {
 
 	$("input[type='submit']").click(function() {
@@ -49,7 +51,6 @@ $(document).ready(function () {
 			$('#damageResult').replaceWith("<div id='damageResult'>" + damageCalc.calculateDamage(damageValue, damageStat, damageScaling, resist, resistReduxPercent, resistReduxFlat, resistPenFlat, resistPenPercent) + "</div>");
 		}
 	});
-
 
 });
 
