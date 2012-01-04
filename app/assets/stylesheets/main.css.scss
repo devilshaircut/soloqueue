@@ -1,3 +1,6 @@
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+
 aside, header, footer, article, section, nav { display: block; }
 
 *:focus { outline: none !important; }
@@ -437,6 +440,14 @@ ul#damageCalc {
   }  
 }
 
+@mixin user-select($select) {
+	-moz-user-select: -moz-#{$select};
+	-khtml-user-select: $select;
+	-webkit-user-select: $select;
+	-o-user-select: $select;
+	user-select: $select;
+}
+
 #masteries {
 
 	display: block;
@@ -453,6 +464,7 @@ ul#damageCalc {
 		height: 503px;
 		padding: 18px 0 0 18px;
 		margin: 0 20px 40px 0;
+		@include user-select(none);
 		background: transparent url("/assets/masteries/masteries-offensive.jpg") no-repeat 0 0;
 		
 		.masteries-1,
@@ -475,6 +487,7 @@ ul#damageCalc {
 				width: 49px;
 				height: 49px;
 				margin: 0 12px 0 0;
+				cursor: pointer;
 				background: transparent url("/assets/masteries/mastery.png") no-repeat center center;
 				.value {
 					display: block;
