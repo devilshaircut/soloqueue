@@ -497,9 +497,83 @@ ul#damageCalc {
 					font-size: 10px;
 					background: #000000;
 				}
+				.tooltip {
+					display: none;
+					position: absolute;
+					width: 200px;
+					padding: 10px;
+					margin: 20px 0 0 20px;
+					line-height: 15px;
+					background: #000000;
+					h3, p {
+						margin: 0 0 10px 0;
+					}
+					ul {
+						margin: 0 0 0 20px;
+						width: 180px;
+					}
+				}
+			}
+			.mastery:hover {
+				.tooltip { display: block; }
 			}
 			.mastery-blank { background: none; }
 			
+			/* Images for offensive mastery tree. */
+			#summoners-wrath		{ background: transparent url("/assets/masteries/summoners-wrath.png") no-repeat center center; }
+			#brute-force				{ background: transparent url("/assets/masteries/brute-force.png") no-repeat center center; }
+			#mental-force				{ background: transparent url("/assets/masteries/mental-force.png") no-repeat center center; }
+			#butcher						{ background: transparent url("/assets/masteries/butcher.png") no-repeat center center; }
+			#alacrity						{ background: transparent url("/assets/masteries/alacrity.png") no-repeat center center; }
+			#sorcery						{ background: transparent url("/assets/masteries/sorcery.png") no-repeat center center; }
+			#demolitionist			{ background: transparent url("/assets/masteries/demolitionist.png") no-repeat center center; }
+			#deadliness					{ background: transparent url("/assets/masteries/deadliness.png") no-repeat center center; }
+			#weapon-expertise		{ background: transparent url("/assets/masteries/weapon-expertise.png") no-repeat center center; }
+			#arcane-knowledge		{ background: transparent url("/assets/masteries/arcane-knowledge.png") no-repeat center center; }
+			#havoc							{ background: transparent url("/assets/masteries/havoc.png") no-repeat center center; }
+			#lethality					{ background: transparent url("/assets/masteries/lethality.png") no-repeat center center; }			
+			#vampirism					{ background: transparent url("/assets/masteries/vampirism.png") no-repeat center center; }
+			#blast							{ background: transparent url("/assets/masteries/blast.png") no-repeat center center; }
+			#sunder							{ background: transparent url("/assets/masteries/sunder.png") no-repeat center center; }
+			#archmage						{ background: transparent url("/assets/masteries/archmage.png") no-repeat center center; }
+			#executioner				{ background: transparent url("/assets/masteries/executioner.png") no-repeat center center; }
+			
+			/* Images for defensive mastery tree. */
+			#summoners-resolve	{ background: transparent url("/assets/masteries/summoners-resolve.png") no-repeat center center; }
+			#resistance					{ background: transparent url("/assets/masteries/resistance.png") no-repeat center center; }
+			#hardiness					{ background: transparent url("/assets/masteries/hardiness.png") no-repeat center center; }
+			#tough-skin					{ background: transparent url("/assets/masteries/tough-skin.png") no-repeat center center; }
+			#durability					{ background: transparent url("/assets/masteries/durability.png") no-repeat center center; }
+			#vigor							{ background: transparent url("/assets/masteries/vigor.png") no-repeat center center; }
+			#indomitable				{ background: transparent url("/assets/masteries/indomitable.png") no-repeat center center; }
+			#veterans-scars			{ background: transparent url("/assets/masteries/veterans-scars.png") no-repeat center center; }
+			#evasion						{ background: transparent url("/assets/masteries/evasion.png") no-repeat center center; }
+			#bladed-armor				{ background: transparent url("/assets/masteries/bladed-armor.png") no-repeat center center; }
+			#siege-commander		{ background: transparent url("/assets/masteries/siege-commander.png") no-repeat center center; }
+			#initiator					{ background: transparent url("/assets/masteries/initiator.png") no-repeat center center; }
+			#enlightenment			{ background: transparent url("/assets/masteries/enlightenment.png") no-repeat center center; }
+			#honor-guard				{ background: transparent url("/assets/masteries/honor-guard.png") no-repeat center center; }
+			#mercenary					{ background: transparent url("/assets/masteries/mercenary.png") no-repeat center center; }
+			#juggernaut					{ background: transparent url("/assets/masteries/juggernaut.png") no-repeat center center; }
+			
+			/* Images for utility mastery tree. */
+			#summoners-insight	{ background: transparent url("/assets/masteries/summoners-insight.png") no-repeat center center; }
+			#good-hands					{ background: transparent url("/assets/masteries/good-hands.png") no-repeat center center; }
+			#expanded-mind			{ background: transparent url("/assets/masteries/expanded-mind.png") no-repeat center center; }
+			#improved-recall		{ background: transparent url("/assets/masteries/improved-recall.png") no-repeat center center; }
+			#swiftness					{ background: transparent url("/assets/masteries/swiftness.png") no-repeat center center; }
+			#meditation					{ background: transparent url("/assets/masteries/meditation.png") no-repeat center center; }
+			#scout							{ background: transparent url("/assets/masteries/scout.png") no-repeat center center; }
+			#greed							{ background: transparent url("/assets/masteries/greed.png") no-repeat center center; }
+			#transmutation			{ background: transparent url("/assets/masteries/transmutation.png") no-repeat center center; }
+			#runic-affinity			{ background: transparent url("/assets/masteries/runic-affinity.png") no-repeat center center; }
+			#wealth							{ background: transparent url("/assets/masteries/wealth.png") no-repeat center center; }
+			#awareness					{ background: transparent url("/assets/masteries/awareness.png") no-repeat center center; }
+			#sage								{ background: transparent url("/assets/masteries/sage.png") no-repeat center center; }
+			#strength-of-spirit	{ background: transparent url("/assets/masteries/strength-of-spirit.png") no-repeat center center; }
+			#intelligence				{ background: transparent url("/assets/masteries/intelligence.png") no-repeat center center; }
+			#mastermind					{ background: transparent url("/assets/masteries/mastermind.png") no-repeat center center; }
+
 		}
 		
 	}
