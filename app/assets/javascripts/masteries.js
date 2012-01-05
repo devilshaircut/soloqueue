@@ -29,7 +29,7 @@ $(document).ready(function () {
 			treeSum();
 		};
 		if (parseInt($(this).find(".value .current").text()) == 0) {
-			$(this).toggleClass("mastery-active");
+			$(this).removeClass("mastery-active");
 		};
 	});
 
