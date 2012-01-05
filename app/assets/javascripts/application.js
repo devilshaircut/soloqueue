@@ -1,6 +1,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require main
-//= require damage_calc
+//= require damageCalc
 //= require masteries
 //= require rightClick
