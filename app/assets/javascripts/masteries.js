@@ -4,6 +4,9 @@ $(document).ready(function () {
 		$(".mastery .current").html(0);
 		$(".spent").html(0);
 		$("#remaining").html(30);
+		$(".mastery").each(function() {
+			$(this).removeClass("mastery-active");
+		});
 	});
 
 	// Add a point to a mastery via left click.
