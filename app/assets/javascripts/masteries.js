@@ -4,6 +4,9 @@ $(document).ready(function () {
 		$(".mastery .current").html(0);
 		$(".spent").html(0);
 		$("#remaining").html(30);
+		$(".mastery").each(function() {
+			$(this).removeClass("mastery-active");
+		});
 	});
 
 	// Add a point to a mastery via left click.
@@ -26,7 +29,7 @@ $(document).ready(function () {
 			treeSum();
 		};
 		if (parseInt($(this).find(".value .current").text()) == 0) {
-			$(this).toggleClass("mastery-active");
+			$(this).removeClass("mastery-active");
 		};
 	});
 
@@ -38,7 +41,7 @@ $(document).ready(function () {
 		else if (element.attr("id") == "veterans-scars" && parseInt($("#durability .current").text()) != parseInt($("#durability .maximum").text())) { return false; }
 		else if (element.attr("id") == "bladed-armor" && parseInt($("#tough-skin .current").text()) != parseInt($("#tough-skin .maximum").text())) { return false; }
 		else if (element.attr("id") == "meditation" && parseInt($("#expanded-mind .current").text()) != parseInt($("#expanded-mind .maximum").text())) { return false; }
-		else if (element.attr("id") == "wealth" && parseInt($("#deadliness .greed").text()) != parseInt($("#greed .maximum").text())) { return false; }
+		else if (element.attr("id") == "wealth" && parseInt($("#greed .current").text()) != parseInt($("#greed .maximum").text())) { return false; }
 		else { return true; };
 	};
 	
