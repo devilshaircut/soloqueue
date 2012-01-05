@@ -448,11 +448,35 @@ ul#damageCalc {
 	user-select: $select;
 }
 
+#mastery-points {
+	display: block;
+	float: left;
+	width: 100%;
+	padding: 5px 0;
+	margin: 0 0 20px 0;
+	font-size: 24px;
+	line-height: 1em;
+	font-family: Georgia, serif;
+}
+
 #masteries {
 
 	display: block;
 	float: left;
 	width: 850px;
+	
+	#offense-points,
+	#defense-points,
+	#utility-points {
+		display: block;
+		float: left;
+		width: 234px;
+		padding: 5px 0;
+		font-size: 24px;
+		line-height: 1em;
+		text-align: center;
+		font-family: Georgia, serif;
+	}
 	
 	#masteries-offensive,
 	#masteries-defensive,
@@ -478,7 +502,7 @@ ul#damageCalc {
 			float: left;
 			width: 270px;
 			height: 49px;
-			margin: 0 0 36px 0;
+			margin: 0 0 24px 0;
 			
 			.mastery,
 			.mastery-blank {
@@ -521,10 +545,13 @@ ul#damageCalc {
 					z-index: 30;
 					width: 200px;
 					padding: 10px;
-					margin: 59px 0 0 59px;
+					margin: 40px 0 0 55px;
+					border: 1px solid #ffffff;
 					font-size: 10px;
 					line-height: 15px;
 					background: #000000;
+					@include box-shadow(5px 5px 5px #000000);
+					@include border-radius(2px);
 					h3, p {
 						margin: 0 0 10px 0;
 					}
