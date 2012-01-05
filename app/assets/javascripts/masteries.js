@@ -38,7 +38,7 @@ $(document).ready(function () {
 		else if (element.attr("id") == "veterans-scars" && parseInt($("#durability .current").text()) != parseInt($("#durability .maximum").text())) { return false; }
 		else if (element.attr("id") == "bladed-armor" && parseInt($("#tough-skin .current").text()) != parseInt($("#tough-skin .maximum").text())) { return false; }
 		else if (element.attr("id") == "meditation" && parseInt($("#expanded-mind .current").text()) != parseInt($("#expanded-mind .maximum").text())) { return false; }
-		else if (element.attr("id") == "wealth" && parseInt($("#deadliness .greed").text()) != parseInt($("#greed .maximum").text())) { return false; }
+		else if (element.attr("id") == "wealth" && parseInt($("#greed .current").text()) != parseInt($("#greed .maximum").text())) { return false; }
 		else { return true; };
 	};
 	
