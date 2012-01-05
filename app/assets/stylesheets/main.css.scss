@@ -489,7 +489,7 @@ ul#damageCalc {
 		padding: 18px 0 0 18px;
 		margin: 0 20px 40px 0;
 		@include user-select(none);
-		background: transparent url("/assets/masteries/masteries-offensive.jpg") no-repeat 0 0;
+		background: transparent url("/assets/masteries/masteries-offensive.png") no-repeat 0 0;
 		
 		.masteries-1,
 		.masteries-2,
@@ -646,11 +646,11 @@ ul#damageCalc {
 	#masteries-offensive {
 	}
 	#masteries-defensive {
-		background: transparent url("/assets/masteries/masteries-defensive.jpg") no-repeat 0 0;
+		background: transparent url("/assets/masteries/masteries-defensive.png") no-repeat 0 0;
 	}
 	#masteries-utility {
 		margin: 0 0 40px 0;
-		background: transparent url("/assets/masteries/masteries-utility.jpg") no-repeat 0 0;
+		background: transparent url("/assets/masteries/masteries-utility.png") no-repeat 0 0;
 	}
 	
 }
