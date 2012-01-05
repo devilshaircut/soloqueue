@@ -1,6 +1,6 @@
 <h3>Damage Calculator</h3>
 
-<p>Jason will put some instructions and info here on how to use the damage calc and its purpose.</p>
+<p>The Solo Queue damage calculator approximates damage dealt to a target, given information about your champ, the target, and the skill being used. You can use Solo Queue to look up the numerical data and simply plug it in here to simulate a combat exchange in game. A detailed explanation of the necessary data follows the tool.</p>
 
 <ul id="damageCalc">
 	<li>
@@ -8,7 +8,7 @@
 		<input id="damageValue" name="damageValue" type="text" />
 	</li>
 	<li>
-		<label for="damageStat">Your Skill's Damage Stat</label>
+		<label for="damageStat">Your Skill's Damage Stat Value</label>
 		<input id="damageStat" name="damageStat" type="text" />
 	</li>
 	<li>
@@ -43,4 +43,20 @@
     	&nbsp;
     </div>
 	</li>
+	
 </ul>
+
+<ul id="damageCalcExplanation">
+	<li>1 - <strong>Your Skill's Base Damage:</strong> This is the base amount of damage your skill does at it's present rank. For example, the base damage on Lux's skill, "Lucent Singularity", does 105 base damage at rank 2. <a href="http://www.soloqueue.com/#lux">Visit Lux's champion page.</a></li>
+	<li>2 - <strong>Your Skill's Damage Stat Value:</strong> This is the amount of Attack Damage (AD) or Ability Power (AP) your champion has. Different skills scale based on AD or AP so check to make sure you are using the right stat. Lucent Singularity, for example, uses AP. <a href="http://www.soloqueue.com/#lux">Visit Lux's champion page.</a></li>
+	<li>3 - <strong>Your Skill's Damage Scaling:</strong> Each skill uniquely scales with your damage stat. The number affects how much damage you receive per point of damage stat. Lucent Singularity, for example, scales at 0.6. <a href="http://www.soloqueue.com/#lux">Visit Lux's champion page.</a></li>
+	<li>4 - <strong>Your Target's Armor or Magic Resist:</strong> Enemies mitigate damage dealt to them with armor or magic resist. Attack damage is generally defrayed by armor and spell damage is typically defrayed by magic resist. Lux, for instance, has a base magic resistance of 30. <a href="http://www.soloqueue.com/#lux">Visit Lux's champion page.</a></li>
+	<li>5 - <strong>Your Percent Armor or Magic Resist Reduction:</strong> You can circumvent enemy resistances with <strong>percentage-based</strong> armor or magic resistance <strong>reduction</strong>. One example of this is Trundle's "Agony" skill (-25%). <a href="http://www.soloqueue.com/#trundle">Visit Trundle's champion page.</a></li>	
+	<li>6 - <strong>Your Flat Armor or Magic Resist Reduction:</strong> You can circumvent enemy resistances with <strong>flat</strong> armor or magic resistance <strong>reduction</strong>. One example of this is the "Abyssal Scepter" item (-20). <a href="http://www.soloqueue.com/#abyssal">Visit Abyssal Scepter's item page.</a></li>	
+	<li>7 - <strong>Your Flat Armor or Magic Resist Penetration:</strong> You can circumvent enemy resistances with <strong>flat</strong> armor or magic resistance <strong>penetration</strong>. One example of this is the "Haunting Guise" item (-20). <a href="http://www.soloqueue.com/#haunting">Visit Haunting Guise's item page.</a></li>
+	<li>8 - <strong>Your Percent Armor or Magic Resist Penetration:</strong> You can circumvent enemy resistances with <strong>percentage-based</strong> armor or magic resistance <strong>penetration</strong>. One example of this is the "Void Staff" item (-40%). <a href="http://www.soloqueue.com/#void">Visit Void Staff's item page.</a></li>
+</ul>
+
+
+
+

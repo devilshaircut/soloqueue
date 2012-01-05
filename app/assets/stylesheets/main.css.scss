@@ -376,9 +376,26 @@ header {
   }
 }
 
+ul#damageCalcExplanation {
+	display: block;
+	float: left;
+	width: 100%;
+	margin: 0 0 40px 0;
+	font-size: 12px;
+	line-height: 16px;
+	list-style-type: none;
+	li {
+		margin: 0 0 10px 0;
+	}
+	a { text-decoration: underline; }
+}
+
 ul#damageCalc {
 	display: block;
+	float: left;
+	width: 100%;
 	padding: 0;
+	margin: 0 0 20px 0;
 	font-size: 14px;
 	line-height: 20px;
 	font-family: "Myriad Pro", Helvetica, Arial, sans-serif;
