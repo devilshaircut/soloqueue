@@ -471,8 +471,9 @@ ul#damageCalc {
 	margin: 0 10px 0 0;
 	color: #ffffff;
 	text-decoration: none;
-	padding: 2px 11px 6px 11px;
+	padding: 4px 11px 7px 11px;
 	font-size: 12px;
+	line-height: 1em;
 	font-weight: bold;
 	cursor: pointer;
 	@include text-shadow(0 1px 0 #4b4b4b);
@@ -501,15 +502,13 @@ ul#damageCalc {
 		display: block;
 		float: left;
 		width: 100%;
-		padding: 5px 0;
+		padding: 10px 0 0;
 		margin: 0 0 20px 0;
-		font-size: 24px;
-		line-height: 1em;
+		font-size: 14px;
 		font-weight: bold;
 		#reset-points {
 			float: right;
 			margin: 0;
-			padding: 5px 15px;
 		}
 	}
 	
