@@ -7,6 +7,9 @@ $(document).ready(function () {
 			$("#remaining").html(parseInt($("#remaining").text()) - 1);
 			treeSum();
 		};
+		if (parseInt($(this).find(".value .current").text()) == 1) {
+			$(this).toggleClass("mastery-active");
+		};
 	});
 	
 	// Remove a point from a mastery via right click.
@@ -15,6 +18,9 @@ $(document).ready(function () {
 			$(this).find(".value .current").html(parseInt($(this).find(".value .current").text()) - 1);
 			$("#remaining").html(parseInt($("#remaining").text()) + 1);
 			treeSum();
+		};
+		if (parseInt($(this).find(".value .current").text()) == 0) {
+			$(this).toggleClass("mastery-active");
 		};
 	});
 
