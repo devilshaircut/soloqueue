@@ -1,4 +1,10 @@
 $(document).ready(function () {
+	
+	$("#reset-points").click(function() {
+		$(".mastery .current").html(0);
+		$(".spent").html(0);
+		$("#remaining").html(30);
+	});
 
 	// Add a point to a mastery via left click.
 	$(".mastery").click(function() {

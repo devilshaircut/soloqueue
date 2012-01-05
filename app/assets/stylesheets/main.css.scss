@@ -448,15 +448,30 @@ ul#damageCalc {
 	user-select: $select;
 }
 
-#mastery-points {
-	display: block;
+.button {
+	display: inline;
 	float: left;
-	width: 100%;
-	padding: 5px 0;
-	margin: 0 0 20px 0;
-	font-size: 24px;
-	line-height: 1em;
-	font-family: Georgia, serif;
+	margin: 0 10px 0 0;
+	color: #ffffff;
+	text-decoration: none;
+	padding: 2px 11px 6px 11px;
+	font-size: 12px;
+	font-weight: bold;
+	cursor: pointer;
+	@include text-shadow(0 1px 0 #4b4b4b);
+	@include border-radius(3px);
+	@include background-image(linear-gradient(#c2c2c2, #8a8a8a));
+	@include box-shadow(0 1px 0 #ebebeb inset, 0 1px 5px #151411);
+}
+
+.button:hover {
+	@include text-shadow(0 1px 0 #656565);
+	@include background-image(linear-gradient(#cecece, #a1a1a1));
+	@include box-shadow(0 1px 0 #efefef inset);
+}
+
+.button:active {
+	@include background-image(linear-gradient(#a1a1a1, #cecece));
 }
 
 #masteries {
@@ -464,6 +479,22 @@ ul#damageCalc {
 	display: block;
 	float: left;
 	width: 850px;
+	
+	#mastery-points {
+		display: block;
+		float: left;
+		width: 100%;
+		padding: 5px 0;
+		margin: 0 0 20px 0;
+		font-size: 24px;
+		line-height: 1em;
+		font-family: Georgia, serif;
+		font-weight: bold;
+		#reset-points {
+			float: right;
+			margin: 0;
+		}
+	}
 	
 	#offense-points,
 	#defense-points,
@@ -515,6 +546,7 @@ ul#damageCalc {
 				cursor: pointer;
 				background: #000000;
 				@include border-radius(2px);
+				@include box-shadow(2px 2px 3px #000000);
 				.icon {
 					display: block;
 					float: left;
@@ -582,6 +614,7 @@ ul#damageCalc {
 				height: 49px;
 				border: none;
 				background: none;
+				@include box-shadow(none);
 			}
 			
 			/* Images for offensive mastery tree. */
