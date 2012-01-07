@@ -616,12 +616,12 @@ ul#damageCalc {
 			}
 			.mastery:hover,
 			.mastery.mastery-active {
-				border-color: #ffffff;
+				border-color: #00ff1e;
 				.icon {
 					@include opacity(1);
 				}
 				.value {
-					border-color: #ffffff;
+					border-color: #00ff1e;
 				}
 			}
 			.mastery-blank {
