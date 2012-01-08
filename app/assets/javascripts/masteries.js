@@ -25,7 +25,6 @@ $(document).ready(function () {
 		if (parseInt($(this).find(".value .current").text()) == 1) {
 			$(this).toggleClass("mastery-active");
 		}
-		updateHash();
 		event.preventDefault();
 	});
 	
@@ -39,11 +38,12 @@ $(document).ready(function () {
 		if (parseInt($(this).find(".value .current").text()) == 0) {
 			$(this).removeClass("mastery-active");
 		}
-		updateHash();
 		event.preventDefault();
 	});
 	
 	processHash();
+
+  $(".mastery").click(updateHash).rightClick(updateHash);
 
 });
 
