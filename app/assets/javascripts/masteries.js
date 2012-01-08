@@ -26,6 +26,7 @@ $(document).ready(function () {
 			$(this).toggleClass("mastery-active");
 		}
 		updateHash();
+		event.preventDefault();
 	});
 	
 	// Remove a point from a mastery via right click.
@@ -39,6 +40,7 @@ $(document).ready(function () {
 			$(this).removeClass("mastery-active");
 		}
 		updateHash();
+		event.preventDefault();
 	});
 	
 	processHash();
@@ -175,18 +177,42 @@ function serializeValues(){
 		utilitySum += $(this).text();
 	});
 	
-  return ("m="+offensiveSum + "|" + defensiveSum + "|" + utilitySum);
+  return ("m="+encodeString(offensiveSum) + "|" + encodeString(defensiveSum) + "|" + encodeString(utilitySum) );
 }
 
+function encodeString(str){
+  var retval = '';
+  for( var i=0; i < str.length; i+=2 ){
+    if( typeof str[i] !== "undefined" && typeof str[i+1] !== "undefined" ){
+      retval += encodeTable[ parseInt(str[i]) ][ parseInt(str[i+1])];
+    }
+    else{
+      if(typeof str[i] !== "undefined") retval += str[i];
+    }
+  }
+  return retval;
+}
 
+function decodeString(str){
+  var retval = '';
+  for( var i=0; i < str.length; i++ ){
+    var dct = decodeTable[ str[i] ];
+    if(typeof dct === "undefined") retval += str[i];
+    else retval += dct;
+  }
+  return retval;
+}
+
+ 
 function updateHash(){
   var val = serializeValues();
+  location.hash = val;
   $("#hash-url").val( location );
 }
 
 function processHash(){
   var hash = location.hash.substr(1);
-  console.log( strToArray(hash) );
+
   var vals = strToArray(hash);
   if( typeof vals["m"] !== "undefined" ){
     deserializeValues(vals["m"]);
@@ -210,6 +236,9 @@ function deserializeValues(str){
   var utilitySum = '';
   
   var vals = str.split("|");
+  vals[0] = decodeString( vals[0] );
+  vals[1] = decodeString( vals[1] );
+  vals[2] = decodeString( vals[2] );
   
   $("#masteries-offensive .current").each(function(k, v) {
     var count = parseInt( vals[0][k] );
@@ -235,35 +264,20 @@ function deserializeValues(str){
   
 }
 
-var lookupTable = 
-[
-  [
-    ["A", "B", "C", "D"],
-    ["E", "F", "G", "H"],
-    ["I", "K", "K", "L"],
-    ["M", "N", "O", "P"]    
-  ],
-  [
-    ["Q","R","S","T"],
-    ["U","V","W","X"],
-    ["Y","Z","a","b"],
-    ["c","d","e","f"]
-  ],
-  [
-    ["g","h","i","j"],
-    ["k","l","m","n"],
-    ["o","p","q","r"],
-    ["s","t","u","v"]
-  ],
-  [
-    ["w","x","y","z"],
-    ["0","1","2","3"],
-    ["4","5","6","7"],
-    ["8","9","@","!"]
-  ]
+var encodeTable = [
+  ["A", "B", "C", "D", "E"],
+  ["F", "G", "H", "I", "J"],
+  ["K", "L", "M", "N", "O"],
+  ["P", "Q", "R", "S", "T"],
+  ["U", "V", "W", "X", "Y"]
 ];
 
-
+var decodeTable = {};
+for(var i = 0; i < encodeTable.length; i++){
+  for(var j = 0; j < encodeTable[i].length; j++ ){
+    decodeTable[ encodeTable[i][j] ] = ""+i+j;
+  }
+}
 
 
 
