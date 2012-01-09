@@ -122,23 +122,38 @@ function prerequisiteDown(element) {
 	$("#" + element.parent().parent().attr("id") + " .masteries-6 .mastery .current").each(function() { row6 += parseInt($(this).text()); });
 	
 	if (element.parent().attr("class") == "masteries-1") {			
-		if (row2 + row3 + row4 + row5 + row6 == 0 || row1 > 4) { return true; }
+		if (row2 + row3 + row4 + row5 + row6 == 0) { return true; }
+		else if (row1 > 4 && row3 + row4 + row5 + row6 == 0) { return true; }
+		else if (row1 + row2 > 8 && row4 + row5 + row6 == 0) { return true; }
+		else if (row1 + row2 + row3 > 12 && row5 + row6 == 0) { return true; }
+		else if (row1 + row2 + row3 + row4 > 16 && row6 == 0) { return true; }
+		else if (row1 + row2 + row3 + row4 + row5 > 20) { return true; }
 		else { return false; }
 	}
 	if (element.parent().attr("class") == "masteries-2") {			
-		if (row3 + row4 + row5 + row6 == 0 || row1 + row2 > 8) { return true; }
+		if (row3 + row4 + row5 + row6 == 0) { return true; }
+		else if (row1 + row2 > 8 && row4 + row5 + row6 == 0) { return true; }
+		else if (row1 + row2 + row3 > 12 && row5 + row6 == 0) { return true; }
+		else if (row1 + row2 + row3 + row4 > 16 && row6 == 0) { return true; }
+		else if (row1 + row2 + row3 + row4 + row5 > 20) { return true; }
 		else { return false; }
 	}
 	if (element.parent().attr("class") == "masteries-3") {			
-		if (row4 + row5 + row6 == 0 || row1 + row2 + row3 > 12) { return true; }
+		if (row4 + row5 + row6 == 0) { return true; }
+		else if (row1 + row2 + row3 > 12 && row5 + row6 == 0) { return true; }
+		else if (row1 + row2 + row3 + row4 > 16 && row6 == 0) { return true; }
+		else if (row1 + row2 + row3 + row4 + row5 > 20) { return true; }
 		else { return false; }
 	}
 	if (element.parent().attr("class") == "masteries-4") {			
-		if (row5 + row6 == 0 || row1 + row2 + row3 + row4 > 16) { return true; }
+		if (row5 + row6 == 0 ) { return true; }
+		else if (row1 + row2 + row3 + row4 > 16 && row6 == 0) { return true; }
+		else if (row1 + row2 + row3 + row4 + row5 > 20) { return true; }
 		else { return false; }
 	}
 	if (element.parent().attr("class") == "masteries-5") {			
-		if (row6 == 0 || row1 + row2 + row3 + row4 + row5 > 20) { return true; }
+		if (row6 == 0) { return true; }
+		else if (row1 + row2 + row3 + row4 + row5 > 20) { return true; }
 		else { return false; }
 	}
 	if (element.parent().attr("class") == "masteries-6") { return true; }
