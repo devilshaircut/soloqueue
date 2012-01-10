@@ -178,22 +178,7 @@ function treeSum() {
 }
 
 
-function serializeValues(){
-  var offensiveSum = '';
-  var defensiveSum = '';
-  var utilitySum = '';
-  $("#masteries-offensive .current").each(function() {
-		offensiveSum += $(this).text();
-	});
-	$("#masteries-defensive .current").each(function() {
-		defensiveSum += $(this).text();
-	});
-	$("#masteries-utility .current").each(function() {
-		utilitySum += $(this).text();
-	});
-	
-  return ("m="+encodeString(offensiveSum) + "|" + encodeString(defensiveSum) + "|" + encodeString(utilitySum) );
-}
+
 
 function encodeString(str){
   var retval = '';
@@ -233,6 +218,8 @@ function processHash(){
     deserializeValues(vals["m"]);
   }
   
+  $("#hash-url").val( location );
+  
 }
 
 function strToArray(url) {
@@ -243,6 +230,25 @@ function strToArray(url) {
     request[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
   }
   return request;
+}
+
+
+
+function serializeValues(){
+  var offensiveSum = '';
+  var defensiveSum = '';
+  var utilitySum = '';
+  $("#masteries-offensive .current").each(function() {
+		offensiveSum += $(this).text();
+	});
+	$("#masteries-defensive .current").each(function() {
+		defensiveSum += $(this).text();
+	});
+	$("#masteries-utility .current").each(function() {
+		utilitySum += $(this).text();
+	});
+	
+  return ("m="+encodeString(offensiveSum) + "|" + encodeString(defensiveSum) + "|" + encodeString(utilitySum) );
 }
 
 function deserializeValues(str){
