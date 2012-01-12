@@ -31,8 +31,9 @@
         <a href="/">Home</a> | 
         <a href="/masteries">Masteries Calc.</a> | 
         <a href="/damage-calculator">Damage Calc.</a> |
-        <a href="/about">About</a> | 
-        <a href="irc://irc.quakenet.org/soloqueue">#soloqueue on irc.quakenet.org</a>
+        <a href="http://blog.soloqueue.com/" target="_blank">Blog</a> |
+        <a href="/about">About</a> |
+        <a href="irc://irc.quakenet.org/soloqueue">#soloqueue on quakenet.org</a>
       </nav>
       
       <form id="main-search-form" onSubmit="return false;" <%= "class='not-index'".html_safe if request.env['PATH_INFO'] != "/" && !request.env['PATH_INFO'].include?("/s") %>>
@@ -52,7 +53,6 @@
     <section id="main-section">
       <%= yield %>
     </section>
-    
     
     <% if Rails.env.production? %>
     <!-- GA Shit -->
