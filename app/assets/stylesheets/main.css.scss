@@ -195,6 +195,7 @@ header {
     
     #counter-picks {
 			width: 100%;
+			@include legacy-pie-clearfix;
       b { i { font-size: 12px; font-weight: normal; } }
       ol {
         padding-bottom: 20px;
@@ -701,6 +702,40 @@ ul#damageCalc {
 		background: transparent url("/assets/masteries/masteries-utility.png") no-repeat 0 0;
 	}
 	
+}
+
+#counterpicks-forums,
+#counterpicks-community,
+#counterpicks-vote {
+	display: block;
+	float: left;
+	width: 200px;
+	ul {
+		margin: 0 0 0 1.3em;
+		list-style-type: decimal;
+		li {
+		}
+	}
+}
+
+#counterpicks-vote {
+	width: 400px;
+	ul {
+		margin: 0;
+		list-style-type: none;
+		li {
+			height: 22px;
+			select {
+				display: block;
+				float: left;
+				width: 195px;
+				margin: 0 10px 0 0;
+			}
+			select+select {
+				margin: 0;
+			}
+		}
+	}
 }
 
 
