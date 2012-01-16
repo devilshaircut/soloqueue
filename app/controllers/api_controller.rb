@@ -58,7 +58,8 @@ class ApiController < ApplicationController
        result2 = ActiveRecord::Base.connection.select_all( "select reason_id, count(*) as c from votes where champion_id=#{champ.id} and counterpick_id=#{c.id} group by reason_id order by c limit 3" )
        reasons = []
        result2.each do |r2|
-         reasons << Reason.find(r2["reason_id"]).title
+         reason = Reason.find_by_id( r2["reason_id"] )
+         reasons << reason.title if reason.present?
        end
        community << [c.name, reasons]
     end
