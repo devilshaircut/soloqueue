@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120115200244) do
+ActiveRecord::Schema.define(:version => 20120116210041) do
 
   create_table "champions", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(:version => 20120115200244) do
 
   create_table "counterpick_caches", :force => true do |t|
     t.text     "latestcounterpick"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reasons", :force => true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20120115200244) do
     t.integer  "champion_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "reason_id"
+    t.integer  "counterpick_id"
   end
 
   create_table "wikia_caches", :force => true do |t|

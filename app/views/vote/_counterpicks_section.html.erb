@@ -1,0 +1,66 @@
+<section id="counter-picks">
+
+	<div id="counterpicks-forums">
+		<h3>Derived from Forums</h3>
+		<ul>
+		</ul>
+	</div>
+	<!-- #counterpicks-forums -->
+	
+	<div id="counterpicks-community">
+		<h3>Community-Voted</h3>
+		<ul>
+		</ul>
+	</div>
+	<!-- #counterpicks-community -->
+	
+	<div id="counterpicks-login" class="logged-out">
+		<h3>Login to cast your vote!</h3>
+		<a href="#" class="button">Login</a>
+		<a href="#" class="button">Create an Account</a>
+	</div>
+	<!-- #counterpicks-vote -->
+	
+	<div id="counterpicks-vote" class="logged-out">
+		<h3>Vote on Counterpicks</h3>
+		<form class="counterpicks-vote">
+		  <input type="hidden" name="champ" class="vote-champ-name" value="">
+  		<ul>
+  			<li>
+  				<select name="vote[0][name]" class="counterpick-name">
+  					<option value="">Counterpick #1</option>
+  					<%= options_for_select( @all_champs ) %>
+  				</select>
+  				<select name="vote[0][reason]" class="counterpick-reason">
+  					<option value="">Reason</option>
+  					<%= options_for_select( @all_reasons ) %>
+  				</select>
+  			</li>
+  			<li>
+  				<select name="vote[1][name]" class="counterpick-name">
+  					<option value="">Counterpick #2</option>
+            <%= options_for_select( @all_champs ) %>
+  				</select>
+  				<select name="vote[1][reason]" class="counterpick-reason">
+  					<option value="">Reason</option>
+  					<%= options_for_select( @all_reasons ) %>
+  				</select>
+  			</li>
+  			<li>
+  				<select name="vote[2][name]" class="counterpick-name">
+  					<option value="">Counterpick #3</option>
+            <%= options_for_select( @all_champs ) %>
+  				</select>
+  				<select name="vote[2][reason]" class="counterpick-reason">
+  					<option value="">Reason</option>
+  					<%= options_for_select( @all_reasons ) %>
+  				</select>
+  			</li>
+  		</ul>
+  		<a href="#" class="button vote-save">Save</a>
+		</form>
+
+	</div>
+	<!-- #counterpicks-vote -->
+
+</section>

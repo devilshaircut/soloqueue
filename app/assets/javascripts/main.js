@@ -75,24 +75,64 @@ function get_data (search) {
         $('header').animate({
           marginTop: 20
         }, 300, function () { 
-          $.each(data.data, function () {
+          $.each(data.data, function (k,v) {
             var newTemplate = $('.original-template').clone().removeClass('original-template');
+            var tempParent = $("#counter-picks", newTemplate);
 
             newTemplate.find("h2").parent().attr('href', '#' + this[0].replace(/_/g," "));
             newTemplate.find("h2").html(this[0].replace(/_/g," "));
 
-            var countersTemplate = newTemplate.find("#counter-picks ol");
+            
             if (this[1].counters != null) {
+              
+              // Curated Counterpicks
+              var countersTemplate = newTemplate.find("#counterpicks-forums ul");
               var counter_picks_html = "";
-
-              $.each(this[1].counters, function () {
+              $.each(this[1].counters.curated, function () {
                 counter_picks_html += "<li>" + this.toString() + "</li>";
               });
-
               countersTemplate.html(counter_picks_html);
+              
+              
+              // Voted Counterpicks
+              var countersTemplate = newTemplate.find("#counterpicks-community ul");
+              var counter_picks_html = "";
+              $.each(this[1].counters.community, function () {
+                counter_picks_html += "<li>" + this[0] + ": " + this[1].toString() + "</li>";
+              });
+              countersTemplate.html(counter_picks_html);
+              
+              
+              // Voting Section
+              $("#counterpicks-vote .vote-champ-name", newTemplate).val( v[0] );
+              if( this[1].counters.votes.logged_in === "true" || this[1].counters.votes.logged_in === true){
+                tempParent.find(".logged-out").removeClass("logged-out").addClass("logged-in");
+                
+                var counterpick_rows = $("#counterpicks-vote ul li", newTemplate);
+                if( typeof this[1].counters.votes.values !== "undefined"){
+                  $.each(this[1].counters.votes.values, function(k,v){
+                    console.log(k,v);
+                    counterpick_rows.eq(k).find(".counterpick-name").val(v.counterpick_id);
+                    counterpick_rows.eq(k).find(".counterpick-reason").val(v.reason_id);
+                    
+                  });
+                }
+                
+                newTemplate.find(".vote-save").click(function(event){
+                  var data = $(this).parent().serializeArray();
+                  $.post('/vote.json', data, function(){
+                    console.log("success");
+                  });
+                  event.preventDefault();
+                  return false;
+                  
+                });
+                
+              }
+              
             }
             else {
-              countersTemplate.parent().remove();
+              tempParent.remove();
             }
 
             newTemplate.find("#general-data #data").html(this[1].wiki);
@@ -167,4 +207,9 @@ $(document).ready(function () {
     get_data(clicked_li.html());
     $("#auto-complete").html("").hide();
   });
+  
+  //$("#counter-picks select").chosen();
+  
+  
+  
 });

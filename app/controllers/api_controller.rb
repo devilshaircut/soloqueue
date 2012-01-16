@@ -33,17 +33,41 @@ class ApiController < ApplicationController
     cc.updateCounterpickCache if cc.latestcounterpick.nil?
     tmp = JSON.parse( cc.latestcounterpick )
     entriesList = tmp["feed"]["entry"]
+    champ = Champion.find_by_name( champion_name )
     
-    counters = nil  
-    
+    # curated counterpicks  
+    counters = {}  
+    curated = []
     entriesList.each do | entry |
       if entry["title"].downcase.strip == champion_name.downcase
-        counters = [
+        curated = [
           ( entry["_cokwr"].nil? ? "n/a" : entry["_cokwr"] ),
           ( entry["_cpzh4"].nil? ? "n/a" : entry["_cpzh4"] ),
           ( entry["_cre1l"].nil? ? "n/a" : entry["_cre1l"] )
         ]
       end
+    end
+    counters["curated"] = curated
+    
+    # community counterpicks
+    community = []
+    result = ActiveRecord::Base.connection.select_all( "select counterpick_id, count(*) as c from votes where champion_id=#{champ.id} group by counterpick_id order by c limit 3" )
+    result.each do |r|
+       c = Champion.find r["counterpick_id"]
+       result2 = ActiveRecord::Base.connection.select_all( "select reason_id, count(*) as c from votes where champion_id=#{champ.id} and counterpick_id=#{c.id} group by reason_id order by c limit 3" )
+       reasons = []
+       result2.each do |r2|
+         reasons << Reason.find(r2["reason_id"]).title
+       end
+       community << [c.name, reasons]
+    end
+    counters["community"] = community
+    
+    
+    # logged in voting form
+    counters["votes"] = {:logged_in => current_user.present?, :values=>nil }
+    if current_user.present?
+      counters["votes"]["values"] = current_user.votes.where( :champion_id=>champ.id ).select("counterpick_id, reason_id").all
     end
     
     return counters
