@@ -34,6 +34,7 @@ class ApiController < ApplicationController
     tmp = JSON.parse( cc.latestcounterpick )
     entriesList = tmp["feed"]["entry"]
     champ = Champion.find_by_name( champion_name )
+    return if champ.nil?
     
     # curated counterpicks  
     counters = {}  

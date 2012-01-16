@@ -40,7 +40,7 @@
         <a href="irc://irc.quakenet.org/soloqueue">#soloqueue on quakenet.org</a>
       </nav>
       
-      <form id="main-search-form" onSubmit="return false;" <%= "class='not-index'".html_safe if request.env['PATH_INFO'] != "/" && !request.env['PATH_INFO'].include?("/s") %>>
+      <form id="main-search-form" onSubmit="return false;" <%= "class='not-index'".html_safe unless controller_name == "home" and action_name == "index" %>>
         <input type="text" id="search" autocomplete="off" placeholder="Type a Champion or Item Name Here...">
         <ul id="auto-complete"></ul>
       </form>
