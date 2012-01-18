@@ -426,7 +426,7 @@ ul#damageCalc {
     	width: 100%;
     }
     
-    input {
+    input[type=text] {
   	  display: block;
     	float: left;
     	width: 300px;
@@ -439,26 +439,9 @@ ul#damageCalc {
     }
     
     input[type=submit] {
-      padding: 4px 0 2px;
       width: 180px;
+      border: none;
       font-size: 16px;
-      background-image: -webkit-gradient(linear,left top,left bottom,from(#f5f5f5),to(#f1f1f1));
-      background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
-      background-color: whiteSmoke;
-      background-image: linear-gradient(top,#f5f5f5,#f1f1f1);
-      background-image: -o-linear-gradient(top,#f5f5f5,#f1f1f1);
-      border: 1px solid #CECFD1;
-      border-radius: 3px;
-      -webkit-border-radius: 3px;
-      -webkit-user-select: none;
-      -moz-border-radius: 3px;
-      line-height: 27px;
-      cursor: pointer;
-  
-      &:hover {
-        color: #464646;
-        border-color: #464646;
-      }
     }
   
     #damageResult {
@@ -477,7 +460,7 @@ ul#damageCalc {
 	user-select: $select;
 }
 
-input[type="submit"] {
+input[type="submit"], .button {
 	display: inline;
 	float: left;
 	margin: 0 10px 0 0;
@@ -494,13 +477,13 @@ input[type="submit"] {
 	@include box-shadow(0 1px 0 #ebebeb inset, 0 1px 5px #151411);
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover, .button:hover {
 	@include text-shadow(0 1px 0 #656565);
 	@include background-image(linear-gradient(#cecece, #a1a1a1));
 	@include box-shadow(0 1px 0 #efefef inset);
 }
 
-input[type="submit"]:active {
+input[type="submit"]:active, .button:active {
 	@include background-image(linear-gradient(#a1a1a1, #cecece));
 }
 
