@@ -117,18 +117,36 @@ function get_data (search) {
                 var counterpick_rows = $("#counterpicks-vote ul li", newTemplate);
                 if( typeof this[1].counters.votes.values !== "undefined"){
                   $.each(this[1].counters.votes.values, function(k,v){
-                    console.log(k,v);
                     counterpick_rows.eq(k).find(".counterpick-name").val(v.counterpick_id);
                     counterpick_rows.eq(k).find(".counterpick-reason").val(v.reason_id);
-                    
                   });
                 }
                 
                 newTemplate.find(".vote-save").click(function(event){
                   var data = $(this).parent().serializeArray();
-                  $.post('/vote.json', data, function(){
-                    console.log("success");
-                  });
+                  
+                  var spinner = new Spinner({
+                    lines: 8, // The number of lines to draw
+                    length: 5, // The length of each line
+                    width: 3, // The line thickness
+                    radius: 2, // The radius of the inner circle
+                    color: '#fff', // #rgb or #rrggbb
+                    speed: 0.8, // Rounds per second
+                    trail: 39, // Afterglow percentage
+                    shadow: false // Whether to render a shadow
+                  }).spin(newTemplate.find(".spinner").show()[0]);
+                  
+                  $.ajax({
+                    type: 'POST',
+                    url: '/vote.json',
+                    data: data,
+                    success: function(data){
+                      newTemplate.find(".spinner").hide();
+                    }, 
+                    error: function(data){
+                      newTemplate.find(".spinner").hide();
+                    }
+                  }); 
                   event.preventDefault();
                   return false;
                   

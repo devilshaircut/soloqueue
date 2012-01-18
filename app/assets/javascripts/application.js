@@ -5,4 +5,5 @@
 //= require damageCalc
 //= require masteries
 //= require rightClick
-
+//= require spin.min
+//= require notify

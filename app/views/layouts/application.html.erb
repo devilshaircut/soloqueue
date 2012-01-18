@@ -7,9 +7,28 @@
     <%= javascript_include_tag "application" %>
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <%= csrf_meta_tags %>
+    
+    <script>
+    $(document).ready(function(){
+      $(".notification, .alert").notify();
+    });
+    
+    </script>
   </head>
   <body>
+    <% if notice.present? %>
+    <div class="notification">
+        <p><%=notice%> <a class="close" href="javascript:"><img src="/assets/icon-close.png" /></a></p>
+
+    </div>
+    <% end %>
+    <% if alert.present? %>
+    <div class="alert">
+        <p><%=alert%> <a class="close" href="javascript:"><img src="/assets/icon-close.png" /></a></p>
+    </div>
+    <% end %>
     <!--
+    
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     -->
