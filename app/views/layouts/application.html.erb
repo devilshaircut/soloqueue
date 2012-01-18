@@ -43,12 +43,14 @@
     }(document, 'script', 'facebook-jssdk'));</script>
     <!-- End Facebook Shit -->
     
+    <aside id="quakenet"><a href="irc://irc.quakenet.org/soloqueue">#soloqueue on quakenet.org</a></aside>
+    
     <aside id="social">
       <div class="fb-like" data-href="http://www.facebook.com/pages/Soloqueue/322551847772624" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false" data-font="verdana"></div>
       <a href="https://twitter.com/Soloqueue" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @Soloqueue</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </aside>
-  
+    
     <header <%= "class='index'".html_safe if request.env['PATH_INFO'] == "/" %>>
       <nav>
         <a href="/">Home</a> | 
@@ -56,7 +58,13 @@
         <a href="/damage-calculator">Damage Calc.</a> |
         <a href="http://blog.soloqueue.com/" target="_blank">Blog</a> |
         <a href="/about">About</a> |
-        <a href="irc://irc.quakenet.org/soloqueue">#soloqueue on quakenet.org</a>
+        <% if user_signed_in? %>
+          <%= link_to('Settings', '/users/edit') %> | 
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+        <% else %>  
+          <%= link_to('Register', '/users/sign_up') %> | 
+          <%= link_to('Login', '/users/sign_in') %>
+        <% end %>
       </nav>
       
       <form id="main-search-form" onSubmit="return false;" <%= "class='not-index'".html_safe unless controller_name == "home" and action_name == "index" %>>
