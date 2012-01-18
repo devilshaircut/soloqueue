@@ -195,7 +195,10 @@ header {
     
     #counter-picks {
 			width: 100%;
+			padding-bottom: 20px;
+			border-bottom: solid 2px #444;
 			@include legacy-pie-clearfix;
+			h4{ padding-bottom: 5px; }
       b { i { font-size: 12px; font-weight: normal; } }
       ol {
         padding-bottom: 20px;
@@ -216,11 +219,13 @@ header {
         // Nasty ass css to clean up the tables to look a little better
         // will be removed and refactored when we have official creative
         // and own our data
+        .reference{ display:none; }
         table {
           margin-bottom: 25px;
           padding-bottom: 25px;
           border-bottom: solid 2px #444;
-          
+
+          tbody td{padding-right: 5px;}
           &.infobox {
             border-bottom: none;
             margin-bottom: 0px;
