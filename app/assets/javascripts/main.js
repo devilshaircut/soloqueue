@@ -111,6 +111,7 @@ function get_data (search) {
               
               // Voting Section
               $("#counterpicks-vote .vote-champ-name", newTemplate).val( v[0] );
+              
               if( this[1].counters.votes.logged_in === "true" || this[1].counters.votes.logged_in === true){
                 tempParent.find(".logged-out").removeClass("logged-out").addClass("logged-in");
                 
@@ -162,6 +163,7 @@ function get_data (search) {
             newTemplate.find("#general-data #data").html(this[1].wiki);
 
             $('#data-found').append(newTemplate);
+            $("#counterpicks-vote select").chosen();
 
             // bullshit manipulate the data returned by wikia -cody
             var innate_ability = newTemplate.find('.innate_ability');
@@ -236,9 +238,6 @@ $(document).ready(function () {
     get_data(clicked_li.html());
     $("#auto-complete").html("").hide();
   });
-  
-  //$("#counter-picks select").chosen();
-  
   
   
 });
