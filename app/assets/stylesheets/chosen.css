@@ -241,8 +241,8 @@
 }
 .chzn-container .chzn-results li {
   display: none;
-  line-height: 80%;
-  padding: 3px 7px 4px;
+  line-height: 100%;
+  padding: 2px 7px;
   margin: 0;
   list-style: none;
 }

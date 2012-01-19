@@ -26,32 +26,32 @@
 		  <input type="hidden" name="champ" class="vote-champ-name" value="">
   		<ul>
   			<li>
-  				<select name="vote[0][name]" class="counterpick-name">
-  					<option value="">Counterpick #1</option>
+  				<select name="vote[0][name]" class="counterpick-name" data-placeholder="Counterpick #1">
+  					<option></option>
   					<%= options_for_select( @all_champs ) %>
   				</select>
-  				<select name="vote[0][reason]" class="counterpick-reason">
-  					<option value="">Reason</option>
+  				<select name="vote[0][reason]" class="counterpick-reason" data-placeholder="Reason">
+  					<option></option>
   					<%= options_for_select( @all_reasons ) %>
   				</select>
   			</li>
   			<li>
   				<select name="vote[1][name]" class="counterpick-name">
-  					<option value="">Counterpick #2</option>
+  					<option></option>
             <%= options_for_select( @all_champs ) %>
   				</select>
   				<select name="vote[1][reason]" class="counterpick-reason">
-  					<option value="">Reason</option>
+  					<option></option>
   					<%= options_for_select( @all_reasons ) %>
   				</select>
   			</li>
   			<li>
   				<select name="vote[2][name]" class="counterpick-name">
-  					<option value="">Counterpick #3</option>
+  					<option></option>
             <%= options_for_select( @all_champs ) %>
   				</select>
   				<select name="vote[2][reason]" class="counterpick-reason">
-  					<option value="">Reason</option>
+  					<option></option>
   					<%= options_for_select( @all_reasons ) %>
   				</select>
   			</li>
