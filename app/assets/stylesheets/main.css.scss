@@ -252,40 +252,39 @@ header {
             border-bottom: none !important;
           }
           
-          &:first-child {
-            tr {
-              td {
-                div { 
-                  height: 15px !important; 
-                  -webkit-border-radius: 3px; 
-                  -moz-border-radius: 3px; 
-                  
-                  div {
-                    -webkit-border-radius: 2px; 
-                    -moz-border-radius: 2px;
-                  }
+          &:nth-child(2) {          
+            td {
+              div { 
+                width: 200px;
+                height: 15px !important; 
+                -webkit-border-radius: 3px; 
+                -moz-border-radius: 3px; 
+                
+                div {
+                  -webkit-border-radius: 2px; 
+                  -moz-border-radius: 2px;
                 }
               }
-              td:nth-child(1) {
-                div div {
-                  background: #52A61B !important;
-                }
+            }
+            td:nth-child(1) {
+              div div {
+                background: #52A61B !important;
               }
-              td:nth-child(2) {
-                div div {
-                  background: #D92525 !important;
-                }
+            }
+            td:nth-child(2) {
+              div div {
+                background: #D92525 !important;
               }
-              td:nth-child(3) {
-                div div {
-                  background: #0E3D59 !important;
-                }
+            }
+            td:nth-child(3) {
+              div div {
+                background: #0E3D59 !important;
               }
-              td:nth-child(4) {
-                div div {
-                  background: #F25C05 !important;
-                }
-              }                
+            }
+            td:nth-child(4) {
+              div div {
+                background: #F25C05 !important;
+              }
             }
             td div {
               -webkit-border-radius: 5px;

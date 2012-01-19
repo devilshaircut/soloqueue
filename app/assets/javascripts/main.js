@@ -178,6 +178,11 @@ function get_data (search) {
               newTemplate.find('h2').prepend(item_icon);
             }
             else {
+              var visualBars = "";
+              $(newTemplate.find('table')[1]).find('tr').each(function () {
+                visualBars += $(this).html();
+              });
+              $(newTemplate.find('table')[1]).html(visualBars);
               newTemplate.find('h2').prepend("<img src='/assets/champs/" + this[0].replace(/[.,\-'"]/g,'').replace(" ", "_") + ".jpg' />");
             }
             // end bullshit will be removed when we own our own data ^_^
