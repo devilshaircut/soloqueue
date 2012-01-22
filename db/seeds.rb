@@ -8,6 +8,7 @@
 
 User.create(:email=>"admin@soloqueue.com", :password=>"daysprout123")
 
+
 Champion.create([
   [:id=>1, :name=>'Ahri'],
   [:id=>2, :name=>'Akali'],
@@ -101,6 +102,17 @@ Champion.create([
   [:id=>90, :name=>'Yorick'],
   [:id=>91, :name=>'Zilean']
 ])
+
+
+
+page = Hpricot( HTTParty.get("http://na.leagueoflegends.com/champions") )
+page.search("table.champion_item td.description span.highlight a").each do |e|
+  url = e.attributes["href"].split("/")
+  champ = Champion.find_by_name( e.inner_html )
+  champ.riot_id = url[2].to_i
+  champ.save
+end 
+
 
 
 Reason.create([

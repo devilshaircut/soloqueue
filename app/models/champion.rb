@@ -4,6 +4,12 @@ class Champion < ActiveRecord::Base
   has_many :counterpicks, :through => :votes, :source => :counterpick
   # ^^^ this relationship means you can do Champion.find(1).counterpicks  and it will return all champs voted as counterpicks.
   
+  
+  def updateChampData!
+    updateChampData
+    save
+  end
+  
   def updateChampData
     url = Hpricot( HTTParty.get("http://na.leagueoflegends.com/champions/" + riot_id.to_s) )
     champion_full_name =        url.search("h2 span.champion_name").to_s + " " + url.search("h2 span.champion_title").to_s
@@ -22,7 +28,6 @@ class Champion < ActiveRecord::Base
     health_regen_per_level =    url.search("table.stats_table:nth-child(7) .ability_per_level_stat")
     resource_regen =            url.search("table.stats_table:nth-child(8) .stats_value")
     resource_regen_per_level =  url.search("table.stats_table:nth-child(8) .ability_per_level_stat")
-    save
   end
   
 end

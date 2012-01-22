@@ -11,12 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120116210041) do
+ActiveRecord::Schema.define(:version => 20120122210636) do
 
   create_table "champions", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "champion_full_name"
+    t.integer  "riot_id"
+    t.float    "damage"
+    t.float    "damage_per_level"
+    t.float    "health"
+    t.float    "health_per_level"
+    t.float    "resource"
+    t.float    "resource_per_level"
+    t.float    "move_speed"
+    t.float    "armor"
+    t.float    "armor_per_level"
+    t.float    "magic_resist"
+    t.float    "magic_resist_per_level"
+    t.float    "health_regen"
+    t.float    "health_regen_per_level"
+    t.float    "resource_regen"
+    t.float    "resource_regen_per_level"
+    t.string   "resource_name"
   end
 
   create_table "counterpick_caches", :force => true do |t|
