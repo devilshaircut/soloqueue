@@ -1,8 +1,8 @@
 desc "Manually initiate this task to update the wikia database or build it to a an original state."
 task :update_wikia_table => :environment do
+  WikiaCache.updateLatestWikia
   WikiaCache.seedChampList
   WikiaCache.seedItemList
-  WikiaCache.updateLatestWikia
 end
 
 desc "Manually initiate this task to update the counterpick database or build it to a an original state."
