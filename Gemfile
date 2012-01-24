@@ -11,10 +11,6 @@ gem 'devise'
 gem 'heroku' 
 
 
-group :production do
-  gem 'thin'
-end
-
 # gem "compass", ">= 0.11.5"
 
 gem 'sqlite3'

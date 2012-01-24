@@ -1,14 +1,10 @@
 Soloqueue::Application.routes.draw do
-  
-  devise_for :users do
-    get "login" => "devise/sessions#new"
-    get "logout" => "devise/sessions#destroy"
-  end
 
-  root :to    => "home#index"
-  
+  root :to    => "home#index"  
+  devise_for :users 
 
-    
+  
+  
   get "about" => "home#about"
   get "damage-calculator" => "home#damage_calculator"
   get "masteries" => "home#masteries"
