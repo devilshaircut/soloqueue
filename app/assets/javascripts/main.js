@@ -163,7 +163,7 @@ function get_data (search) {
             newTemplate.find("#general-data #data").html(this[1].wiki);
 
             $('#data-found').append(newTemplate);
-            $("#counterpicks-vote select").chosen();
+            $("#counterpicks-vote select", newTemplate).chosen();
 
             // bullshit manipulate the data returned by wikia -cody
             var innate_ability = newTemplate.find('.innate_ability');
