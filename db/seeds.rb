@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(:email=>"admin@soloqueue.com", :password=>"daysprout123")
+User.create(:id => 1, :email=>"admin@soloqueue.com", :password=>"daysprout123")
 
 
 Champion.create([
@@ -143,5 +143,33 @@ Reason.create([
 	[:id=>25, :title => "Map control." ],
 	[:id=>26, :title => "Damage-over-time." ]
 ])
+
+cc = CounterpickCache.find_by_id(1)
+if cc.present?
+  tmp = JSON.parse( cc.latestcounterpick )
+  entriesList = tmp["feed"]["entry"]
+  
+  entriesList.each do | entry |
+    champ = Champion.find_by_name( entry["title"] )
+    
+    if champ.present?
+      counter = Champion.find_by_name( entry["_cokwr"] )
+      if counter.present?
+        Vote.create( :user_id => 1, :champion_id => champ.id, :counterpick_id => counter.id )
+      end
+    
+      counter = Champion.find_by_name( entry["_cpzh4"] )
+      if counter.present?
+        Vote.create( :user_id => 1, :champion_id => champ.id, :counterpick_id => counter.id )
+      end
+    
+      counter = Champion.find_by_name( entry["_cre1l"] )
+      if counter.present?
+        Vote.create( :user_id => 1, :champion_id => champ.id, :counterpick_id => counter.id )
+      end
+    end
+  
+  end
+end
 
 
