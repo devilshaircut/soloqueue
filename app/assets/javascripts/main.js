@@ -58,7 +58,6 @@ function get_data (search) {
     
     var api_url = "/api/"+search.replace(/[.,\-'"]/g,'')+".json";
     query = $.getJSON(api_url, function (data) {
-      console.log(data);
       _gaq.push(['_trackPageview', api_url]);  // google analytics track api pageview
       $("#search").removeClass('loading');
       
