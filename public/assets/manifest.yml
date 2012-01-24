@@ -1,4 +1,5 @@
----
+--- 
+Thumbs.db: Thumbs-20260b8e33115b5fe58e25be26b3cd72.db
 champs/Abyssal_Scepter.jpg: champs/Abyssal_Scepter-12eeeaa4abad293f8c5e0861d727af7f.jpg
 champs/Aegis_of_the_Legion.jpg: champs/Aegis_of_the_Legion-eddf1f3c890abee905b76cba815faeda.jpg
 champs/Ahri.jpg: champs/Ahri-80a747125ba4b8f37e5666e87f667f61.jpg
@@ -163,6 +164,7 @@ champs/Ryze.jpg: champs/Ryze-7e3a76e4c3a1e00756ab0e941246bd75.jpg
 champs/Sages_Ring.jpg: champs/Sages_Ring-e2e5e4972a927e82982ddfca927c5a31.jpg
 champs/Sanguine_Blade.jpg: champs/Sanguine_Blade-38df92d1e13ee91a3f90f02049528211.jpg
 champs/Sapphire_Crystal.jpg: champs/Sapphire_Crystal-be468624875767dab7a63fc4230a1ca1.jpg
+champs/Sejuani.jpg: champs/Sejuani-6c3b7c97182e7e92054fa82a16a7a628.jpg
 champs/Shaco.jpg: champs/Shaco-d2503808d9b7da7201f1baea52047e75.jpg
 champs/Sheen.jpg: champs/Sheen-b80a63a97d72499af7c6face52ee91ad.jpg
 champs/Shen.jpg: champs/Shen-069b77cbab6e7a547d47cf41fe79efda.jpg
@@ -226,7 +228,12 @@ champs/Zeal.jpg: champs/Zeal-79339c2c59fba8f939a5b1190cdf29dd.jpg
 champs/Zhonyas_Hourglass.jpg: champs/Zhonyas_Hourglass-c1bd5de909a5579fdbac8dadc11babef.jpg
 champs/Zhonyas_Ring.jpg: champs/Zhonyas_Ring-e8de372cc5b112c0f7886860187da0c8.jpg
 champs/Zilean.jpg: champs/Zilean-7617432de6b5d4747066d8d15cb01199.jpg
+chosen-sprite.png: chosen-sprite-231b54f6cd9690d369cbf95448a61ee3.png
+icon-arrowdown.png: icon-arrowdown-7b79d6ab2403b0b3b60f93eaaf96ccf0.png
+icon-arrowup.png: icon-arrowup-156e5ef8f0d18615dfa5b7094feacb8c.png
+icon-close.png: icon-close-f277d60920e6def75e7cdf6e9079e09c.png
 loading.gif: loading-376ad78a3c6a4731a4d08e6a7a958a08.gif
+logo.png: logo-15153b1957e39ab5cef870bc016ed891.png
 masteries/alacrity.png: masteries/alacrity-db291dc1247005f8cc764229a501ecc2.png
 masteries/arcane-knowledge.png: masteries/arcane-knowledge-39dfb1d321dd0b87053807d6d95512b1.png
 masteries/archmage.png: masteries/archmage-4c498c52c7bb46e79db5e35069d90842.png
@@ -283,6 +290,7 @@ masteries/veterans-scars.png: masteries/veterans-scars-dab44ca30cb88807dd2ca0d13
 masteries/vigor.png: masteries/vigor-e28536a8dc4281ef2662996e905bd674.png
 masteries/wealth.png: masteries/wealth-319ef52adc2ee0b37de83403a4be0acc.png
 masteries/weapon-expertise.png: masteries/weapon-expertise-ea5563ad3537f8939b8e2cc1f2e6e43a.png
+repeat.jpg: repeat-6a34a09e8f31b41ed92dbabd3f058171.jpg
 skills/Ahri_Charm.jpg: skills/Ahri_Charm-e1f7d6982a6eae7e6ba1145c203f1755.jpg
 skills/Ahri_Essence_Theft.jpg: skills/Ahri_Essence_Theft-f2654194b4a04c1f7c55d6f74b0e6b62.jpg
 skills/Ahri_Fox-Fire.jpg: skills/Ahri_Fox-Fire-fc5c837671224881038c705b401435dc.jpg
@@ -422,6 +430,7 @@ skills/Jarvan_IV_Martial_Cadence.jpg: skills/Jarvan_IV_Martial_Cadence-9d69aafbc
 skills/Jax_Counter_Strike.jpg: skills/Jax_Counter_Strike-52069a9a025955496aa6007edc6f009b.jpg
 skills/Jax_Empower.jpg: skills/Jax_Empower-388fb0be7c3a9a7365b69bf0d9e3c25e.jpg
 skills/Jax_Equipment_Mastery.jpg: skills/Jax_Equipment_Mastery-b956d37b53d50723a2de0089b81bac57.jpg
+skills/Jax_Grandmaster's_Might.jpg: skills/Jax_Grandmaster's_Might-2d57c3d75a36ca6f2b965896c64536ab.jpg
 skills/Jax_Leap_Strike.jpg: skills/Jax_Leap_Strike-c360940a021be8c99ad153d7cac5b7a9.jpg
 skills/Jax_Relentless_Assault.jpg: skills/Jax_Relentless_Assault-2d57c3d75a36ca6f2b965896c64536ab.jpg
 skills/Karma_Heavenly_Wave.jpg: skills/Karma_Heavenly_Wave-1bb155f7d82f3d7f3cc445e377a0d3cd.jpg
@@ -587,6 +596,11 @@ skills/Ryze_Desperate_Power.jpg: skills/Ryze_Desperate_Power-026d236e3ef2c61363c
 skills/Ryze_Overload.jpg: skills/Ryze_Overload-ffce30e232fe6c0be56d5d7a9a2ce6fe.jpg
 skills/Ryze_Rune_Prison.jpg: skills/Ryze_Rune_Prison-6cda068a721de4cbef67a01c56ec0a6b.jpg
 skills/Ryze_Spell_Flux.jpg: skills/Ryze_Spell_Flux-084a4b1e8517b7a07f9d12ecd08e085d.jpg
+skills/Sejuani_Arctic_Assault.jpg: skills/Sejuani_Arctic_Assault-59e390c5d4ec354952e77f303e3c5b8c.jpg
+skills/Sejuani_Frost.jpg: skills/Sejuani_Frost-ca1b197706ff92a3f1cf100e43c549d7.jpg
+skills/Sejuani_Glacial_Prison.jpg: skills/Sejuani_Glacial_Prison-7e100cdfd03ea75417343116ad17a196.jpg
+skills/Sejuani_Northern_Winds.jpg: skills/Sejuani_Northern_Winds-9e60a5712d5981bae6e7061113bc5e0c.jpg
+skills/Sejuani_Permafrost.jpg: skills/Sejuani_Permafrost-8382de7634fe2baa4869402175ed01dd.jpg
 skills/Shaco_Backstab.jpg: skills/Shaco_Backstab-48ac9d19bd0a3ea680e0d6be2f0ae37c.jpg
 skills/Shaco_Deceive.jpg: skills/Shaco_Deceive-b3d88dbc4d0380ff45f02cf2ce2c346e.jpg
 skills/Shaco_Hallucinate.jpg: skills/Shaco_Hallucinate-1a74e3cef42bb4c69be8030bd15ba9f4.jpg
@@ -750,7 +764,13 @@ skills/Zilean_Rewind.jpg: skills/Zilean_Rewind-19f3c364568b8fe72d6ce937186b5540.
 skills/Zilean_Time_Bomb.jpg: skills/Zilean_Time_Bomb-3c33fe4dd020d03db1fbbe389398b7ec.jpg
 skills/Zilean_Time_Warp.jpg: skills/Zilean_Time_Warp-fcf8c084b2b6c09a5bee95e674583261.jpg
 soloqueue.jpeg: soloqueue-9b9c96f940cb1a89b19ea7d53e78fd61.jpeg
+spacer.gif: spacer-efb4fe7589bccc45af59714c77085d3c.gif
+chosen.jquery.js: chosen.jquery-b389bbeb624c65af7c60abda68176df8.js
+chosen.jquery.min.js: chosen.jquery.min-d5058ddcb51248b762c9080080cddbcc.js
+chosen.proto.js: chosen.proto-3705d5acfaec25d01dc440d1a6f26592.js
+chosen.proto.min.js: chosen.proto.min-63d67f21c0ae6e1d2b8cd31f5c4f2cd1.js
+spin.min.js: spin.min-062afd165882c5c6e477a1d20f8e918a.js
 jquery-ui.min.js: jquery-ui.min-2b432ef5545e6620f94e7638b7574058.js
 jquery.min.js: jquery.min-460459a37590253002f65e6137a90b87.js
-application.js: application-b7ce96ae3f0a5c62340abe5c95e9c1bb.js
-application.css: application-1a46ae1a4f32b57571cfdafced448205.css
+application.js: application-963f9c19c29fa1662b6b4ed90a3924a8.js
+application.css: application-85a5890e7fef627480da40c5dc3f75e5.css
