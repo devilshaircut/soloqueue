@@ -28,12 +28,10 @@ gem 'jquery-rails'
 group :test, :spec, :cucumber do
   # Pretty printed test output
   gem 'turn', :require => false
-  gem 'autotest'
-  gem 'autotest-growl'
-  gem 'factory_girl_rails'
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'silent-postgres'
-  gem 'spork'
-  gem 'minitest'
+  gem 'autotest', :require => false
+  gem 'autotest-growl', :require => false
+  gem 'factory_girl_rails', :require => false
+  gem 'rspec', :require => false
+  gem 'rspec-rails', :require => false
+  gem 'spork', :require => false
 end
