@@ -36,21 +36,21 @@
   				</select>
   			</li>
   			<li>
-  				<select name="vote[1][name]" class="counterpick-name">
+  				<select name="vote[1][name]" class="counterpick-name"  data-placeholder="Counterpick #2">
   					<option></option>
             <%= options_for_select( @all_champs ) %>
   				</select>
-  				<select name="vote[1][reason]" class="counterpick-reason">
+  				<select name="vote[1][reason]" class="counterpick-reason" data-placeholder="Reason">
   					<option></option>
   					<%= options_for_select( @all_reasons ) %>
   				</select>
   			</li>
   			<li>
-  				<select name="vote[2][name]" class="counterpick-name">
+  				<select name="vote[2][name]" class="counterpick-name"  data-placeholder="Counterpick #3">
   					<option></option>
             <%= options_for_select( @all_champs ) %>
   				</select>
-  				<select name="vote[2][reason]" class="counterpick-reason">
+  				<select name="vote[2][reason]" class="counterpick-reason" data-placeholder="Reason">
   					<option></option>
   					<%= options_for_select( @all_reasons ) %>
   				</select>
