@@ -17,7 +17,6 @@ class ApiController < ApplicationController
         data << [ item[1], :counters => counters, :wiki => general_data ]
       end
     
-      response.headers['Cache-Control'] = 'public, max-age=3600' if Rails.env.production?
       render :json => { :data => data }
     end
   end
