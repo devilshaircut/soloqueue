@@ -7,15 +7,19 @@ class VoteController < ApplicationController
       return
     end
     
-    Rails.logger.debug params.inspect
-    # champ = Champion.find params[:champion_id]
-    # Vote.create( :champion_id => champ, :user_id => current_user.id )
-
     champ = Champion.find_by_name(params[:champ])    
-    current_user.votes.where( :champion_id=>champ.id ).delete_all
+    current_user.votes.where( :champion_id => champ.id ).delete_all
     
     params[:vote].each do |k,v|
-      Vote.create( :user_id => current_user.id, :champion_id => champ.id, :counterpick_id => v[:name], :reason_id => v[:reason]  )
+      counterpick = Champion.find_by_id( v[:name].to_i )
+      reason = Reason.find_by_id( v[:reason].to_i )
+      if counterpick.present?
+        if reason.present?
+          Vote.create( :user_id => current_user.id, :champion_id => champ.id, :counterpick_id => counterpick.id, :reason_id => reason.id  )
+        else
+          Vote.create( :user_id => current_user.id, :champion_id => champ.id, :counterpick_id => counterpick.id )
+        end
+      end
     end
     
     respond_to do |format|

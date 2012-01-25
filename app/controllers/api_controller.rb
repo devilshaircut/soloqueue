@@ -51,10 +51,10 @@ class ApiController < ApplicationController
     
     # community counterpicks
     community = []
-    result = ActiveRecord::Base.connection.select_all( "select counterpick_id, count(*) as c from votes where champion_id=#{champ.id} group by counterpick_id order by c limit 3" )
+    result = ActiveRecord::Base.connection.select_all( "select counterpick_id, count(*) as c from votes where champion_id=#{champ.id} group by counterpick_id order by c desc limit 3" )
     result.each do |r|
        c = Champion.find r["counterpick_id"]
-       result2 = ActiveRecord::Base.connection.select_all( "select reason_id, count(*) as c from votes where champion_id=#{champ.id} and counterpick_id=#{c.id} group by reason_id order by c limit 3" )
+       result2 = ActiveRecord::Base.connection.select_all( "select reason_id, count(*) as c from votes where champion_id=#{champ.id} and counterpick_id=#{c.id} group by reason_id order by c desc limit 3" )
        reasons = []
        result2.each do |r2|
          reason = Reason.find_by_id( r2["reason_id"] )
