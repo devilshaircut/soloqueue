@@ -4,7 +4,8 @@ function search (search_input, is_url_search) {
     $("#auto-complete").html('').hide();
     $('header').animate({
       marginTop: 200
-    }, 300, function () {   
+    }, 300, function () {  
+      $("#no-data").hide(); 
       $("#data-found").html('').hide();
       $(this).find('p').show();
     });
@@ -238,6 +239,4 @@ $(document).ready(function () {
     get_data(clicked_li.html());
     $("#auto-complete").html("").hide();
   });
-  
-  
 });
