@@ -8,6 +8,8 @@ gem 'hpricot'
 gem 'pg'
 gem 'xml-simple'
 gem 'devise'
+gem 'heroku' 
+
 
 # gem "compass", ">= 0.11.5"
 

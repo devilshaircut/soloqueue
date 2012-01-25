@@ -59,11 +59,11 @@
         <a href="http://blog.soloqueue.com/" target="_blank">Blog</a> |
         <a href="/about">About</a> |
         <% if user_signed_in? %>
-          <%= link_to('Settings', '/users/edit') %> | 
+          <%= link_to('Settings', edit_user_registration_path ) %> | 
           <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
         <% else %>  
-          <%= link_to('Register', '/users/sign_up') %> | 
-          <%= link_to('Login', '/users/sign_in') %>
+          <%= link_to('Register', new_user_registration_path) %> | 
+          <%= link_to('Login', new_user_session_path) %>
         <% end %>
       </nav>
       
