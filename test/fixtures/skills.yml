@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  champion_id: 1
+  image_url: MyString
+  name: MyString
+  description: MyText
+  cost: MyString
+  range: 1
+
+two:
+  champion_id: 1
+  image_url: MyString
+  name: MyString
+  description: MyText
+  cost: MyString
+  range: 1
