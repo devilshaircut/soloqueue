@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120122210636) do
+ActiveRecord::Schema.define(:version => 20120126035908) do
 
   create_table "champions", :force => true do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20120122210636) do
     t.float    "resource_regen"
     t.float    "resource_regen_per_level"
     t.string   "resource_name"
+    t.string   "attributes_table"
   end
 
   create_table "counterpick_caches", :force => true do |t|
